@@ -1,0 +1,516 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA7054A31C6F0B2800D9152A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7054A21C6F0B2800D9152A /* AppDelegate.swift */; };
+		AA7054A51C6F0B2800D9152A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7054A41C6F0B2800D9152A /* ViewController.swift */; };
+		AA7054A81C6F0B2800D9152A /* DartsConnect.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AA7054A61C6F0B2800D9152A /* DartsConnect.xcdatamodeld */; };
+		AA7054AB1C6F0B2800D9152A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA7054A91C6F0B2800D9152A /* Main.storyboard */; };
+		AA7054AD1C6F0B2800D9152A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA7054AC1C6F0B2800D9152A /* Assets.xcassets */; };
+		AA7054B81C6F0B2900D9152A /* DartsConnectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7054B71C6F0B2900D9152A /* DartsConnectTests.swift */; };
+		AA7054C31C6F0B2900D9152A /* DartsConnectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7054C21C6F0B2900D9152A /* DartsConnectUITests.swift */; };
+		AA7054D11C6F166000D9152A /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7054D01C6F166000D9152A /* SideMenuView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AA7054B41C6F0B2900D9152A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA7054971C6F0B2800D9152A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA70549E1C6F0B2800D9152A;
+			remoteInfo = DartsConnect;
+		};
+		AA7054BF1C6F0B2900D9152A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA7054971C6F0B2800D9152A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA70549E1C6F0B2800D9152A;
+			remoteInfo = DartsConnect;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AA70549F1C6F0B2800D9152A /* DartsConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DartsConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA7054A21C6F0B2800D9152A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AA7054A41C6F0B2800D9152A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AA7054A71C6F0B2800D9152A /* DartsConnect.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DartsConnect.xcdatamodel; sourceTree = "<group>"; };
+		AA7054AA1C6F0B2800D9152A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AA7054AC1C6F0B2800D9152A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AA7054AE1C6F0B2800D9152A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA7054B31C6F0B2900D9152A /* DartsConnectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DartsConnectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA7054B71C6F0B2900D9152A /* DartsConnectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DartsConnectTests.swift; sourceTree = "<group>"; };
+		AA7054B91C6F0B2900D9152A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA7054BE1C6F0B2900D9152A /* DartsConnectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DartsConnectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA7054C21C6F0B2900D9152A /* DartsConnectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DartsConnectUITests.swift; sourceTree = "<group>"; };
+		AA7054C41C6F0B2900D9152A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA7054D01C6F166000D9152A /* SideMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AA70549C1C6F0B2800D9152A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA7054B01C6F0B2900D9152A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA7054BB1C6F0B2900D9152A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA7054961C6F0B2800D9152A = {
+			isa = PBXGroup;
+			children = (
+				AA7054A11C6F0B2800D9152A /* DartsConnect */,
+				AA7054B61C6F0B2900D9152A /* DartsConnectTests */,
+				AA7054C11C6F0B2900D9152A /* DartsConnectUITests */,
+				AA7054A01C6F0B2800D9152A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AA7054A01C6F0B2800D9152A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA70549F1C6F0B2800D9152A /* DartsConnect.app */,
+				AA7054B31C6F0B2900D9152A /* DartsConnectTests.xctest */,
+				AA7054BE1C6F0B2900D9152A /* DartsConnectUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AA7054A11C6F0B2800D9152A /* DartsConnect */ = {
+			isa = PBXGroup;
+			children = (
+				AA7054A21C6F0B2800D9152A /* AppDelegate.swift */,
+				AA7054A41C6F0B2800D9152A /* ViewController.swift */,
+				AA7054D01C6F166000D9152A /* SideMenuView.swift */,
+				AA7054A91C6F0B2800D9152A /* Main.storyboard */,
+				AA7054AC1C6F0B2800D9152A /* Assets.xcassets */,
+				AA7054AE1C6F0B2800D9152A /* Info.plist */,
+				AA7054A61C6F0B2800D9152A /* DartsConnect.xcdatamodeld */,
+			);
+			path = DartsConnect;
+			sourceTree = "<group>";
+		};
+		AA7054B61C6F0B2900D9152A /* DartsConnectTests */ = {
+			isa = PBXGroup;
+			children = (
+				AA7054B71C6F0B2900D9152A /* DartsConnectTests.swift */,
+				AA7054B91C6F0B2900D9152A /* Info.plist */,
+			);
+			path = DartsConnectTests;
+			sourceTree = "<group>";
+		};
+		AA7054C11C6F0B2900D9152A /* DartsConnectUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AA7054C21C6F0B2900D9152A /* DartsConnectUITests.swift */,
+				AA7054C41C6F0B2900D9152A /* Info.plist */,
+			);
+			path = DartsConnectUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AA70549E1C6F0B2800D9152A /* DartsConnect */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA7054C71C6F0B2900D9152A /* Build configuration list for PBXNativeTarget "DartsConnect" */;
+			buildPhases = (
+				AA70549B1C6F0B2800D9152A /* Sources */,
+				AA70549C1C6F0B2800D9152A /* Frameworks */,
+				AA70549D1C6F0B2800D9152A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DartsConnect;
+			productName = DartsConnect;
+			productReference = AA70549F1C6F0B2800D9152A /* DartsConnect.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AA7054B21C6F0B2900D9152A /* DartsConnectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA7054CA1C6F0B2900D9152A /* Build configuration list for PBXNativeTarget "DartsConnectTests" */;
+			buildPhases = (
+				AA7054AF1C6F0B2900D9152A /* Sources */,
+				AA7054B01C6F0B2900D9152A /* Frameworks */,
+				AA7054B11C6F0B2900D9152A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA7054B51C6F0B2900D9152A /* PBXTargetDependency */,
+			);
+			name = DartsConnectTests;
+			productName = DartsConnectTests;
+			productReference = AA7054B31C6F0B2900D9152A /* DartsConnectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AA7054BD1C6F0B2900D9152A /* DartsConnectUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA7054CD1C6F0B2900D9152A /* Build configuration list for PBXNativeTarget "DartsConnectUITests" */;
+			buildPhases = (
+				AA7054BA1C6F0B2900D9152A /* Sources */,
+				AA7054BB1C6F0B2900D9152A /* Frameworks */,
+				AA7054BC1C6F0B2900D9152A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA7054C01C6F0B2900D9152A /* PBXTargetDependency */,
+			);
+			name = DartsConnectUITests;
+			productName = DartsConnectUITests;
+			productReference = AA7054BE1C6F0B2900D9152A /* DartsConnectUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA7054971C6F0B2800D9152A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Jordan Lewis";
+				TargetAttributes = {
+					AA70549E1C6F0B2800D9152A = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					AA7054B21C6F0B2900D9152A = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = AA70549E1C6F0B2800D9152A;
+					};
+					AA7054BD1C6F0B2900D9152A = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = AA70549E1C6F0B2800D9152A;
+					};
+				};
+			};
+			buildConfigurationList = AA70549A1C6F0B2800D9152A /* Build configuration list for PBXProject "DartsConnect" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AA7054961C6F0B2800D9152A;
+			productRefGroup = AA7054A01C6F0B2800D9152A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA70549E1C6F0B2800D9152A /* DartsConnect */,
+				AA7054B21C6F0B2900D9152A /* DartsConnectTests */,
+				AA7054BD1C6F0B2900D9152A /* DartsConnectUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AA70549D1C6F0B2800D9152A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA7054AD1C6F0B2800D9152A /* Assets.xcassets in Resources */,
+				AA7054AB1C6F0B2800D9152A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA7054B11C6F0B2900D9152A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA7054BC1C6F0B2900D9152A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AA70549B1C6F0B2800D9152A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA7054A81C6F0B2800D9152A /* DartsConnect.xcdatamodeld in Sources */,
+				AA7054A51C6F0B2800D9152A /* ViewController.swift in Sources */,
+				AA7054D11C6F166000D9152A /* SideMenuView.swift in Sources */,
+				AA7054A31C6F0B2800D9152A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA7054AF1C6F0B2900D9152A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA7054B81C6F0B2900D9152A /* DartsConnectTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA7054BA1C6F0B2900D9152A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA7054C31C6F0B2900D9152A /* DartsConnectUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AA7054B51C6F0B2900D9152A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA70549E1C6F0B2800D9152A /* DartsConnect */;
+			targetProxy = AA7054B41C6F0B2900D9152A /* PBXContainerItemProxy */;
+		};
+		AA7054C01C6F0B2900D9152A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA70549E1C6F0B2800D9152A /* DartsConnect */;
+			targetProxy = AA7054BF1C6F0B2900D9152A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AA7054A91C6F0B2800D9152A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA7054AA1C6F0B2800D9152A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AA7054C51C6F0B2900D9152A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		AA7054C61C6F0B2900D9152A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AA7054C81C6F0B2900D9152A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = DartsConnect/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.AKIMURAOLEWIS.DartsConnect;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AA7054C91C6F0B2900D9152A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = DartsConnect/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.AKIMURAOLEWIS.DartsConnect;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		AA7054CB1C6F0B2900D9152A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = DartsConnectTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.AKIMURAOLEWIS.DartsConnectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DartsConnect.app/DartsConnect";
+			};
+			name = Debug;
+		};
+		AA7054CC1C6F0B2900D9152A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = DartsConnectTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.AKIMURAOLEWIS.DartsConnectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DartsConnect.app/DartsConnect";
+			};
+			name = Release;
+		};
+		AA7054CE1C6F0B2900D9152A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = DartsConnectUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.AKIMURAOLEWIS.DartsConnectUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = DartsConnect;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		AA7054CF1C6F0B2900D9152A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = DartsConnectUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.AKIMURAOLEWIS.DartsConnectUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = DartsConnect;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AA70549A1C6F0B2800D9152A /* Build configuration list for PBXProject "DartsConnect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA7054C51C6F0B2900D9152A /* Debug */,
+				AA7054C61C6F0B2900D9152A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA7054C71C6F0B2900D9152A /* Build configuration list for PBXNativeTarget "DartsConnect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA7054C81C6F0B2900D9152A /* Debug */,
+				AA7054C91C6F0B2900D9152A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AA7054CA1C6F0B2900D9152A /* Build configuration list for PBXNativeTarget "DartsConnectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA7054CB1C6F0B2900D9152A /* Debug */,
+				AA7054CC1C6F0B2900D9152A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AA7054CD1C6F0B2900D9152A /* Build configuration list for PBXNativeTarget "DartsConnectUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA7054CE1C6F0B2900D9152A /* Debug */,
+				AA7054CF1C6F0B2900D9152A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AA7054A61C6F0B2800D9152A /* DartsConnect.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AA7054A71C6F0B2800D9152A /* DartsConnect.xcdatamodel */,
+			);
+			currentVersion = AA7054A71C6F0B2800D9152A /* DartsConnect.xcdatamodel */;
+			path = DartsConnect.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = AA7054971C6F0B2800D9152A /* Project object */;
+}
