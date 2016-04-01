@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA2A3F4D1CACA696001DC9E5 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A3F4C1CACA696001DC9E5 /* Game.swift */; };
+		AA2A3F531CACA8A5001DC9E5 /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A3F521CACA8A5001DC9E5 /* Connector.swift */; };
+		AA2A3F581CACAE90001DC9E5 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A3F571CACAE90001DC9E5 /* Player.swift */; };
+		AA2A3F5C1CACAED2001DC9E5 /* CountdownPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A3F5B1CACAED2001DC9E5 /* CountdownPlayer.swift */; };
+		AA2A3F5E1CACAED8001DC9E5 /* CountdownGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A3F5D1CACAED8001DC9E5 /* CountdownGame.swift */; };
+		AA2A3F601CACAEE3001DC9E5 /* CricketPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A3F5F1CACAEE3001DC9E5 /* CricketPlayer.swift */; };
+		AA2A3F621CACAEEA001DC9E5 /* CricketGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A3F611CACAEEA001DC9E5 /* CricketGame.swift */; };
 		AA7054A31C6F0B2800D9152A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7054A21C6F0B2800D9152A /* AppDelegate.swift */; };
 		AA7054A51C6F0B2800D9152A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7054A41C6F0B2800D9152A /* ViewController.swift */; };
 		AA7054A81C6F0B2800D9152A /* DartsConnect.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AA7054A61C6F0B2800D9152A /* DartsConnect.xcdatamodeld */; };
@@ -35,6 +42,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA2A3F4C1CACA696001DC9E5 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		AA2A3F521CACA8A5001DC9E5 /* Connector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
+		AA2A3F571CACAE90001DC9E5 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		AA2A3F5B1CACAED2001DC9E5 /* CountdownPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownPlayer.swift; sourceTree = "<group>"; };
+		AA2A3F5D1CACAED8001DC9E5 /* CountdownGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownGame.swift; sourceTree = "<group>"; };
+		AA2A3F5F1CACAEE3001DC9E5 /* CricketPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CricketPlayer.swift; sourceTree = "<group>"; };
+		AA2A3F611CACAEEA001DC9E5 /* CricketGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CricketGame.swift; sourceTree = "<group>"; };
 		AA70549F1C6F0B2800D9152A /* DartsConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DartsConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA7054A21C6F0B2800D9152A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA7054A41C6F0B2800D9152A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +90,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA2A3F491CACA67D001DC9E5 /* Games */ = {
+			isa = PBXGroup;
+			children = (
+				AA2A3F4A1CACA67D001DC9E5 /* Countdown */,
+				AA2A3F4B1CACA67D001DC9E5 /* Cricket */,
+				AA2A3F4C1CACA696001DC9E5 /* Game.swift */,
+				AA2A3F571CACAE90001DC9E5 /* Player.swift */,
+			);
+			path = Games;
+			sourceTree = "<group>";
+		};
+		AA2A3F4A1CACA67D001DC9E5 /* Countdown */ = {
+			isa = PBXGroup;
+			children = (
+				AA2A3F5B1CACAED2001DC9E5 /* CountdownPlayer.swift */,
+				AA2A3F5D1CACAED8001DC9E5 /* CountdownGame.swift */,
+			);
+			path = Countdown;
+			sourceTree = "<group>";
+		};
+		AA2A3F4B1CACA67D001DC9E5 /* Cricket */ = {
+			isa = PBXGroup;
+			children = (
+				AA2A3F5F1CACAEE3001DC9E5 /* CricketPlayer.swift */,
+				AA2A3F611CACAEEA001DC9E5 /* CricketGame.swift */,
+			);
+			path = Cricket;
+			sourceTree = "<group>";
+		};
+		AA2A3F511CACA8A5001DC9E5 /* Connector */ = {
+			isa = PBXGroup;
+			children = (
+				AA2A3F521CACA8A5001DC9E5 /* Connector.swift */,
+			);
+			path = Connector;
+			sourceTree = "<group>";
+		};
 		AA7054961C6F0B2800D9152A = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +154,8 @@
 				AA7054A41C6F0B2800D9152A /* ViewController.swift */,
 				AA7054D01C6F166000D9152A /* SideMenuView.swift */,
 				AA7054A91C6F0B2800D9152A /* Main.storyboard */,
+				AA2A3F511CACA8A5001DC9E5 /* Connector */,
+				AA2A3F491CACA67D001DC9E5 /* Games */,
 				AA7054AC1C6F0B2800D9152A /* Assets.xcassets */,
 				AA7054AE1C6F0B2800D9152A /* Info.plist */,
 				AA7054A61C6F0B2800D9152A /* DartsConnect.xcdatamodeld */,
@@ -258,10 +311,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA2A3F5E1CACAED8001DC9E5 /* CountdownGame.swift in Sources */,
 				AA7054A81C6F0B2800D9152A /* DartsConnect.xcdatamodeld in Sources */,
+				AA2A3F4D1CACA696001DC9E5 /* Game.swift in Sources */,
 				AA7054A51C6F0B2800D9152A /* ViewController.swift in Sources */,
+				AA2A3F531CACA8A5001DC9E5 /* Connector.swift in Sources */,
+				AA2A3F581CACAE90001DC9E5 /* Player.swift in Sources */,
+				AA2A3F601CACAEE3001DC9E5 /* CricketPlayer.swift in Sources */,
 				AA7054D11C6F166000D9152A /* SideMenuView.swift in Sources */,
+				AA2A3F5C1CACAED2001DC9E5 /* CountdownPlayer.swift in Sources */,
 				AA7054A31C6F0B2800D9152A /* AppDelegate.swift in Sources */,
+				AA2A3F621CACAEEA001DC9E5 /* CricketGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,6 +540,7 @@
 				AA7054C91C6F0B2900D9152A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AA7054CA1C6F0B2900D9152A /* Build configuration list for PBXNativeTarget "DartsConnectTests" */ = {
 			isa = XCConfigurationList;
@@ -488,6 +549,7 @@
 				AA7054CC1C6F0B2900D9152A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AA7054CD1C6F0B2900D9152A /* Build configuration list for PBXNativeTarget "DartsConnectUITests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +558,7 @@
 				AA7054CF1C6F0B2900D9152A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
