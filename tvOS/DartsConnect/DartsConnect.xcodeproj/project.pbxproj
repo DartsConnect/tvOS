@@ -22,6 +22,7 @@
 		AA7054B81C6F0B2900D9152A /* DartsConnectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7054B71C6F0B2900D9152A /* DartsConnectTests.swift */; };
 		AA7054C31C6F0B2900D9152A /* DartsConnectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7054C21C6F0B2900D9152A /* DartsConnectUITests.swift */; };
 		AA7054D11C6F166000D9152A /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7054D01C6F166000D9152A /* SideMenuView.swift */; };
+		AAC134711CB205FF003740AA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC134701CB205FF003740AA /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,8 @@
 		AA7054C21C6F0B2900D9152A /* DartsConnectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DartsConnectUITests.swift; sourceTree = "<group>"; };
 		AA7054C41C6F0B2900D9152A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA7054D01C6F166000D9152A /* SideMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
+		AAC1346F1CB2035F003740AA /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		AAC134701CB205FF003740AA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +156,8 @@
 				AA7054A21C6F0B2800D9152A /* AppDelegate.swift */,
 				AA7054A41C6F0B2800D9152A /* ViewController.swift */,
 				AA7054D01C6F166000D9152A /* SideMenuView.swift */,
+				AAC134701CB205FF003740AA /* Constants.swift */,
+				AAC1346F1CB2035F003740AA /* MyPlayground.playground */,
 				AA7054A91C6F0B2800D9152A /* Main.storyboard */,
 				AA2A3F511CACA8A5001DC9E5 /* Connector */,
 				AA2A3F491CACA67D001DC9E5 /* Games */,
@@ -322,6 +327,7 @@
 				AA2A3F5C1CACAED2001DC9E5 /* CountdownPlayer.swift in Sources */,
 				AA7054A31C6F0B2800D9152A /* AppDelegate.swift in Sources */,
 				AA2A3F621CACAEEA001DC9E5 /* CricketGame.swift in Sources */,
+				AAC134711CB205FF003740AA /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
