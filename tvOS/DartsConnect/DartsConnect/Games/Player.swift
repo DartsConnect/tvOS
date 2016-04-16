@@ -53,7 +53,11 @@ class Player: NSObject {
     init(_cardID:String) {
         super.init()
         cardID = _cardID;
-        username = getUserForCardID(cardID)
+        if cardID == "Guest" {
+            username = "Guest"
+        } else {
+            username = getUserForCardID(cardID)
+        }
         
     }
 }

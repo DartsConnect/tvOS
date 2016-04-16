@@ -10,18 +10,9 @@ import Foundation
 
 class CountdownGame: Game, GameDelegate {
     
-    enum GameEndsCriteria {
-        case Any
-        case OnSingle
-        case OnDouble
-        case OnTriple
-        case OnBull
-        case OnDoubleBull
-    }
-    
-    private var gameStartScore:UInt = 0;
-    private var openCriteria:[GameEndsCriteria] = []
-    private var closeCriteria:[GameEndsCriteria] = []
+    var gameStartScore:UInt = 0;
+    private var openCriteria:[GameEndsCriteria]!
+    private var closeCriteria:[GameEndsCriteria]!
     
     // Friday April 01 2016
     private func doesMeetCriteria(criteria:[GameEndsCriteria], hitValue:UInt, multiplier:UInt) -> Bool {
@@ -79,15 +70,18 @@ class CountdownGame: Game, GameDelegate {
     }
     
     // Friday April 01 2016
-    init(startScore:UInt, numPlayers:UInt) {
+    init(startScore:UInt, playerIDs:[String], openC:[GameEndsCriteria], closeC:[GameEndsCriteria]) {
         super.init()
-
+        
+        openCriteria = openC
+        closeCriteria = closeC
+        
         gameStartScore = startScore
         
         currentGame = self
         
-        for _ in 1...numPlayers {
-            players.append(CountdownPlayer(startScore: startScore, cardID: ""))
+        for playerID in playerIDs {
+            players.append(CountdownPlayer(startScore: startScore, cardID: playerID))
         }
     }
     

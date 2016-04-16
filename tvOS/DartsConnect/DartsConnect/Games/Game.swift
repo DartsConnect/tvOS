@@ -21,6 +21,14 @@ class Game: NSObject, DartBoardInput {
     var roundLimit:Int = -1
     var players:[Player] = []
     
+    func playerNames() -> [String] {
+        var playerNames:[String] = []
+        for player in players {
+            playerNames.append(player.username)
+        }
+        return playerNames
+    }
+    
     func dartDidHit(hitValue: UInt, multiplier: UInt) {
         // The Player threw a dart
         if players[currentTurn].threwDart() {

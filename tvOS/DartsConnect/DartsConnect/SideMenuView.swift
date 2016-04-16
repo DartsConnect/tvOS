@@ -20,47 +20,125 @@ class SideMenuView: UIView {
     // Options
     let vStack:UIStackView = UIStackView(frame: CGRectZero)
     let gamesOptions:[String:[String:[String]]] = [
-        "0:01":[
+        "0:\(GameType.CountDown.rawValue)":[
             "0:Type":["301", "501", "701", "901", "1001"],
-            "1:Open":["Any", "Single", "Double", "Triple", "Bull", "Double Bull"],
-            "2:Close":["Any", "Single", "Double", "Triple", "Bull", "Double Bull"],
-            "3:Add Players":["1+"]
+            "1:Open":[GameEndsCriteria.Any.rawValue, GameEndsCriteria.OnSingle.rawValue, GameEndsCriteria.OnDouble.rawValue, GameEndsCriteria.OnTriple.rawValue, GameEndsCriteria.OnBull.rawValue, GameEndsCriteria.OnDoubleBull.rawValue],
+            "2:Close":[GameEndsCriteria.Any.rawValue, GameEndsCriteria.OnSingle.rawValue, GameEndsCriteria.OnDouble.rawValue, GameEndsCriteria.OnTriple.rawValue, GameEndsCriteria.OnBull.rawValue, GameEndsCriteria.OnDoubleBull.rawValue],
+            "3:Add Players":["Player 1", "Player 2", "Player 3", "Player 4", "Begin Game"]
         ],
-        "1:Cricket":[
+        "1:\(GameType.Cricket.rawValue)":[
             "0:Type":["Cricket", "Cut-Throat"],
-            "1:Add Players":["2+"]
+            "1:Add Players":["Player 1", "Player 2", "Player 3", "Player 4", "Begin Game"]
         ],
-        "2:Free":[
+        "2:\(GameType.Free.rawValue)":[
             "Type":["Cricket", "Cut-Throat"],
-            "Add Players":["1+"]
+            "Add Players":["Player 1", "Player 2", "Player 3", "Player 4", "Begin Game"]
         ],
-        "3:20 to 1":[
+        "3:\(GameType.TwentyToOne.rawValue)":[
             "Type":["Cricket", "Cut-Throat"],
-            "Add Players":["2+"]
+            "Add Players":["Player 1", "Player 2", "Player 3", "Player 4", "Begin Game"]
         ],
-        "4:World":[
+        "4:\(GameType.World.rawValue)":[
             "Type":["Cricket", "Cut-Throat"],
-            "Add Players":["1+"]
+            "Add Players":["Player 1", "Player 2", "Player 3", "Player 4", "Begin Game"]
         ],
         "5:More":[
             "Type":["Cricket", "Cut-Throat"],
-            "Add Players":["2+"]
+            "Add Players":["Player 1", "Player 2", "Player 3", "Player 4", "Begin Game"]
         ]
         
     ]
     var breadcrumbs:[String] = []
+    var players:[String] = ["nil", "nil", "nil", "nil"]
+    var parentVC:UIViewController!
     
     
     
-    
-    
-    
-    
-    func buttonSelected(sender:UIButton) {
+    // Wednesday April 06 2016
+    private func normalButtonSelectAction (inout buttonsToCreate:[String], sender:UIButton, sub:[String]) {
         animateButtonsOut()
         
+        buttonsToCreate = gamesOptions[breadcrumbs[0]]![sub[breadcrumbs.count-1]]!
+        buttonsToCreate.append("Back")
+        
+        if breadcrumbs.count <= 1 && sender.currentTitle! != "Back" {
+            header.text = sender.currentTitle!
+        } else {
+            header.text = (breadcrumbs.count == 1 ? breadcrumbs[0]:sub[breadcrumbs.count - 1]).componentsSeparatedByString(":")[1]
+        }
+        
+        createButtonsWithNames(buttonsToCreate)
+        animateButtonsIn()
+    }
+    
+    // Wednesday April 06 2016
+    private func showAddPlayerAlert(sender:UIButton) {
+        let alert = UIAlertController(title: sender.currentTitle!, message: "Select Scan Card to play as you, or Guest to play anonymously.", preferredStyle: .ActionSheet)
+        alert.addAction(UIAlertAction(title: "Scan Card", style: .Default, handler: {
+            (action:UIAlertAction) in
+            let playerIndex:Int = Int(alert.title!.componentsSeparatedByString(" ")[1])!
+            // Wait for Card to be scanned
+            self.players[playerIndex] = "00000000"
+        }))
+        alert.addAction(UIAlertAction(title: "Guest", style: .Default, handler: {
+            (action:UIAlertAction) in
+            let playerIndex:Int = Int(alert.title!.componentsSeparatedByString(" ")[1])!
+            self.players[playerIndex] = "Guest"
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+            (action:UIAlertAction) in
+            
+        }))
+        parentVC.showViewController(alert, sender: nil)
+    }
+    
+    func stripOrderNumbers(bc:[String]) -> [String] {
+        var nbc:[String] = []
+        for c in bc {
+            nbc.append(c.componentsSeparatedByString(":")[1])
+        }
+        return nbc
+    }
+    
+    func removeNilPlayers(ps:[String]) -> [String] {
+        var nps:[String] = []
+        for p in ps {
+            if p != "nil" {
+                nps.append(p)
+            }
+        }
+        return nps
+    }
+    
+    func atLeastOnePlayer() -> Bool {
+        for p in players {
+            if p != "nil" {
+                return true
+            }
+        }
+        return false
+    }
+    
+    func buttonSelected(sender:UIButton) {
+        
         if sender.currentTitle! == "Begin Game" {
-            print("Begin Game")
+            if atLeastOnePlayer() {
+                animateButtonsOut()
+                parentVC.presentViewController(GameViewController(gameSettings: stripOrderNumbers(breadcrumbs), players: removeNilPlayers(players)), animated: true, completion: nil)
+            } else {
+                let alert:UIAlertController = UIAlertController(title: "No Players", message: nil, preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "Play as Guest", style: .Default, handler: {
+                    (action:UIAlertAction) in
+                    self.players[0] = "Guest"
+                    self.animateButtonsOut()
+                    self.parentVC.presentViewController(GameViewController(gameSettings: self.stripOrderNumbers(self.breadcrumbs), players: self.removeNilPlayers(self.players)), animated: true, completion: nil)
+                }))
+                alert.addAction(UIAlertAction(title: "Back", style: .Default, handler: {
+                    (action:UIAlertAction) in
+                    
+                }))
+                parentVC.showViewController(alert, sender: self)
+            }
         } else {
             let index = vStack.subviews.indexOf(sender)!
             let originalName = "\(index):\(sender.currentTitle!)"
@@ -69,46 +147,26 @@ class SideMenuView: UIView {
             if sender.currentTitle! == "Back" {
                 breadcrumbs.popLast()
             } else {
-                breadcrumbs.append(originalName)
+                if header.text != "Add Players" {
+                    breadcrumbs.append(originalName)
+                }
             }
             
             if breadcrumbs.count > 0 {
                 let sub = [String](gamesOptions[breadcrumbs[0]]!.keys).sort()
                 
-                buttonsToCreate = gamesOptions[breadcrumbs[0]]![sub[breadcrumbs.count-1]]!
-                buttonsToCreate.append("Back")
-                
-                if breadcrumbs.count <= 1 && sender.currentTitle! != "Back" {
-                    header.text = sender.currentTitle!
-                } else {
-                    header.text = (breadcrumbs.count == 1 ? breadcrumbs[0]:sub[breadcrumbs.count - 1]).componentsSeparatedByString(":")[1]
-                }
-                
                 if header.text == "Add Players" {
-                    let title:String = buttonsToCreate[0]
-                    buttonsToCreate[0] = "Begin Game"
-                    let charArr:[Character] = [Character](title.characters)
-                    let minNumber:Int = Int(String(charArr[0]))!
-                    let upToFour:Bool = charArr.count == 2
-                    
-                    for i in 0..<(upToFour ? 4 : minNumber) {
-                        let label:UILabel = UILabel()
-                        label.text = "Player \(i + 1)"
-                        label.font = UIFont.systemFontOfSize(40)
-                        label.textColor = UIColor.whiteColor()
-                        label.textAlignment = .Center
-                        label.translatesAutoresizingMaskIntoConstraints = false
-                        label.tag = i
-                        vStack.insertArrangedSubview(label, atIndex: i)
-                        
-                        vStack.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-\(padding/2)-[label]-\(padding/2)-|", options: .AlignAllCenterX, metrics: nil, views: ["label":label]))
-                        vStack.addConstraint(NSLayoutConstraint(item: label, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 90))
+                    if sender.currentTitle! != "Back" {
+                        showAddPlayerAlert(sender)
+                    } else {
+                        normalButtonSelectAction(&buttonsToCreate, sender: sender, sub: sub)
                     }
+                } else {
+                    normalButtonSelectAction(&buttonsToCreate, sender: sender, sub: sub)
                 }
-                
-                createButtonsWithNames(buttonsToCreate)
-                animateButtonsIn()
             } else {
+                animateButtonsOut()
+
                 // If going back to the top
                 createButtonsWithNames([String](gamesOptions.keys).sort())
                 animateButtonsIn()
@@ -155,10 +213,11 @@ class SideMenuView: UIView {
         }
     }
     
-    init() {
+    init(parent:UIViewController) {
         super.init(frame: CGRectZero)
         
-        self.backgroundColor = UIColor.blueColor()
+        parentVC = parent
+        if isDebugging {self.backgroundColor = UIColor.blueColor()}
         
         // Header
         header.text = "Games"

@@ -23,6 +23,9 @@
 		AA7054C31C6F0B2900D9152A /* DartsConnectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7054C21C6F0B2900D9152A /* DartsConnectUITests.swift */; };
 		AA7054D11C6F166000D9152A /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7054D01C6F166000D9152A /* SideMenuView.swift */; };
 		AAC134711CB205FF003740AA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC134701CB205FF003740AA /* Constants.swift */; };
+		AAC134731CB38263003740AA /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC134721CB38263003740AA /* GameViewController.swift */; };
+		AAC134751CB3835D003740AA /* PlayersBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC134741CB3835D003740AA /* PlayersBar.swift */; };
+		AAC134771CB38396003740AA /* ScoresSideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC134761CB38396003740AA /* ScoresSideBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +69,9 @@
 		AA7054D01C6F166000D9152A /* SideMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		AAC1346F1CB2035F003740AA /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		AAC134701CB205FF003740AA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		AAC134721CB38263003740AA /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		AAC134741CB3835D003740AA /* PlayersBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayersBar.swift; sourceTree = "<group>"; };
+		AAC134761CB38396003740AA /* ScoresSideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoresSideBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,11 +160,11 @@
 			isa = PBXGroup;
 			children = (
 				AA7054A21C6F0B2800D9152A /* AppDelegate.swift */,
-				AA7054A41C6F0B2800D9152A /* ViewController.swift */,
-				AA7054D01C6F166000D9152A /* SideMenuView.swift */,
 				AAC134701CB205FF003740AA /* Constants.swift */,
 				AAC1346F1CB2035F003740AA /* MyPlayground.playground */,
 				AA7054A91C6F0B2800D9152A /* Main.storyboard */,
+				AAC134791CB4A2B7003740AA /* MainViewController */,
+				AAC134781CB4A2A6003740AA /* GameViewController */,
 				AA2A3F511CACA8A5001DC9E5 /* Connector */,
 				AA2A3F491CACA67D001DC9E5 /* Games */,
 				AA7054AC1C6F0B2800D9152A /* Assets.xcassets */,
@@ -184,6 +190,25 @@
 				AA7054C41C6F0B2900D9152A /* Info.plist */,
 			);
 			path = DartsConnectUITests;
+			sourceTree = "<group>";
+		};
+		AAC134781CB4A2A6003740AA /* GameViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AAC134721CB38263003740AA /* GameViewController.swift */,
+				AAC134741CB3835D003740AA /* PlayersBar.swift */,
+				AAC134761CB38396003740AA /* ScoresSideBar.swift */,
+			);
+			name = GameViewController;
+			sourceTree = "<group>";
+		};
+		AAC134791CB4A2B7003740AA /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AA7054A41C6F0B2800D9152A /* ViewController.swift */,
+				AA7054D01C6F166000D9152A /* SideMenuView.swift */,
+			);
+			name = MainViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,14 +345,17 @@
 				AA7054A81C6F0B2800D9152A /* DartsConnect.xcdatamodeld in Sources */,
 				AA2A3F4D1CACA696001DC9E5 /* Game.swift in Sources */,
 				AA7054A51C6F0B2800D9152A /* ViewController.swift in Sources */,
+				AAC134731CB38263003740AA /* GameViewController.swift in Sources */,
 				AA2A3F531CACA8A5001DC9E5 /* Connector.swift in Sources */,
 				AA2A3F581CACAE90001DC9E5 /* Player.swift in Sources */,
 				AA2A3F601CACAEE3001DC9E5 /* CricketPlayer.swift in Sources */,
 				AA7054D11C6F166000D9152A /* SideMenuView.swift in Sources */,
 				AA2A3F5C1CACAED2001DC9E5 /* CountdownPlayer.swift in Sources */,
+				AAC134751CB3835D003740AA /* PlayersBar.swift in Sources */,
 				AA7054A31C6F0B2800D9152A /* AppDelegate.swift in Sources */,
 				AA2A3F621CACAEEA001DC9E5 /* CricketGame.swift in Sources */,
 				AAC134711CB205FF003740AA /* Constants.swift in Sources */,
+				AAC134771CB38396003740AA /* ScoresSideBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
