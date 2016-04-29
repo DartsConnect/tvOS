@@ -14,12 +14,24 @@ import Foundation
     func delegateDartDidHit(hitValue:UInt, multiplier:UInt)
 }
 
-class Game: NSObject, DartBoardInput {
+class Game: NSObject, ConnectorDelegate {
     var currentGame:GameDelegate?
     var currentTurn:Int = 0
     var currentRound:Int = 1
     var roundLimit:Int = -1
     var players:[Player] = []
+    
+    func dartboardDidConnect() {
+        
+    }
+    
+    func dartboardKickedMeOff(reason: String) {
+        
+    }
+    
+    func dartboardDisconnected(error: NSError?) {
+        
+    }
     
     func playerNames() -> [String] {
         var playerNames:[String] = []

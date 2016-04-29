@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SideMenuView: UIView {
+class SideMenuView: UIView, BonjourManagerDelegate {
     
     // Sizing
     let width:CGFloat = 450
@@ -31,27 +31,25 @@ class SideMenuView: UIView {
             "1:Add Players":["Player 1", "Player 2", "Player 3", "Player 4", "Begin Game"]
         ],
         "2:\(GameType.Free.rawValue)":[
-            "Type":["Cricket", "Cut-Throat"],
-            "Add Players":["Player 1", "Player 2", "Player 3", "Player 4", "Begin Game"]
+            "0:Type":["Cricket", "Cut-Throat"],
+            "1:Add Players":["Player 1", "Player 2", "Player 3", "Player 4", "Begin Game"]
         ],
         "3:\(GameType.TwentyToOne.rawValue)":[
-            "Type":["Cricket", "Cut-Throat"],
-            "Add Players":["Player 1", "Player 2", "Player 3", "Player 4", "Begin Game"]
+            "0:Type":["Cricket", "Cut-Throat"],
+            "1:Add Players":["Player 1", "Player 2", "Player 3", "Player 4", "Begin Game"]
         ],
         "4:\(GameType.World.rawValue)":[
-            "Type":["Cricket", "Cut-Throat"],
-            "Add Players":["Player 1", "Player 2", "Player 3", "Player 4", "Begin Game"]
+            "0:Type":["Cricket", "Cut-Throat"],
+            "1:Add Players":["Player 1", "Player 2", "Player 3", "Player 4", "Begin Game"]
         ],
         "5:More":[
-            "Type":["Cricket", "Cut-Throat"],
-            "Add Players":["Player 1", "Player 2", "Player 3", "Player 4", "Begin Game"]
+            "0:More":["Connect Board"],
         ]
         
     ]
     var breadcrumbs:[String] = []
     var players:[String] = ["nil", "nil", "nil", "nil"]
     var parentVC:UIViewController!
-    
     
     
     // Wednesday April 06 2016
@@ -93,21 +91,11 @@ class SideMenuView: UIView {
     }
     
     func stripOrderNumbers(bc:[String]) -> [String] {
-        var nbc:[String] = []
-        for c in bc {
-            nbc.append(c.componentsSeparatedByString(":")[1])
-        }
-        return nbc
+        return bc.map {$0.componentsSeparatedByString(":")[1]}
     }
     
     func removeNilPlayers(ps:[String]) -> [String] {
-        var nps:[String] = []
-        for p in ps {
-            if p != "nil" {
-                nps.append(p)
-            }
-        }
-        return nps
+        return ps.filter {$0 != "nil"}
     }
     
     func atLeastOnePlayer() -> Bool {
@@ -119,59 +107,89 @@ class SideMenuView: UIView {
         return false
     }
     
-    func buttonSelected(sender:UIButton) {
-        
-        if sender.currentTitle! == "Begin Game" {
-            if atLeastOnePlayer() {
-                animateButtonsOut()
-                parentVC.presentViewController(GameViewController(gameSettings: stripOrderNumbers(breadcrumbs), players: removeNilPlayers(players)), animated: true, completion: nil)
-            } else {
-                let alert:UIAlertController = UIAlertController(title: "No Players", message: nil, preferredStyle: .Alert)
-                alert.addAction(UIAlertAction(title: "Play as Guest", style: .Default, handler: {
-                    (action:UIAlertAction) in
-                    self.players[0] = "Guest"
-                    self.animateButtonsOut()
-                    self.parentVC.presentViewController(GameViewController(gameSettings: self.stripOrderNumbers(self.breadcrumbs), players: self.removeNilPlayers(self.players)), animated: true, completion: nil)
-                }))
-                alert.addAction(UIAlertAction(title: "Back", style: .Default, handler: {
-                    (action:UIAlertAction) in
-                    
-                }))
-                parentVC.showViewController(alert, sender: self)
-            }
+    // Friday April 29 2016
+    func handleBeginGame() {
+        if atLeastOnePlayer() {
+            animateButtonsOut()
+            parentVC.presentViewController(GameViewController(
+                gameSettings: stripOrderNumbers(breadcrumbs),
+                players: removeNilPlayers(players)),
+                                           animated: true,
+                                           completion: nil)
         } else {
-            let index = vStack.subviews.indexOf(sender)!
-            let originalName = "\(index):\(sender.currentTitle!)"
-            var buttonsToCreate:[String] = []
-            
-            if sender.currentTitle! == "Back" {
-                breadcrumbs.popLast()
-            } else {
-                if header.text != "Add Players" {
-                    breadcrumbs.append(originalName)
-                }
-            }
-            
-            if breadcrumbs.count > 0 {
-                let sub = [String](gamesOptions[breadcrumbs[0]]!.keys).sort()
+            let alert:UIAlertController = UIAlertController(title: "No Players", message: nil, preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "Play as Guest", style: .Default, handler: {
+                (action:UIAlertAction) in
+                self.players[0] = "Guest"
+                self.animateButtonsOut()
+                self.parentVC.presentViewController(GameViewController(gameSettings: self.stripOrderNumbers(self.breadcrumbs), players: self.removeNilPlayers(self.players)), animated: true, completion: nil)
+            }))
+            alert.addAction(UIAlertAction(title: "Back", style: .Default, handler: {
+                (action:UIAlertAction) in
                 
-                if header.text == "Add Players" {
-                    if sender.currentTitle! != "Back" {
-                        showAddPlayerAlert(sender)
-                    } else {
-                        normalButtonSelectAction(&buttonsToCreate, sender: sender, sub: sub)
-                    }
+            }))
+            parentVC.showViewController(alert, sender: self)
+        }
+    }
+    
+    // Friday April 29 2016
+    func bmFoundServices(serviceNames: [String]) {
+        
+    }
+    
+    // Friday April 29 2016
+    func handleConnectDartBoard() {
+        if GlobalVariables.sharedVariables.bonjourManager == nil {
+            GlobalVariables.sharedVariables.bonjourManager = BonjourManager(self)
+        }
+    }
+    
+    // Friday April 29 2016
+    func handleStdNavigation(sender:UIButton) {
+        let index = vStack.subviews.indexOf(sender)!
+        let originalName = "\(index):\(sender.currentTitle!)"
+        var buttonsToCreate:[String] = []
+        
+        if sender.currentTitle! == "Back" {
+            breadcrumbs.popLast()
+        } else {
+            if header.text != "Add Players" {
+                breadcrumbs.append(originalName)
+            }
+        }
+        
+        if breadcrumbs.count > 0 {
+            let sub = [String](gamesOptions[breadcrumbs[0]]!.keys).sort()
+            
+            if header.text == "Add Players" {
+                if sender.currentTitle! != "Back" {
+                    showAddPlayerAlert(sender)
                 } else {
                     normalButtonSelectAction(&buttonsToCreate, sender: sender, sub: sub)
                 }
             } else {
-                animateButtonsOut()
-
-                // If going back to the top
-                createButtonsWithNames([String](gamesOptions.keys).sort())
-                animateButtonsIn()
-                header.text = "Games"
+                normalButtonSelectAction(&buttonsToCreate, sender: sender, sub: sub)
             }
+        } else {
+            animateButtonsOut()
+            
+            // If going back to the top
+            createButtonsWithNames([String](gamesOptions.keys).sort())
+            animateButtonsIn()
+            header.text = "Games"
+        }
+    }
+    
+    func buttonSelected(sender:UIButton) {
+        switch sender.currentTitle! {
+        case "Begin Game":
+            handleBeginGame()
+            break
+        case "Connect Board":
+            handleConnectDartBoard()
+            break
+        default:
+            handleStdNavigation(sender)
         }
     }
     

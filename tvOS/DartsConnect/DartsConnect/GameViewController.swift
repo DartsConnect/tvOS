@@ -74,8 +74,6 @@ class GameViewController: UIViewController {
                 
         gameType = GameType(rawValue: gameSettings[0])!
         
-        //gameController = CountdownGame(startScore: 301, playerIDs: players)
-        
         switch gameType! {
         case .CountDown:
             gameController = CountdownGame(startScore: UInt(gameSettings[1])!, playerIDs: players, openC: [GameEndsCriteria(rawValue: gameSettings[2])!], closeC: [GameEndsCriteria(rawValue: gameSettings[3])!])

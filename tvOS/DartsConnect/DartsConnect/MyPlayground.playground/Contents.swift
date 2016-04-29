@@ -1,41 +1,60 @@
 //: Playground - noun: a place where people can play
 
 import Cocoa
-
-let gamesOptions:[String:[String:[String]]] = [
-    "0:01":[
-        "Type":["301", "501", "701", "901", "1001"],
-        "Open":["Any", "Single", "Double", "Triple", "Bull", "Double Bull"],
-        "Close":["Any", "Single", "Double", "Triple", "Bull", "Double Bull"],
-        "Add Players":["1+"]
-    ],
-    "1:Cricket":[
-        "Type":["Cricket", "Cut-Throat"],
-        "Add Players":["2+"]
-    ],
-    "2:Free":[
-        "Type":["Cricket", "Cut-Throat"],
-        "Add Players":["2+"]
-    ],
-    "3:20 to 1":[
-        "Type":["Cricket", "Cut-Throat"],
-        "Add Players":["2+"]
-    ],
-    "4:World":[
-        "Type":["Cricket", "Cut-Throat"],
-        "Add Players":["2+"]
-    ],
-    "5:More":[
-        "Type":["Cricket", "Cut-Throat"],
-        "Add Players":["2+"]
-    ]
+import Foundation
+/*
+class bonjour:NSObject, NSNetServiceBrowserDelegate {
+    func start() {
+        let serviceBrowser = NSNetServiceBrowser()
+        serviceBrowser.delegate = self
+        serviceBrowser.searchForServicesOfType("_dartsconnect._tcp", inDomain: "local")
+    }
     
-]
+    func netServiceBrowserDidStopSearch(browser: NSNetServiceBrowser) {
+        print("Stop")
+    }
+    
+    func netServiceBrowser(browser: NSNetServiceBrowser, didNotSearch errorDict: [String : NSNumber]) {
+        print("Did not search")
+    }
+    
+    func netServiceBrowser(browser: NSNetServiceBrowser, didFindDomain domainString: String, moreComing: Bool) {
+        print("Found domain")
+    }
+    
+    func netServiceBrowser(browser: NSNetServiceBrowser, didRemoveService service: NSNetService, moreComing: Bool) {
+        print("Remove Service")
+    }
+    
+    func netServiceBrowser(browser: NSNetServiceBrowser, didRemoveDomain domainString: String, moreComing: Bool) {
+        print("Remove Domain")
+    }
+    
+    func netServiceBrowserWillSearch(browser: NSNetServiceBrowser) {
+        print("Will Search")
+    }
+    
+    func netServiceBrowser(browser: NSNetServiceBrowser, didFindService service: NSNetService, moreComing: Bool) {
+        print("Found \(service.name)")
+    }
+}
 
-var keys = [String](gamesOptions.keys)
-var a = keys.sort()
+bonjour().start()
+*/
 
-print(keys.sortInPlace())
 
-let c = "2+"
-let d = [Character](c.characters)
+func stripOrderNumbers(bc:[String]) -> [String] {
+    var nbc:[String] = []
+    for c in bc {
+        nbc.append(c.componentsSeparatedByString(":")[1])
+    }
+    return nbc
+}
+
+let a = ["0:1","0:1","0:1","0:1"]
+print(stripOrderNumbers(a))
+print(a.map {$0.componentsSeparatedByString(":")[1]})
+
+let ps = ["nil", "2", "nil", "3"]
+print(ps.filter {$0 != "nil"})
+

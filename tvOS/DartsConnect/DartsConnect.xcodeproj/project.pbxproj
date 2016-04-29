@@ -1,1738 +1,822 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>23B0411E4BA822456A89B94C</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-DartsConnect.debug.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-DartsConnect/Pods-DartsConnect.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2706723AF4E6F481067D2AF0</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Embed Pods Frameworks</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-DartsConnect/Pods-DartsConnect-frameworks.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>29469CAF1B6B916FA684660F</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Embed Pods Frameworks</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-DartsConnectTests/Pods-DartsConnectTests-frameworks.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>2B95E0FBC1B57380D8BDDB35</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-DartsConnectUITests/Pods-DartsConnectUITests-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>33A4951E77A3BAD85BD940CC</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-DartsConnectUITests.debug.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-DartsConnectUITests/Pods-DartsConnectUITests.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>373126153330AE8021988F59</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-DartsConnectTests/Pods-DartsConnectTests-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>49D789C26AD62CEED85D8490</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>4EDEFA620D8C505B73203A46</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-DartsConnectTests.release.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-DartsConnectTests/Pods-DartsConnectTests.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5E02A38DA2035CEB084274A4</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-DartsConnect.release.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-DartsConnect/Pods-DartsConnect.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6E1CB68188EEF9972B2E152C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>99142D2D251279477E4CF819</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>7418AEB33EA67662FBA92F9A</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>762471BF4062A2142758BEE1</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FB9F05D2A1C1B59106AFE368</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>7C6597EAE9D9EB88C3CC3A6E</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Pods_DartsConnect.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>7DA4C66DA222A4D80918DD6C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>7C6597EAE9D9EB88C3CC3A6E</string>
-				<string>FB9F05D2A1C1B59106AFE368</string>
-				<string>99142D2D251279477E4CF819</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>932CF47FE8CDB26FF23957C1</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>99142D2D251279477E4CF819</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Pods_DartsConnectUITests.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>AA2A3F491CACA67D001DC9E5</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>AA2A3F4A1CACA67D001DC9E5</string>
-				<string>AA2A3F4B1CACA67D001DC9E5</string>
-				<string>AA2A3F4C1CACA696001DC9E5</string>
-				<string>AA2A3F571CACAE90001DC9E5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Games</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AA2A3F4A1CACA67D001DC9E5</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>AA2A3F5B1CACAED2001DC9E5</string>
-				<string>AA2A3F5D1CACAED8001DC9E5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Countdown</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AA2A3F4B1CACA67D001DC9E5</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>AA2A3F5F1CACAEE3001DC9E5</string>
-				<string>AA2A3F611CACAEEA001DC9E5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Cricket</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AA2A3F4C1CACA696001DC9E5</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Game.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AA2A3F4D1CACA696001DC9E5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AA2A3F4C1CACA696001DC9E5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AA2A3F511CACA8A5001DC9E5</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>AA2A3F521CACA8A5001DC9E5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Connector</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AA2A3F521CACA8A5001DC9E5</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Connector.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AA2A3F531CACA8A5001DC9E5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AA2A3F521CACA8A5001DC9E5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AA2A3F571CACAE90001DC9E5</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Player.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AA2A3F581CACAE90001DC9E5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AA2A3F571CACAE90001DC9E5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AA2A3F5B1CACAED2001DC9E5</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>CountdownPlayer.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AA2A3F5C1CACAED2001DC9E5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AA2A3F5B1CACAED2001DC9E5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AA2A3F5D1CACAED8001DC9E5</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>CountdownGame.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AA2A3F5E1CACAED8001DC9E5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AA2A3F5D1CACAED8001DC9E5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AA2A3F5F1CACAEE3001DC9E5</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>CricketPlayer.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AA2A3F601CACAEE3001DC9E5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AA2A3F5F1CACAEE3001DC9E5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AA2A3F611CACAEEA001DC9E5</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>CricketGame.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AA2A3F621CACAEEA001DC9E5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AA2A3F611CACAEEA001DC9E5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AA7054961C6F0B2800D9152A</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>AA7054A11C6F0B2800D9152A</string>
-				<string>AA7054B61C6F0B2900D9152A</string>
-				<string>AA7054C11C6F0B2900D9152A</string>
-				<string>AA7054A01C6F0B2800D9152A</string>
-				<string>FCD6A76C95ADF9EB15521D2A</string>
-				<string>7DA4C66DA222A4D80918DD6C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AA7054971C6F0B2800D9152A</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastSwiftUpdateCheck</key>
-				<string>0720</string>
-				<key>LastUpgradeCheck</key>
-				<string>0720</string>
-				<key>ORGANIZATIONNAME</key>
-				<string>Jordan Lewis</string>
-				<key>TargetAttributes</key>
-				<dict>
-					<key>AA70549E1C6F0B2800D9152A</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>7.2.1</string>
-					</dict>
-					<key>AA7054B21C6F0B2900D9152A</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>7.2.1</string>
-						<key>TestTargetID</key>
-						<string>AA70549E1C6F0B2800D9152A</string>
-					</dict>
-					<key>AA7054BD1C6F0B2900D9152A</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>7.2.1</string>
-						<key>TestTargetID</key>
-						<string>AA70549E1C6F0B2800D9152A</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>AA70549A1C6F0B2800D9152A</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-				<string>Base</string>
-			</array>
-			<key>mainGroup</key>
-			<string>AA7054961C6F0B2800D9152A</string>
-			<key>productRefGroup</key>
-			<string>AA7054A01C6F0B2800D9152A</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>AA70549E1C6F0B2800D9152A</string>
-				<string>AA7054B21C6F0B2900D9152A</string>
-				<string>AA7054BD1C6F0B2900D9152A</string>
-			</array>
-		</dict>
-		<key>AA70549A1C6F0B2800D9152A</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>AA7054C51C6F0B2900D9152A</string>
-				<string>AA7054C61C6F0B2900D9152A</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>AA70549B1C6F0B2800D9152A</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>AA2A3F5E1CACAED8001DC9E5</string>
-				<string>AA7054A81C6F0B2800D9152A</string>
-				<string>AA2A3F4D1CACA696001DC9E5</string>
-				<string>AA7054A51C6F0B2800D9152A</string>
-				<string>AAC134731CB38263003740AA</string>
-				<string>AA2A3F531CACA8A5001DC9E5</string>
-				<string>AA2A3F581CACAE90001DC9E5</string>
-				<string>AA2A3F601CACAEE3001DC9E5</string>
-				<string>AA7054D11C6F166000D9152A</string>
-				<string>AA2A3F5C1CACAED2001DC9E5</string>
-				<string>AAC134751CB3835D003740AA</string>
-				<string>AA7054A31C6F0B2800D9152A</string>
-				<string>AA2A3F621CACAEEA001DC9E5</string>
-				<string>AAC134711CB205FF003740AA</string>
-				<string>AAC134771CB38396003740AA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>AA70549C1C6F0B2800D9152A</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>E36704FBD90375AE3B7627AC</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>AA70549D1C6F0B2800D9152A</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>AA7054AD1C6F0B2800D9152A</string>
-				<string>AA7054AB1C6F0B2800D9152A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>AA70549E1C6F0B2800D9152A</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>AA7054C71C6F0B2900D9152A</string>
-			<key>buildPhases</key>
-			<array>
-				<string>932CF47FE8CDB26FF23957C1</string>
-				<string>AA70549B1C6F0B2800D9152A</string>
-				<string>AA70549C1C6F0B2800D9152A</string>
-				<string>AA70549D1C6F0B2800D9152A</string>
-				<string>2706723AF4E6F481067D2AF0</string>
-				<string>B30374DCF5392E35178B050C</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>DartsConnect</string>
-			<key>productName</key>
-			<string>DartsConnect</string>
-			<key>productReference</key>
-			<string>AA70549F1C6F0B2800D9152A</string>
-			<key>productType</key>
-			<string>com.apple.product-type.application</string>
-		</dict>
-		<key>AA70549F1C6F0B2800D9152A</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.application</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>DartsConnect.app</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>AA7054A01C6F0B2800D9152A</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>AA70549F1C6F0B2800D9152A</string>
-				<string>AA7054B31C6F0B2900D9152A</string>
-				<string>AA7054BE1C6F0B2900D9152A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AA7054A11C6F0B2800D9152A</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>AA7054A21C6F0B2800D9152A</string>
-				<string>AAC134701CB205FF003740AA</string>
-				<string>AAC1346F1CB2035F003740AA</string>
-				<string>AA7054A91C6F0B2800D9152A</string>
-				<string>AAC134791CB4A2B7003740AA</string>
-				<string>AAC134781CB4A2A6003740AA</string>
-				<string>AA2A3F511CACA8A5001DC9E5</string>
-				<string>AA2A3F491CACA67D001DC9E5</string>
-				<string>AA7054AC1C6F0B2800D9152A</string>
-				<string>AA7054AE1C6F0B2800D9152A</string>
-				<string>AA7054A61C6F0B2800D9152A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>DartsConnect</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AA7054A21C6F0B2800D9152A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>AppDelegate.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AA7054A31C6F0B2800D9152A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AA7054A21C6F0B2800D9152A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AA7054A41C6F0B2800D9152A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>ViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AA7054A51C6F0B2800D9152A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AA7054A41C6F0B2800D9152A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AA7054A61C6F0B2800D9152A</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>AA7054A71C6F0B2800D9152A</string>
-			</array>
-			<key>currentVersion</key>
-			<string>AA7054A71C6F0B2800D9152A</string>
-			<key>isa</key>
-			<string>XCVersionGroup</string>
-			<key>path</key>
-			<string>DartsConnect.xcdatamodeld</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-			<key>versionGroupType</key>
-			<string>wrapper.xcdatamodel</string>
-		</dict>
-		<key>AA7054A71C6F0B2800D9152A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.xcdatamodel</string>
-			<key>path</key>
-			<string>DartsConnect.xcdatamodel</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AA7054A81C6F0B2800D9152A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AA7054A61C6F0B2800D9152A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AA7054A91C6F0B2800D9152A</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>AA7054AA1C6F0B2800D9152A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>Main.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AA7054AA1C6F0B2800D9152A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.storyboard</string>
-			<key>name</key>
-			<string>Base</string>
-			<key>path</key>
-			<string>Base.lproj/Main.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AA7054AB1C6F0B2800D9152A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AA7054A91C6F0B2800D9152A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AA7054AC1C6F0B2800D9152A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>folder.assetcatalog</string>
-			<key>path</key>
-			<string>Assets.xcassets</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AA7054AD1C6F0B2800D9152A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AA7054AC1C6F0B2800D9152A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AA7054AE1C6F0B2800D9152A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AA7054AF1C6F0B2900D9152A</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>AA7054B81C6F0B2900D9152A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>AA7054B01C6F0B2900D9152A</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>762471BF4062A2142758BEE1</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>AA7054B11C6F0B2900D9152A</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>AA7054B21C6F0B2900D9152A</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>AA7054CA1C6F0B2900D9152A</string>
-			<key>buildPhases</key>
-			<array>
-				<string>49D789C26AD62CEED85D8490</string>
-				<string>AA7054AF1C6F0B2900D9152A</string>
-				<string>AA7054B01C6F0B2900D9152A</string>
-				<string>AA7054B11C6F0B2900D9152A</string>
-				<string>29469CAF1B6B916FA684660F</string>
-				<string>373126153330AE8021988F59</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>AA7054B51C6F0B2900D9152A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>DartsConnectTests</string>
-			<key>productName</key>
-			<string>DartsConnectTests</string>
-			<key>productReference</key>
-			<string>AA7054B31C6F0B2900D9152A</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.unit-test</string>
-		</dict>
-		<key>AA7054B31C6F0B2900D9152A</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>DartsConnectTests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>AA7054B41C6F0B2900D9152A</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>AA7054971C6F0B2800D9152A</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>AA70549E1C6F0B2800D9152A</string>
-			<key>remoteInfo</key>
-			<string>DartsConnect</string>
-		</dict>
-		<key>AA7054B51C6F0B2900D9152A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>AA70549E1C6F0B2800D9152A</string>
-			<key>targetProxy</key>
-			<string>AA7054B41C6F0B2900D9152A</string>
-		</dict>
-		<key>AA7054B61C6F0B2900D9152A</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>AA7054B71C6F0B2900D9152A</string>
-				<string>AA7054B91C6F0B2900D9152A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>DartsConnectTests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AA7054B71C6F0B2900D9152A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>DartsConnectTests.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AA7054B81C6F0B2900D9152A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AA7054B71C6F0B2900D9152A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AA7054B91C6F0B2900D9152A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AA7054BA1C6F0B2900D9152A</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>AA7054C31C6F0B2900D9152A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>AA7054BB1C6F0B2900D9152A</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>6E1CB68188EEF9972B2E152C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>AA7054BC1C6F0B2900D9152A</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>AA7054BD1C6F0B2900D9152A</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>AA7054CD1C6F0B2900D9152A</string>
-			<key>buildPhases</key>
-			<array>
-				<string>7418AEB33EA67662FBA92F9A</string>
-				<string>AA7054BA1C6F0B2900D9152A</string>
-				<string>AA7054BB1C6F0B2900D9152A</string>
-				<string>AA7054BC1C6F0B2900D9152A</string>
-				<string>2B95E0FBC1B57380D8BDDB35</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>AA7054C01C6F0B2900D9152A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>DartsConnectUITests</string>
-			<key>productName</key>
-			<string>DartsConnectUITests</string>
-			<key>productReference</key>
-			<string>AA7054BE1C6F0B2900D9152A</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.ui-testing</string>
-		</dict>
-		<key>AA7054BE1C6F0B2900D9152A</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>DartsConnectUITests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>AA7054BF1C6F0B2900D9152A</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>AA7054971C6F0B2800D9152A</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>AA70549E1C6F0B2800D9152A</string>
-			<key>remoteInfo</key>
-			<string>DartsConnect</string>
-		</dict>
-		<key>AA7054C01C6F0B2900D9152A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>AA70549E1C6F0B2800D9152A</string>
-			<key>targetProxy</key>
-			<string>AA7054BF1C6F0B2900D9152A</string>
-		</dict>
-		<key>AA7054C11C6F0B2900D9152A</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>AA7054C21C6F0B2900D9152A</string>
-				<string>AA7054C41C6F0B2900D9152A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>DartsConnectUITests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AA7054C21C6F0B2900D9152A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>DartsConnectUITests.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AA7054C31C6F0B2900D9152A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AA7054C21C6F0B2900D9152A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AA7054C41C6F0B2900D9152A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AA7054C51C6F0B2900D9152A</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>ENABLE_TESTABILITY</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>SDKROOT</key>
-				<string>appletvos</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>3</string>
-				<key>TVOS_DEPLOYMENT_TARGET</key>
-				<string>9.1</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>AA7054C61C6F0B2900D9152A</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf-with-dsym</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>SDKROOT</key>
-				<string>appletvos</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>3</string>
-				<key>TVOS_DEPLOYMENT_TARGET</key>
-				<string>9.1</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>AA7054C71C6F0B2900D9152A</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>AA7054C81C6F0B2900D9152A</string>
-				<string>AA7054C91C6F0B2900D9152A</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>AA7054C81C6F0B2900D9152A</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>23B0411E4BA822456A89B94C</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>App Icon &amp; Top Shelf Image</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>INFOPLIST_FILE</key>
-				<string>DartsConnect/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.AKIMURAOLEWIS.DartsConnect</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>AA7054C91C6F0B2900D9152A</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>5E02A38DA2035CEB084274A4</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>App Icon &amp; Top Shelf Image</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>INFOPLIST_FILE</key>
-				<string>DartsConnect/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.AKIMURAOLEWIS.DartsConnect</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>AA7054CA1C6F0B2900D9152A</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>AA7054CB1C6F0B2900D9152A</string>
-				<string>AA7054CC1C6F0B2900D9152A</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>AA7054CB1C6F0B2900D9152A</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>CB2746C3DD11629BDB4D2111</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(TEST_HOST)</string>
-				<key>INFOPLIST_FILE</key>
-				<string>DartsConnectTests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.AKIMURAOLEWIS.DartsConnectTests</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUILT_PRODUCTS_DIR)/DartsConnect.app/DartsConnect</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>AA7054CC1C6F0B2900D9152A</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>4EDEFA620D8C505B73203A46</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(TEST_HOST)</string>
-				<key>INFOPLIST_FILE</key>
-				<string>DartsConnectTests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.AKIMURAOLEWIS.DartsConnectTests</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUILT_PRODUCTS_DIR)/DartsConnect.app/DartsConnect</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>AA7054CD1C6F0B2900D9152A</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>AA7054CE1C6F0B2900D9152A</string>
-				<string>AA7054CF1C6F0B2900D9152A</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>AA7054CE1C6F0B2900D9152A</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>33A4951E77A3BAD85BD940CC</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>INFOPLIST_FILE</key>
-				<string>DartsConnectUITests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.AKIMURAOLEWIS.DartsConnectUITests</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_TARGET_NAME</key>
-				<string>DartsConnect</string>
-				<key>USES_XCTRUNNER</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>AA7054CF1C6F0B2900D9152A</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>AF1BBBFB547AF456D3F13E8A</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>INFOPLIST_FILE</key>
-				<string>DartsConnectUITests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.AKIMURAOLEWIS.DartsConnectUITests</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_TARGET_NAME</key>
-				<string>DartsConnect</string>
-				<key>USES_XCTRUNNER</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>AA7054D01C6F166000D9152A</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>SideMenuView.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AA7054D11C6F166000D9152A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AA7054D01C6F166000D9152A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AAC1346F1CB2035F003740AA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.playground</string>
-			<key>path</key>
-			<string>MyPlayground.playground</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AAC134701CB205FF003740AA</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Constants.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AAC134711CB205FF003740AA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AAC134701CB205FF003740AA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AAC134721CB38263003740AA</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>GameViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AAC134731CB38263003740AA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AAC134721CB38263003740AA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AAC134741CB3835D003740AA</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>PlayersBar.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AAC134751CB3835D003740AA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AAC134741CB3835D003740AA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AAC134761CB38396003740AA</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>ScoresSideBar.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AAC134771CB38396003740AA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AAC134761CB38396003740AA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AAC134781CB4A2A6003740AA</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>AAC134721CB38263003740AA</string>
-				<string>AAC134741CB3835D003740AA</string>
-				<string>AAC134761CB38396003740AA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>GameViewController</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AAC134791CB4A2B7003740AA</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>AA7054A41C6F0B2800D9152A</string>
-				<string>AA7054D01C6F166000D9152A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>MainViewController</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AF1BBBFB547AF456D3F13E8A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-DartsConnectUITests.release.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-DartsConnectUITests/Pods-DartsConnectUITests.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B30374DCF5392E35178B050C</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-DartsConnect/Pods-DartsConnect-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>CB2746C3DD11629BDB4D2111</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-DartsConnectTests.debug.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-DartsConnectTests/Pods-DartsConnectTests.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E36704FBD90375AE3B7627AC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>7C6597EAE9D9EB88C3CC3A6E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FB9F05D2A1C1B59106AFE368</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Pods_DartsConnectTests.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>FCD6A76C95ADF9EB15521D2A</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>23B0411E4BA822456A89B94C</string>
-				<string>5E02A38DA2035CEB084274A4</string>
-				<string>CB2746C3DD11629BDB4D2111</string>
-				<string>4EDEFA620D8C505B73203A46</string>
-				<string>33A4951E77A3BAD85BD940CC</string>
-				<string>AF1BBBFB547AF456D3F13E8A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>AA7054971C6F0B2800D9152A</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6E1CB68188EEF9972B2E152C /* Pods_DartsConnectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99142D2D251279477E4CF819 /* Pods_DartsConnectUITests.framework */; };
+		762471BF4062A2142758BEE1 /* Pods_DartsConnectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9F05D2A1C1B59106AFE368 /* Pods_DartsConnectTests.framework */; };
+		AA2A3F4D1CACA696001DC9E5 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A3F4C1CACA696001DC9E5 /* Game.swift */; };
+		AA2A3F531CACA8A5001DC9E5 /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A3F521CACA8A5001DC9E5 /* Connector.swift */; };
+		AA2A3F581CACAE90001DC9E5 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A3F571CACAE90001DC9E5 /* Player.swift */; };
+		AA2A3F5C1CACAED2001DC9E5 /* CountdownPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A3F5B1CACAED2001DC9E5 /* CountdownPlayer.swift */; };
+		AA2A3F5E1CACAED8001DC9E5 /* CountdownGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A3F5D1CACAED8001DC9E5 /* CountdownGame.swift */; };
+		AA2A3F601CACAEE3001DC9E5 /* CricketPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A3F5F1CACAEE3001DC9E5 /* CricketPlayer.swift */; };
+		AA2A3F621CACAEEA001DC9E5 /* CricketGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A3F611CACAEEA001DC9E5 /* CricketGame.swift */; };
+		AA7054A31C6F0B2800D9152A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7054A21C6F0B2800D9152A /* AppDelegate.swift */; };
+		AA7054A51C6F0B2800D9152A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7054A41C6F0B2800D9152A /* ViewController.swift */; };
+		AA7054A81C6F0B2800D9152A /* DartsConnect.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AA7054A61C6F0B2800D9152A /* DartsConnect.xcdatamodeld */; };
+		AA7054AB1C6F0B2800D9152A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA7054A91C6F0B2800D9152A /* Main.storyboard */; };
+		AA7054AD1C6F0B2800D9152A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA7054AC1C6F0B2800D9152A /* Assets.xcassets */; };
+		AA7054B81C6F0B2900D9152A /* DartsConnectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7054B71C6F0B2900D9152A /* DartsConnectTests.swift */; };
+		AA7054C31C6F0B2900D9152A /* DartsConnectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7054C21C6F0B2900D9152A /* DartsConnectUITests.swift */; };
+		AA7054D11C6F166000D9152A /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7054D01C6F166000D9152A /* SideMenuView.swift */; };
+		AA73A3501CD3390F00760A8E /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA73A34F1CD3390F00760A8E /* GlobalVariables.swift */; };
+		AA740B721CC48E0F0070F776 /* BonjourManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA740B711CC48E0F0070F776 /* BonjourManager.swift */; };
+		AA740B781CC4C0210070F776 /* BonjourBrowserService.m in Sources */ = {isa = PBXBuildFile; fileRef = AA740B751CC4C0210070F776 /* BonjourBrowserService.m */; };
+		AA740B791CC4C0210070F776 /* BonjourResolverService.m in Sources */ = {isa = PBXBuildFile; fileRef = AA740B771CC4C0210070F776 /* BonjourResolverService.m */; };
+		AAC134711CB205FF003740AA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC134701CB205FF003740AA /* Constants.swift */; };
+		AAC134731CB38263003740AA /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC134721CB38263003740AA /* GameViewController.swift */; };
+		AAC134751CB3835D003740AA /* PlayersBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC134741CB3835D003740AA /* PlayersBar.swift */; };
+		AAC134771CB38396003740AA /* ScoresSideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC134761CB38396003740AA /* ScoresSideBar.swift */; };
+		E36704FBD90375AE3B7627AC /* Pods_DartsConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6597EAE9D9EB88C3CC3A6E /* Pods_DartsConnect.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AA7054B41C6F0B2900D9152A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA7054971C6F0B2800D9152A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA70549E1C6F0B2800D9152A;
+			remoteInfo = DartsConnect;
+		};
+		AA7054BF1C6F0B2900D9152A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA7054971C6F0B2800D9152A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA70549E1C6F0B2800D9152A;
+			remoteInfo = DartsConnect;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		23B0411E4BA822456A89B94C /* Pods-DartsConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DartsConnect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DartsConnect/Pods-DartsConnect.debug.xcconfig"; sourceTree = "<group>"; };
+		33A4951E77A3BAD85BD940CC /* Pods-DartsConnectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DartsConnectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DartsConnectUITests/Pods-DartsConnectUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		4EDEFA620D8C505B73203A46 /* Pods-DartsConnectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DartsConnectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DartsConnectTests/Pods-DartsConnectTests.release.xcconfig"; sourceTree = "<group>"; };
+		5E02A38DA2035CEB084274A4 /* Pods-DartsConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DartsConnect.release.xcconfig"; path = "Pods/Target Support Files/Pods-DartsConnect/Pods-DartsConnect.release.xcconfig"; sourceTree = "<group>"; };
+		7C6597EAE9D9EB88C3CC3A6E /* Pods_DartsConnect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DartsConnect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		99142D2D251279477E4CF819 /* Pods_DartsConnectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DartsConnectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA2A3F4C1CACA696001DC9E5 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		AA2A3F521CACA8A5001DC9E5 /* Connector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
+		AA2A3F571CACAE90001DC9E5 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		AA2A3F5B1CACAED2001DC9E5 /* CountdownPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownPlayer.swift; sourceTree = "<group>"; };
+		AA2A3F5D1CACAED8001DC9E5 /* CountdownGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownGame.swift; sourceTree = "<group>"; };
+		AA2A3F5F1CACAEE3001DC9E5 /* CricketPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CricketPlayer.swift; sourceTree = "<group>"; };
+		AA2A3F611CACAEEA001DC9E5 /* CricketGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CricketGame.swift; sourceTree = "<group>"; };
+		AA70549F1C6F0B2800D9152A /* DartsConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DartsConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA7054A21C6F0B2800D9152A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AA7054A41C6F0B2800D9152A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AA7054A71C6F0B2800D9152A /* DartsConnect.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DartsConnect.xcdatamodel; sourceTree = "<group>"; };
+		AA7054AA1C6F0B2800D9152A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AA7054AC1C6F0B2800D9152A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AA7054AE1C6F0B2800D9152A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA7054B31C6F0B2900D9152A /* DartsConnectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DartsConnectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA7054B71C6F0B2900D9152A /* DartsConnectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DartsConnectTests.swift; sourceTree = "<group>"; };
+		AA7054B91C6F0B2900D9152A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA7054BE1C6F0B2900D9152A /* DartsConnectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DartsConnectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA7054C21C6F0B2900D9152A /* DartsConnectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DartsConnectUITests.swift; sourceTree = "<group>"; };
+		AA7054C41C6F0B2900D9152A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA7054D01C6F166000D9152A /* SideMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
+		AA73A34F1CD3390F00760A8E /* GlobalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
+		AA740B711CC48E0F0070F776 /* BonjourManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonjourManager.swift; sourceTree = "<group>"; };
+		AA740B731CC4C0200070F776 /* DartsConnect-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DartsConnect-Bridging-Header.h"; sourceTree = "<group>"; };
+		AA740B741CC4C0210070F776 /* BonjourBrowserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BonjourBrowserService.h; sourceTree = "<group>"; };
+		AA740B751CC4C0210070F776 /* BonjourBrowserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BonjourBrowserService.m; sourceTree = "<group>"; };
+		AA740B761CC4C0210070F776 /* BonjourResolverService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BonjourResolverService.h; sourceTree = "<group>"; };
+		AA740B771CC4C0210070F776 /* BonjourResolverService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BonjourResolverService.m; sourceTree = "<group>"; };
+		AAC1346F1CB2035F003740AA /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		AAC134701CB205FF003740AA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		AAC134721CB38263003740AA /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		AAC134741CB3835D003740AA /* PlayersBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayersBar.swift; sourceTree = "<group>"; };
+		AAC134761CB38396003740AA /* ScoresSideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoresSideBar.swift; sourceTree = "<group>"; };
+		AF1BBBFB547AF456D3F13E8A /* Pods-DartsConnectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DartsConnectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DartsConnectUITests/Pods-DartsConnectUITests.release.xcconfig"; sourceTree = "<group>"; };
+		CB2746C3DD11629BDB4D2111 /* Pods-DartsConnectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DartsConnectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DartsConnectTests/Pods-DartsConnectTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FB9F05D2A1C1B59106AFE368 /* Pods_DartsConnectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DartsConnectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AA70549C1C6F0B2800D9152A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E36704FBD90375AE3B7627AC /* Pods_DartsConnect.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA7054B01C6F0B2900D9152A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				762471BF4062A2142758BEE1 /* Pods_DartsConnectTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA7054BB1C6F0B2900D9152A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E1CB68188EEF9972B2E152C /* Pods_DartsConnectUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7DA4C66DA222A4D80918DD6C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7C6597EAE9D9EB88C3CC3A6E /* Pods_DartsConnect.framework */,
+				FB9F05D2A1C1B59106AFE368 /* Pods_DartsConnectTests.framework */,
+				99142D2D251279477E4CF819 /* Pods_DartsConnectUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AA2A3F491CACA67D001DC9E5 /* Games */ = {
+			isa = PBXGroup;
+			children = (
+				AA2A3F4A1CACA67D001DC9E5 /* Countdown */,
+				AA2A3F4B1CACA67D001DC9E5 /* Cricket */,
+				AA2A3F4C1CACA696001DC9E5 /* Game.swift */,
+				AA2A3F571CACAE90001DC9E5 /* Player.swift */,
+			);
+			path = Games;
+			sourceTree = "<group>";
+		};
+		AA2A3F4A1CACA67D001DC9E5 /* Countdown */ = {
+			isa = PBXGroup;
+			children = (
+				AA2A3F5B1CACAED2001DC9E5 /* CountdownPlayer.swift */,
+				AA2A3F5D1CACAED8001DC9E5 /* CountdownGame.swift */,
+			);
+			path = Countdown;
+			sourceTree = "<group>";
+		};
+		AA2A3F4B1CACA67D001DC9E5 /* Cricket */ = {
+			isa = PBXGroup;
+			children = (
+				AA2A3F5F1CACAEE3001DC9E5 /* CricketPlayer.swift */,
+				AA2A3F611CACAEEA001DC9E5 /* CricketGame.swift */,
+			);
+			path = Cricket;
+			sourceTree = "<group>";
+		};
+		AA2A3F511CACA8A5001DC9E5 /* Connector */ = {
+			isa = PBXGroup;
+			children = (
+				AA2A3F521CACA8A5001DC9E5 /* Connector.swift */,
+				AA740B711CC48E0F0070F776 /* BonjourManager.swift */,
+				AA740B741CC4C0210070F776 /* BonjourBrowserService.h */,
+				AA740B751CC4C0210070F776 /* BonjourBrowserService.m */,
+				AA740B761CC4C0210070F776 /* BonjourResolverService.h */,
+				AA740B771CC4C0210070F776 /* BonjourResolverService.m */,
+				AA740B731CC4C0200070F776 /* DartsConnect-Bridging-Header.h */,
+			);
+			path = Connector;
+			sourceTree = "<group>";
+		};
+		AA7054961C6F0B2800D9152A = {
+			isa = PBXGroup;
+			children = (
+				AA7054A11C6F0B2800D9152A /* DartsConnect */,
+				AA7054B61C6F0B2900D9152A /* DartsConnectTests */,
+				AA7054C11C6F0B2900D9152A /* DartsConnectUITests */,
+				AA7054A01C6F0B2800D9152A /* Products */,
+				FCD6A76C95ADF9EB15521D2A /* Pods */,
+				7DA4C66DA222A4D80918DD6C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		AA7054A01C6F0B2800D9152A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA70549F1C6F0B2800D9152A /* DartsConnect.app */,
+				AA7054B31C6F0B2900D9152A /* DartsConnectTests.xctest */,
+				AA7054BE1C6F0B2900D9152A /* DartsConnectUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AA7054A11C6F0B2800D9152A /* DartsConnect */ = {
+			isa = PBXGroup;
+			children = (
+				AA7054A21C6F0B2800D9152A /* AppDelegate.swift */,
+				AAC134701CB205FF003740AA /* Constants.swift */,
+				AAC1346F1CB2035F003740AA /* MyPlayground.playground */,
+				AA7054A91C6F0B2800D9152A /* Main.storyboard */,
+				AA73A34F1CD3390F00760A8E /* GlobalVariables.swift */,
+				AAC134791CB4A2B7003740AA /* MainViewController */,
+				AAC134781CB4A2A6003740AA /* GameViewController */,
+				AA2A3F511CACA8A5001DC9E5 /* Connector */,
+				AA2A3F491CACA67D001DC9E5 /* Games */,
+				AA7054AC1C6F0B2800D9152A /* Assets.xcassets */,
+				AA7054AE1C6F0B2800D9152A /* Info.plist */,
+				AA7054A61C6F0B2800D9152A /* DartsConnect.xcdatamodeld */,
+			);
+			path = DartsConnect;
+			sourceTree = "<group>";
+		};
+		AA7054B61C6F0B2900D9152A /* DartsConnectTests */ = {
+			isa = PBXGroup;
+			children = (
+				AA7054B71C6F0B2900D9152A /* DartsConnectTests.swift */,
+				AA7054B91C6F0B2900D9152A /* Info.plist */,
+			);
+			path = DartsConnectTests;
+			sourceTree = "<group>";
+		};
+		AA7054C11C6F0B2900D9152A /* DartsConnectUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AA7054C21C6F0B2900D9152A /* DartsConnectUITests.swift */,
+				AA7054C41C6F0B2900D9152A /* Info.plist */,
+			);
+			path = DartsConnectUITests;
+			sourceTree = "<group>";
+		};
+		AAC134781CB4A2A6003740AA /* GameViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AAC134721CB38263003740AA /* GameViewController.swift */,
+				AAC134741CB3835D003740AA /* PlayersBar.swift */,
+				AAC134761CB38396003740AA /* ScoresSideBar.swift */,
+			);
+			name = GameViewController;
+			sourceTree = "<group>";
+		};
+		AAC134791CB4A2B7003740AA /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AA7054A41C6F0B2800D9152A /* ViewController.swift */,
+				AA7054D01C6F166000D9152A /* SideMenuView.swift */,
+			);
+			name = MainViewController;
+			sourceTree = "<group>";
+		};
+		FCD6A76C95ADF9EB15521D2A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				23B0411E4BA822456A89B94C /* Pods-DartsConnect.debug.xcconfig */,
+				5E02A38DA2035CEB084274A4 /* Pods-DartsConnect.release.xcconfig */,
+				CB2746C3DD11629BDB4D2111 /* Pods-DartsConnectTests.debug.xcconfig */,
+				4EDEFA620D8C505B73203A46 /* Pods-DartsConnectTests.release.xcconfig */,
+				33A4951E77A3BAD85BD940CC /* Pods-DartsConnectUITests.debug.xcconfig */,
+				AF1BBBFB547AF456D3F13E8A /* Pods-DartsConnectUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AA70549E1C6F0B2800D9152A /* DartsConnect */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA7054C71C6F0B2900D9152A /* Build configuration list for PBXNativeTarget "DartsConnect" */;
+			buildPhases = (
+				932CF47FE8CDB26FF23957C1 /* Check Pods Manifest.lock */,
+				AA70549B1C6F0B2800D9152A /* Sources */,
+				AA70549C1C6F0B2800D9152A /* Frameworks */,
+				AA70549D1C6F0B2800D9152A /* Resources */,
+				2706723AF4E6F481067D2AF0 /* Embed Pods Frameworks */,
+				B30374DCF5392E35178B050C /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DartsConnect;
+			productName = DartsConnect;
+			productReference = AA70549F1C6F0B2800D9152A /* DartsConnect.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AA7054B21C6F0B2900D9152A /* DartsConnectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA7054CA1C6F0B2900D9152A /* Build configuration list for PBXNativeTarget "DartsConnectTests" */;
+			buildPhases = (
+				49D789C26AD62CEED85D8490 /* Check Pods Manifest.lock */,
+				AA7054AF1C6F0B2900D9152A /* Sources */,
+				AA7054B01C6F0B2900D9152A /* Frameworks */,
+				AA7054B11C6F0B2900D9152A /* Resources */,
+				29469CAF1B6B916FA684660F /* Embed Pods Frameworks */,
+				373126153330AE8021988F59 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA7054B51C6F0B2900D9152A /* PBXTargetDependency */,
+			);
+			name = DartsConnectTests;
+			productName = DartsConnectTests;
+			productReference = AA7054B31C6F0B2900D9152A /* DartsConnectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AA7054BD1C6F0B2900D9152A /* DartsConnectUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA7054CD1C6F0B2900D9152A /* Build configuration list for PBXNativeTarget "DartsConnectUITests" */;
+			buildPhases = (
+				7418AEB33EA67662FBA92F9A /* Check Pods Manifest.lock */,
+				AA7054BA1C6F0B2900D9152A /* Sources */,
+				AA7054BB1C6F0B2900D9152A /* Frameworks */,
+				AA7054BC1C6F0B2900D9152A /* Resources */,
+				2B95E0FBC1B57380D8BDDB35 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA7054C01C6F0B2900D9152A /* PBXTargetDependency */,
+			);
+			name = DartsConnectUITests;
+			productName = DartsConnectUITests;
+			productReference = AA7054BE1C6F0B2900D9152A /* DartsConnectUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA7054971C6F0B2800D9152A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Jordan Lewis";
+				TargetAttributes = {
+					AA70549E1C6F0B2800D9152A = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = HK8873TG3L;
+					};
+					AA7054B21C6F0B2900D9152A = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = AA70549E1C6F0B2800D9152A;
+					};
+					AA7054BD1C6F0B2900D9152A = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = AA70549E1C6F0B2800D9152A;
+					};
+				};
+			};
+			buildConfigurationList = AA70549A1C6F0B2800D9152A /* Build configuration list for PBXProject "DartsConnect" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AA7054961C6F0B2800D9152A;
+			productRefGroup = AA7054A01C6F0B2800D9152A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA70549E1C6F0B2800D9152A /* DartsConnect */,
+				AA7054B21C6F0B2900D9152A /* DartsConnectTests */,
+				AA7054BD1C6F0B2900D9152A /* DartsConnectUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AA70549D1C6F0B2800D9152A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA7054AD1C6F0B2800D9152A /* Assets.xcassets in Resources */,
+				AA7054AB1C6F0B2800D9152A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA7054B11C6F0B2900D9152A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA7054BC1C6F0B2900D9152A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2706723AF4E6F481067D2AF0 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DartsConnect/Pods-DartsConnect-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		29469CAF1B6B916FA684660F /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DartsConnectTests/Pods-DartsConnectTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2B95E0FBC1B57380D8BDDB35 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DartsConnectUITests/Pods-DartsConnectUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		373126153330AE8021988F59 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DartsConnectTests/Pods-DartsConnectTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		49D789C26AD62CEED85D8490 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7418AEB33EA67662FBA92F9A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		932CF47FE8CDB26FF23957C1 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B30374DCF5392E35178B050C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DartsConnect/Pods-DartsConnect-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AA70549B1C6F0B2800D9152A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA2A3F5E1CACAED8001DC9E5 /* CountdownGame.swift in Sources */,
+				AA7054A81C6F0B2800D9152A /* DartsConnect.xcdatamodeld in Sources */,
+				AA73A3501CD3390F00760A8E /* GlobalVariables.swift in Sources */,
+				AA2A3F4D1CACA696001DC9E5 /* Game.swift in Sources */,
+				AA7054A51C6F0B2800D9152A /* ViewController.swift in Sources */,
+				AAC134731CB38263003740AA /* GameViewController.swift in Sources */,
+				AA2A3F531CACA8A5001DC9E5 /* Connector.swift in Sources */,
+				AA2A3F581CACAE90001DC9E5 /* Player.swift in Sources */,
+				AA2A3F601CACAEE3001DC9E5 /* CricketPlayer.swift in Sources */,
+				AA7054D11C6F166000D9152A /* SideMenuView.swift in Sources */,
+				AA740B721CC48E0F0070F776 /* BonjourManager.swift in Sources */,
+				AA2A3F5C1CACAED2001DC9E5 /* CountdownPlayer.swift in Sources */,
+				AA740B791CC4C0210070F776 /* BonjourResolverService.m in Sources */,
+				AAC134751CB3835D003740AA /* PlayersBar.swift in Sources */,
+				AA7054A31C6F0B2800D9152A /* AppDelegate.swift in Sources */,
+				AA740B781CC4C0210070F776 /* BonjourBrowserService.m in Sources */,
+				AA2A3F621CACAEEA001DC9E5 /* CricketGame.swift in Sources */,
+				AAC134711CB205FF003740AA /* Constants.swift in Sources */,
+				AAC134771CB38396003740AA /* ScoresSideBar.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA7054AF1C6F0B2900D9152A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA7054B81C6F0B2900D9152A /* DartsConnectTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA7054BA1C6F0B2900D9152A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA7054C31C6F0B2900D9152A /* DartsConnectUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AA7054B51C6F0B2900D9152A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA70549E1C6F0B2800D9152A /* DartsConnect */;
+			targetProxy = AA7054B41C6F0B2900D9152A /* PBXContainerItemProxy */;
+		};
+		AA7054C01C6F0B2900D9152A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA70549E1C6F0B2800D9152A /* DartsConnect */;
+			targetProxy = AA7054BF1C6F0B2900D9152A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AA7054A91C6F0B2800D9152A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA7054AA1C6F0B2800D9152A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AA7054C51C6F0B2900D9152A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		AA7054C61C6F0B2900D9152A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AA7054C81C6F0B2900D9152A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23B0411E4BA822456A89B94C /* Pods-DartsConnect.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = DartsConnect/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.AKIMURAOLEWIS.DartsConnect;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DartsConnect/Connector/DartsConnect-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		AA7054C91C6F0B2900D9152A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E02A38DA2035CEB084274A4 /* Pods-DartsConnect.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = DartsConnect/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.AKIMURAOLEWIS.DartsConnect;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DartsConnect/Connector/DartsConnect-Bridging-Header.h";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
+		AA7054CB1C6F0B2900D9152A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB2746C3DD11629BDB4D2111 /* Pods-DartsConnectTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = DartsConnectTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.AKIMURAOLEWIS.DartsConnectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DartsConnect.app/DartsConnect";
+			};
+			name = Debug;
+		};
+		AA7054CC1C6F0B2900D9152A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4EDEFA620D8C505B73203A46 /* Pods-DartsConnectTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = DartsConnectTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.AKIMURAOLEWIS.DartsConnectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DartsConnect.app/DartsConnect";
+			};
+			name = Release;
+		};
+		AA7054CE1C6F0B2900D9152A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33A4951E77A3BAD85BD940CC /* Pods-DartsConnectUITests.debug.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = DartsConnectUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.AKIMURAOLEWIS.DartsConnectUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = DartsConnect;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		AA7054CF1C6F0B2900D9152A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF1BBBFB547AF456D3F13E8A /* Pods-DartsConnectUITests.release.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = DartsConnectUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.AKIMURAOLEWIS.DartsConnectUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = DartsConnect;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AA70549A1C6F0B2800D9152A /* Build configuration list for PBXProject "DartsConnect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA7054C51C6F0B2900D9152A /* Debug */,
+				AA7054C61C6F0B2900D9152A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA7054C71C6F0B2900D9152A /* Build configuration list for PBXNativeTarget "DartsConnect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA7054C81C6F0B2900D9152A /* Debug */,
+				AA7054C91C6F0B2900D9152A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA7054CA1C6F0B2900D9152A /* Build configuration list for PBXNativeTarget "DartsConnectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA7054CB1C6F0B2900D9152A /* Debug */,
+				AA7054CC1C6F0B2900D9152A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA7054CD1C6F0B2900D9152A /* Build configuration list for PBXNativeTarget "DartsConnectUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA7054CE1C6F0B2900D9152A /* Debug */,
+				AA7054CF1C6F0B2900D9152A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AA7054A61C6F0B2800D9152A /* DartsConnect.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AA7054A71C6F0B2800D9152A /* DartsConnect.xcdatamodel */,
+			);
+			currentVersion = AA7054A71C6F0B2800D9152A /* DartsConnect.xcdatamodel */;
+			path = DartsConnect.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = AA7054971C6F0B2800D9152A /* Project object */;
+}
