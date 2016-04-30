@@ -15,6 +15,8 @@ class GlobalVariables:NSObject {
     var connector:Connector?
     var bonjourManager:BonjourManager?
     
+    var currentGame:Game?
+    
     class var sharedVariables: GlobalVariables {
         return _sharedGlobalVariables
     }

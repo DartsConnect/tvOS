@@ -20,6 +20,7 @@ class Game: NSObject, ConnectorDelegate {
     var currentRound:Int = 1
     var roundLimit:Int = -1
     var players:[Player] = []
+    var gvc:GameViewController!
     
     func dartboardDidConnect() {
         
@@ -41,15 +42,26 @@ class Game: NSObject, ConnectorDelegate {
         return playerNames
     }
     
+    func getCurrentThrowNumber() -> Int {
+        let ts = players[currentTurn].turnScores
+        return ts.count
+    }
+    
     func dartDidHit(hitValue: UInt, multiplier: UInt) {
         // The Player threw a dart
-        if players[currentTurn].threwDart() {
+        if players[currentTurn].threwDart(hitValue, multiplier: multiplier) {
             self.nextPlayer()
         }
+        
+        gvc.showHitScore(hitValue * multiplier)
+        gvc.scoresBar.showScore(hitValue, multiplier: multiplier)
+        
         currentGame!.delegateDartDidHit(hitValue, multiplier: multiplier)
     }
     
     func nextPlayer() {
+        
+        
         currentTurn += 1
         if currentTurn == players.count {
             currentTurn = 0
@@ -72,9 +84,12 @@ class Game: NSObject, ConnectorDelegate {
     func quitGame() {
         
     }
-    /* Don't need this now
-    init() {
-        
+
+    init(gameViewController:GameViewController) {
+        super.init()
+        gvc = gameViewController
+        GlobalVariables.sharedVariables.connector?.delegate = self
+        GlobalVariables.sharedVariables.currentGame = self
     }
-    */
+ 
 }

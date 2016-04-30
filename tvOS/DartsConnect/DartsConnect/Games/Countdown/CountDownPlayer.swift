@@ -9,6 +9,12 @@
 import Foundation
 
 class CountdownPlayer: Player {
+    
+    override func endTurn() {
+        score = score - Int(getTurnSum())
+        super.endTurn()
+    }
+    
     init(startScore:UInt, cardID:String) {
         super.init(_cardID: cardID)
         self.score = Int(startScore)

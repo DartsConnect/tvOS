@@ -65,6 +65,26 @@ class Connector: NSObject, GCDAsyncSocketDelegate {
         return nil
     }
     
+    func handleParsedMessage(parsedMessage:[String:String]) {
+        let tag = parsedMessage["Tag"]!
+        let value = parsedMessage["Value"]!
+        
+        switch tag {
+        case "DartHit":
+            let splitValues = value.componentsSeparatedByString(",")
+            if splitValues.count == 2 {
+                let hitArea = UInt(splitValues[0])!
+                let multiplier = UInt(splitValues[1])!
+                delegate?.dartDidHit(hitArea, multiplier: multiplier)
+            }
+            break
+        case "ScannedCard":
+            break
+        default:
+            break
+        }
+    }
+    
     // Begin Delegate Functions
     func socket(sock: GCDAsyncSocket!, didConnectToHost host: String!, port: UInt16) {
         self.sendString("CONNECT", dataTarget: .Connect, dataType: .String)
@@ -112,7 +132,7 @@ class Connector: NSObject, GCDAsyncSocketDelegate {
                                     dataSocket.disconnect()
                                 }
                             } else {
-                                //delegate.communicatorReceivedMessage(parsedMessage)
+                                handleParsedMessage(parsedMessage)
                             }
                         }
                     }

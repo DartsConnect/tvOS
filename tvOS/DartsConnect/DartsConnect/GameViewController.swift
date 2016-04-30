@@ -13,6 +13,8 @@ class GameViewController: UIViewController {
     var gameType:GameType!
     var gameController:Game!
     let hitLabel:UILabel = UILabel()
+    var playerBar:PlayersBar!
+    var scoresBar:ScoresSideBar!
     
     override func pressesBegan(presses: Set<UIPress>, withEvent event: UIPressesEvent?) {
         if(presses.first?.type == UIPressType.Menu) {
@@ -76,7 +78,11 @@ class GameViewController: UIViewController {
         
         switch gameType! {
         case .CountDown:
-            gameController = CountdownGame(startScore: UInt(gameSettings[1])!, playerIDs: players, openC: [GameEndsCriteria(rawValue: gameSettings[2])!], closeC: [GameEndsCriteria(rawValue: gameSettings[3])!])
+            gameController = CountdownGame(gvc: self,
+                                           startScore: UInt(gameSettings[1])!,
+                                           playerIDs: players,
+                                           openC: [GameEndsCriteria(rawValue: gameSettings[2])!],
+                                           closeC: [GameEndsCriteria(rawValue: gameSettings[3])!])
             break
         case .Cricket:
             break
@@ -87,6 +93,20 @@ class GameViewController: UIViewController {
         case .World:
             break
         }
+        
+        playerBar = PlayersBar(parent: self, players: gameController.playerNames(), startScore: gameType == .CountDown ? (gameController as! CountdownGame).gameStartScore : 0)
+        playerBar.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(playerBar)
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-100-[playerBar]-100-|", options: .AlignAllCenterX, metrics: nil, views: ["playerBar":playerBar]))
+        self.view.addConstraint(NSLayoutConstraint(item: playerBar, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 200))
+        self.view.addConstraint(NSLayoutConstraint(item: playerBar, attribute: .Bottom, relatedBy: .Equal, toItem: self.view, attribute: .Bottom, multiplier: 1, constant: 0))
+        
+        scoresBar = ScoresSideBar(parent: self)
+        scoresBar.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(scoresBar)
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(100 + 50)-[scoresBar]-\(200 + 50)-|", options: .AlignAllLeading, metrics: nil, views: ["scoresBar":scoresBar]))
+        self.view.addConstraint(NSLayoutConstraint(item: scoresBar, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 300))
+        self.view.addConstraint(NSLayoutConstraint(item: scoresBar, attribute: .Right, relatedBy: .Equal, toItem: self.view, attribute: .Right, multiplier: 1, constant: 0))
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -115,22 +135,6 @@ class GameViewController: UIViewController {
         self.view.addConstraint(NSLayoutConstraint(item: hitLabel, attribute: .CenterY, relatedBy: .Equal, toItem: self.view, attribute: .CenterY, multiplier: 0.8, constant: 0))
         self.view.addConstraint(NSLayoutConstraint(item: hitLabel, attribute: .Height, relatedBy: .Equal, toItem: self.view, attribute: .Height, multiplier: 0.5, constant: 0))
         self.view.addConstraint(NSLayoutConstraint(item: hitLabel, attribute: .Width, relatedBy: .Equal, toItem: self.view, attribute: .Width, multiplier: 0.5, constant: 0))
-        
-        
-        
-        let playerBar:PlayersBar = PlayersBar(parent: self, players: gameController.playerNames(), startScore: gameType == .CountDown ? (gameController as! CountdownGame).gameStartScore : 0)
-        playerBar.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(playerBar)
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-100-[playerBar]-100-|", options: .AlignAllCenterX, metrics: nil, views: ["playerBar":playerBar]))
-        self.view.addConstraint(NSLayoutConstraint(item: playerBar, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 200))
-        self.view.addConstraint(NSLayoutConstraint(item: playerBar, attribute: .Bottom, relatedBy: .Equal, toItem: self.view, attribute: .Bottom, multiplier: 1, constant: 0))
-        
-        let scoresBar:ScoresSideBar = ScoresSideBar(parent: self)
-        scoresBar.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(scoresBar)
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(100 + 50)-[scoresBar]-\(200 + 50)-|", options: .AlignAllLeading, metrics: nil, views: ["scoresBar":scoresBar]))
-        self.view.addConstraint(NSLayoutConstraint(item: scoresBar, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 300))
-        self.view.addConstraint(NSLayoutConstraint(item: scoresBar, attribute: .Right, relatedBy: .Equal, toItem: self.view, attribute: .Right, multiplier: 1, constant: 0))
     }
     
     override func didReceiveMemoryWarning() {

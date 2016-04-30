@@ -12,8 +12,13 @@ class Player: NSObject {
     var cardID:String = ""
     var username:String = ""
     var totalNumberOfThrows:UInt = 0
-    var score:Int = 0
-    var numThrowsInTurn:UInt = 0
+    var score:Int = 0 {
+        didSet {
+//            GlobalVariables.sharedVariables.currentGame
+        }
+    }
+    var turnScores:[(UInt,UInt)] = []
+    var gameScores:[[(UInt, UInt)]] = []
     
     /*
      A stub.
@@ -36,18 +41,23 @@ class Player: NSObject {
      
      @return Whether or not can throw again
     */
-    func threwDart() -> Bool {
-        numThrowsInTurn += 1
+    func threwDart(hitValue:UInt, multiplier:UInt) -> Bool {
         totalNumberOfThrows += 1
-        if numThrowsInTurn == 3 {
-            numThrowsInTurn = 0
-            return false
-        }
-        return true
+        turnScores.append((hitValue, multiplier))
+        return turnScores.count == 3
+    }
+    
+    func getTurnSum() -> UInt {
+        return turnScores.map {$0.0 * $0.1}.reduce(0, combine: +)
+    }
+    
+    func endTurn() {
+        gameScores.append(turnScores)
+        turnScores = []
     }
     
     func forceEndTurn() {
-        numThrowsInTurn = 0
+        self.endTurn()
     }
     
     init(_cardID:String) {

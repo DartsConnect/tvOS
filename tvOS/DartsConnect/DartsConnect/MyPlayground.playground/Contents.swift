@@ -58,3 +58,6 @@ print(a.map {$0.componentsSeparatedByString(":")[1]})
 let ps = ["nil", "2", "nil", "3"]
 print(ps.filter {$0 != "nil"})
 
+let ts = [(1,2), (3,3)]
+let tss = ts.map {$0.0 * $0.1}.reduce(0, combine: +)
+print(tss)

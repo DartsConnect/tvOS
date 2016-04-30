@@ -70,8 +70,8 @@ class CountdownGame: Game, GameDelegate {
     }
     
     // Friday April 01 2016
-    init(startScore:UInt, playerIDs:[String], openC:[GameEndsCriteria], closeC:[GameEndsCriteria]) {
-        super.init()
+    init(gvc:GameViewController, startScore:UInt, playerIDs:[String], openC:[GameEndsCriteria], closeC:[GameEndsCriteria]) {
+        super.init(gameViewController: gvc)
         
         openCriteria = openC
         closeCriteria = closeC
