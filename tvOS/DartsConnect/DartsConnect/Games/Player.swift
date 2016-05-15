@@ -26,19 +26,6 @@ class Player: NSObject {
     var isFinished:Bool = false
     var canAcceptHit:Bool = true
     
-    /*
-     A stub.
-     Will later be replaced with actual code to fetch the username of the user from the database based on the user's RFID card's UID.
-    */
-    /**
-     Fetches the username of the user from the database with the cardID
-     @param The CardID of the user
-     @return The user's username
-    */
-    func getUserForCardID(cardID:String) -> String {
-        return "Jordan"
-    }
-    
     /**
      Called when a player throws a dart and the hit was registered on the board.
      Each player only ever get 3 throws (valid hits) per turn.
@@ -81,7 +68,7 @@ class Player: NSObject {
         if cardID == "Guest" {
             username = "Guest"
         } else {
-            username = getUserForCardID(cardID)
+            username = DatabaseManager().getUsernameForCardID(cardID)
         }
     }
 }

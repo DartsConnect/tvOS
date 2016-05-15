@@ -16,6 +16,7 @@
 		AA2A3F5E1CACAED8001DC9E5 /* CountdownGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A3F5D1CACAED8001DC9E5 /* CountdownGame.swift */; };
 		AA2A3F601CACAEE3001DC9E5 /* CricketPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A3F5F1CACAEE3001DC9E5 /* CricketPlayer.swift */; };
 		AA2A3F621CACAEEA001DC9E5 /* CricketGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A3F611CACAEEA001DC9E5 /* CricketGame.swift */; };
+		AA4A875E1CE8501D003C0371 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4A875D1CE8501D003C0371 /* DatabaseManager.swift */; };
 		AA7054A31C6F0B2800D9152A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7054A21C6F0B2800D9152A /* AppDelegate.swift */; };
 		AA7054A51C6F0B2800D9152A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7054A41C6F0B2800D9152A /* ViewController.swift */; };
 		AA7054A81C6F0B2800D9152A /* DartsConnect.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AA7054A61C6F0B2800D9152A /* DartsConnect.xcdatamodeld */; };
@@ -66,6 +67,7 @@
 		AA2A3F5D1CACAED8001DC9E5 /* CountdownGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownGame.swift; sourceTree = "<group>"; };
 		AA2A3F5F1CACAEE3001DC9E5 /* CricketPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CricketPlayer.swift; sourceTree = "<group>"; };
 		AA2A3F611CACAEEA001DC9E5 /* CricketGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CricketGame.swift; sourceTree = "<group>"; };
+		AA4A875D1CE8501D003C0371 /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		AA70549F1C6F0B2800D9152A /* DartsConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DartsConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA7054A21C6F0B2800D9152A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA7054A41C6F0B2800D9152A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			children = (
 				AA2A3F521CACA8A5001DC9E5 /* Connector.swift */,
 				AA740B711CC48E0F0070F776 /* BonjourManager.swift */,
+				AA4A875D1CE8501D003C0371 /* DatabaseManager.swift */,
 				AA740B741CC4C0210070F776 /* BonjourBrowserService.h */,
 				AA740B751CC4C0210070F776 /* BonjourBrowserService.m */,
 				AA740B761CC4C0210070F776 /* BonjourResolverService.h */,
@@ -543,6 +546,7 @@
 				AA7054D11C6F166000D9152A /* SideMenuView.swift in Sources */,
 				AA740B721CC48E0F0070F776 /* BonjourManager.swift in Sources */,
 				AA2A3F5C1CACAED2001DC9E5 /* CountdownPlayer.swift in Sources */,
+				AA4A875E1CE8501D003C0371 /* DatabaseManager.swift in Sources */,
 				AA740B791CC4C0210070F776 /* BonjourResolverService.m in Sources */,
 				AAC134751CB3835D003740AA /* PlayersBar.swift in Sources */,
 				AA7054A31C6F0B2800D9152A /* AppDelegate.swift in Sources */,

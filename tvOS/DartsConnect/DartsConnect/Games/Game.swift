@@ -17,6 +17,7 @@ import Foundation
 class Game: NSObject, ConnectorDelegate {
     var currentGame:GameDelegate?
     var currentTurn:Int = 0
+    var previousTurn:Int = 0
     var currentRound:Int = 1
     var roundLimit:Int = -1
     var players:[Player] = []
@@ -62,6 +63,21 @@ class Game: NSObject, ConnectorDelegate {
         }
     }
     
+    func findNextTurn() {
+        currentTurn += 1
+        if currentTurn == players.count {
+            currentTurn = 0
+            currentRound += 1
+            
+            if roundLimit != -1 && currentRound > roundLimit {
+                self.endGame()
+            }
+        }
+        if players[currentTurn].isFinished {
+            self.findNextTurn()
+        }
+    }
+    
     func changeToNextPlayer() {
         
         gvc.showHitScore("Next Player")
@@ -71,25 +87,17 @@ class Game: NSObject, ConnectorDelegate {
         
         players[currentTurn].endTurn()
         
-        currentTurn += 1
-        currentTurn = currentTurn == players.count ? currentTurn - 1 : currentTurn
-        while players[currentTurn].isFinished {
-            if currentTurn == players.count {
-                currentTurn = 0
-                currentRound += 1
-                
-                if roundLimit != -1 && currentRound > roundLimit {
-                    self.endGame()
-                }
-            }
-            currentTurn += 1
-        }
+        previousTurn = currentTurn
+        
+        self.findNextTurn()
+        
         players[currentTurn].canAcceptHit = true
-        gvc.playerBar.setCurrentPlayer(currentTurn)
+        gvc.playerBar.setCurrentPlayer()
     }
     
     func playerFinished() {
         players[currentTurn].isFinished = true
+        players[currentTurn].canAcceptHit = false
         gvc.playerBar.setPlayerFinised(currentTurn)
         gvc.showHitScore("YOU WIN!")
 
@@ -101,7 +109,7 @@ class Game: NSObject, ConnectorDelegate {
     }
     
     func beginGame() {
-        gvc.playerBar.setCurrentPlayer(currentTurn)
+        gvc.playerBar.setCurrentPlayer()
     }
     
     func endGame() {

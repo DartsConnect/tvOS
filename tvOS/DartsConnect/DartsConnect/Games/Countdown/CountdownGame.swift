@@ -113,8 +113,15 @@ class CountdownGame: Game, GameDelegate {
         case .Close:
             players[currentTurn].score = 0
             playerFinished()
+            gvc.scoresBar.setButtonTitle(ScoresSideBar.ActionButtonTitle.Next)
             break
         case .Bust:
+            // When the player busts, the turn's throws don't count, so add them back
+            let turnSum:Int = Int(players[currentTurn].getTurnSum())
+            players[currentTurn].score = players[currentTurn].score + turnSum - tHitValue
+            
+            gvc.scoresBar.tacOutLastHit()
+            
             players[currentTurn].forceEndTurn(.Bust)
             gvc.scoresBar.setButtonTitle(ScoresSideBar.ActionButtonTitle.Next)
             break

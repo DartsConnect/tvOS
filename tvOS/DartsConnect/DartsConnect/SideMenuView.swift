@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SideMenuView: UIView, BonjourManagerDelegate {
+class SideMenuView: UIView, BonjourManagerDelegate, ConnectorDelegate {
     
     // Sizing
     let width:CGFloat = 450
@@ -51,6 +51,44 @@ class SideMenuView: UIView, BonjourManagerDelegate {
     var players:[String] = ["nil", "nil", "nil", "nil"]
     var parentVC:UIViewController!
     
+    
+    func cardScanned(cardID: String) {
+        if header.text == "Add Players" {
+            
+            let name = DatabaseManager().getUsernameForCardID(cardID)
+            
+            for i in 0..<players.count {
+                if players[i] == "nil" {
+                    players[i] = cardID
+                    (vStack.arrangedSubviews[i] as! UIButton).setTitle(name, forState: .Normal)
+                    break
+                }
+            }
+            
+            // If there were no nils, ie all taken
+            if !players.contains(cardID) {
+                let alert = UIAlertController(title: "No Free Spots", message: "Select a player to swap out for \(name)", preferredStyle: .ActionSheet)
+                var usersDict:[String:String] = [:]
+                for player in players {
+                    let title = player == "Guest" ? player : DatabaseManager().getUsernameForCardID(player)
+                    
+                    usersDict[title] = player
+                    
+                    let action = UIAlertAction(title: title, style: .Default, handler: {
+                        (action:UIAlertAction) in
+                        let id = usersDict[action.title!]!
+                        let index = self.players.indexOf(id)!
+                        self.players[index] = cardID
+                        (self.vStack.arrangedSubviews[index] as! UIButton).setTitle(name, forState: .Normal)
+                    })
+                    alert.addAction(action)
+                }
+                alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+                parentVC.showViewController(alert, sender: nil)
+            }
+        }
+    }
+    
     func returnToRoot() {
         breadcrumbs.removeAll()
         players = ["nil", "nil", "nil", "nil"]
@@ -78,17 +116,23 @@ class SideMenuView: UIView, BonjourManagerDelegate {
     
     // Wednesday April 06 2016
     private func showAddPlayerAlert(sender:UIButton) {
-        let alert = UIAlertController(title: sender.currentTitle!, message: "Select Scan Card to play as you, or Guest to play anonymously.", preferredStyle: .ActionSheet)
+        let alert = UIAlertController(title: "Player \(sender.tag + 1)", message: "Select Guest to play anonymously or Cancel and scan a card to play with your account.", preferredStyle: .ActionSheet)
+        /*
         alert.addAction(UIAlertAction(title: "Scan Card", style: .Default, handler: {
             (action:UIAlertAction) in
             let playerIndex:Int = Int(alert.title!.componentsSeparatedByString(" ")[1])!
             // Wait for Card to be scanned
-            self.players[playerIndex] = "00000000"
+            
+            
+            
+            self.players[playerIndex - 1] = "00000000"
         }))
+        */
         alert.addAction(UIAlertAction(title: "Guest", style: .Default, handler: {
             (action:UIAlertAction) in
             let playerIndex:Int = Int(alert.title!.componentsSeparatedByString(" ")[1])!
-            self.players[playerIndex] = "Guest"
+            self.players[playerIndex - 1] = "Guest"
+            sender.setTitle("Guest", forState: .Normal)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: {
             (action:UIAlertAction) in
@@ -151,8 +195,7 @@ class SideMenuView: UIView, BonjourManagerDelegate {
         }
     }
     
-    // Friday April 29 2016
-    func handleStdNavigation(sender:UIButton) {
+    func doStdNaviagtion(sender:UIButton) {
         let index = vStack.subviews.indexOf(sender)!
         let originalName = "\(index):\(sender.currentTitle!)"
         var buttonsToCreate:[String] = []
@@ -184,6 +227,34 @@ class SideMenuView: UIView, BonjourManagerDelegate {
             createButtonsWithNames([String](gamesOptions.keys).sort())
             animateButtonsIn()
             header.text = "Games"
+        }
+    }
+    
+    // Friday April 29 2016
+    func handleStdNavigation(sender:UIButton) {
+        var canNavigate = false
+        if sender.currentTitle! == "More" {
+            canNavigate = true
+        } else {
+            if GlobalVariables.sharedVariables.connector != nil {
+                if GlobalVariables.sharedVariables.connector!.dataSocket.isConnected {
+                    canNavigate = true
+                    GlobalVariables.sharedVariables.connector!.delegate = self
+                }
+            }
+        }
+        
+        if canNavigate {
+            doStdNaviagtion(sender)
+        } else {
+            // Prompt connect to dartboard
+            let alert = UIAlertController(title: "Connect to a Dartboard", message: "You must connect to a dartboard before conitnuing.", preferredStyle: .ActionSheet)
+            let connectAction = UIAlertAction(title: "Connect", style: .Default, handler: {
+                (action:UIAlertAction) in
+                GlobalVariables.sharedVariables.bonjourManager = BonjourManager(nil)
+            })
+            alert.addAction(connectAction)
+            parentVC.showViewController(alert, sender: nil)
         }
     }
     
@@ -229,6 +300,7 @@ class SideMenuView: UIView, BonjourManagerDelegate {
             button.addTarget(self, action: #selector(SideMenuView.buttonSelected(_:)), forControlEvents: .PrimaryActionTriggered)
             
             button.alpha = 0
+            button.tag = names.indexOf(name)!
             
             vStack.addArrangedSubview(button)
             

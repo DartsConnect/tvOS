@@ -17,13 +17,13 @@ class PlayerBarSection: UIView {
     }
     
     func setCurrentPlayer() {
-        print("Set Current Player")
         self.backgroundColor = UIColor.blueColor()
     }
     
     func setWaitingPlayer() {
-        print("Set Waiting Player")
-        self.backgroundColor = UIColor.greenColor()
+        if self.backgroundColor != UIColor.orangeColor() {
+            self.backgroundColor = UIColor.greenColor()
+        }
     }
     
     init(playerName:String, score:UInt) {
@@ -74,12 +74,18 @@ class PlayersBar: UIView {
         (playersStack.arrangedSubviews[adjustedIndexFrom(index)] as! PlayerBarSection).setFinishedGame()
     }
     
-    func setCurrentPlayer(index:Int) {
-        (playersStack.arrangedSubviews[adjustedIndexFrom(index)] as! PlayerBarSection).setCurrentPlayer()
-        if playerCount > 1 {
-            let ppviAdj = playerCount <= 2 ? (index == 0 ? 1 : -1) : (index == 0 ? playerCount-1 : -1)
-            (playersStack.arrangedSubviews[adjustedIndexFrom(index) - ppviAdj] as! PlayerBarSection).setWaitingPlayer()
-        }
+    func setCurrentPlayer() {
+//        (playersStack.arrangedSubviews[adjustedIndexFrom(index)] as! PlayerBarSection).setCurrentPlayer()
+//        if playerCount > 1 {
+//            var ppviAdj:Int = index == 0 ? 1 : -1
+//            if playerCount > 2 {
+//                ppviAdj = index == 0 ? playerCount - 1 : -1
+//            }
+//            (playersStack.arrangedSubviews[adjustedIndexFrom(index) + ppviAdj] as! PlayerBarSection).setWaitingPlayer()
+//        }
+        let game = GlobalVariables.sharedVariables.currentGame!
+        (playersStack.arrangedSubviews[adjustedIndexFrom(game.previousTurn)] as! PlayerBarSection).setWaitingPlayer()
+        (playersStack.arrangedSubviews[adjustedIndexFrom(game.currentTurn)] as! PlayerBarSection).setCurrentPlayer()
     }
     
     func updatePlayerScore(index:Int, score:Int) {

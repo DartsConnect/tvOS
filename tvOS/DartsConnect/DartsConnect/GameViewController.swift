@@ -114,6 +114,8 @@ class GameViewController: UIViewController {
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(100 + 50)-[scoresBar]-\(200 + 50)-|", options: .AlignAllLeading, metrics: nil, views: ["scoresBar":scoresBar]))
         self.view.addConstraint(NSLayoutConstraint(item: scoresBar, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 300))
         self.view.addConstraint(NSLayoutConstraint(item: scoresBar, attribute: .Right, relatedBy: .Equal, toItem: self.view, attribute: .Right, multiplier: 1, constant: 0))
+        
+        gameController.beginGame()
     }
     
     required init?(coder aDecoder: NSCoder) {

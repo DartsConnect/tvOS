@@ -10,10 +10,11 @@ import Foundation
 import CocoaAsyncSocket
 
 @objc protocol ConnectorDelegate {
-    func dartDidHit(hitValue:UInt, multiplier:UInt)
-    func dartboardDidConnect()
-    func dartboardDisconnected(error:NSError?)
-    func dartboardKickedMeOff(reason:String)
+    optional func dartDidHit(hitValue:UInt, multiplier:UInt)
+    optional func cardScanned(cardID:String)
+    optional func dartboardDidConnect()
+    optional func dartboardDisconnected(error:NSError?)
+    optional func dartboardKickedMeOff(reason:String)
 }
 
 public extension String {
@@ -87,7 +88,7 @@ class Connector: NSObject, GCDAsyncSocketDelegate {
                 do {
                     let hitArea = try self.convertStringToUInt(splitValues[0])
                     let multiplier = try self.convertStringToUInt(splitValues[1])
-                    self.delegate?.dartDidHit(hitArea, multiplier: multiplier)
+                    self.delegate?.dartDidHit?(hitArea, multiplier: multiplier)
                 } catch _ {
                     print("Failed to parse: \(parsedMessage)")
                 }
@@ -95,6 +96,7 @@ class Connector: NSObject, GCDAsyncSocketDelegate {
             break
         case "Card":
             print("Received Card: \(value)")
+            self.delegate?.cardScanned?(value)
             break
         default:
             break
@@ -108,7 +110,7 @@ class Connector: NSObject, GCDAsyncSocketDelegate {
     }
     
     func socketDidCloseReadStream(sock: GCDAsyncSocket!) {
-        delegate?.dartboardDisconnected(nil)
+        delegate?.dartboardDisconnected?(nil)
         //SVProgressHUD.showErrorWithStatus("Socket Closed Read Stream")
     }
     
@@ -133,7 +135,7 @@ class Connector: NSObject, GCDAsyncSocketDelegate {
                         if let parsedMessage:[String:String] = self.parseMessage(part) {
                             if parsedMessage[ParsedMessageKey.Tag.rawValue] == DataTarget.Connect.rawValue {
                                 if parsedMessage[ParsedMessageKey.Value.rawValue] == "Welcome" {
-                                    delegate?.dartboardDidConnect()
+                                    delegate?.dartboardDidConnect?()
                                 }
                             } else if parsedMessage[ParsedMessageKey.Tag.rawValue] == DataTarget.Disconnect.rawValue {
                                 let message:String = parsedMessage[ParsedMessageKey.Value.rawValue]!
@@ -173,12 +175,12 @@ class Connector: NSObject, GCDAsyncSocketDelegate {
     func socketDidDisconnect(sock: GCDAsyncSocket!, withError err: NSError!) {
         if sock == dataSocket {
             if keepListening {
-                delegate?.dartboardDisconnected(err)
+                delegate?.dartboardDisconnected?(err)
             } else {
                 if gotKicked {
-                    delegate?.dartboardKickedMeOff(kickReason)
+                    delegate?.dartboardKickedMeOff?(kickReason)
                 } else {
-                    delegate?.dartboardDisconnected(nil)
+                    delegate?.dartboardDisconnected?(nil)
                 }
                 gotKicked = false
             }

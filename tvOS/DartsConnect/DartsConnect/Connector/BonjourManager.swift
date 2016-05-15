@@ -18,7 +18,7 @@ class BonjourManager: NSObject, NSNetServiceBrowserDelegate, NSNetServiceDelegat
     let serviceType:String = "_dartsconnect._tcp"
     var serverService:NSNetService?
     var servicesFound:[NSNetService] = []
-    var delegate:BonjourManagerDelegate!
+    var delegate:BonjourManagerDelegate?
     
     func netServiceBrowserWillSearch(browser: NSNetServiceBrowser) {
         print("Begin Searching")
@@ -78,14 +78,16 @@ class BonjourManager: NSObject, NSNetServiceBrowserDelegate, NSNetServiceDelegat
         }
     }
     
-    init(_ del:BonjourManagerDelegate) {
-        super.init()
-        
-        delegate = del
-        
+    func startScanning() {
         netServiceBrowser.delegate = self
         netServiceBrowser.searchForServicesOfType(serviceType, inDomain: "local")
         print("Begin Scanning for Bonjour Services")
+    }
+    
+    init(_ del:BonjourManagerDelegate?) {
+        super.init()
+        delegate = del
+        startScanning()
     }
     
     func netServiceDidPublish(sender: NSNetService) {
