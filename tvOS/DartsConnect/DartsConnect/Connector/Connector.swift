@@ -65,6 +65,17 @@ class Connector: NSObject, GCDAsyncSocketDelegate {
         return nil
     }
     
+    enum ConversionError:ErrorType {
+        case Failed
+    }
+    
+    func convertStringToUInt(str:String) throws -> UInt {
+        guard let _ = UInt(str) else {
+            throw ConversionError.Failed
+        }
+        return UInt(str)!
+    }
+    
     func handleParsedMessage(parsedMessage:[String:String]) {
         let tag = parsedMessage["Tag"]!
         let value = parsedMessage["Value"]!
@@ -73,12 +84,17 @@ class Connector: NSObject, GCDAsyncSocketDelegate {
         case "DartHit":
             let splitValues = value.componentsSeparatedByString(",")
             if splitValues.count == 2 {
-                let hitArea = UInt(splitValues[0])!
-                let multiplier = UInt(splitValues[1])!
-                delegate?.dartDidHit(hitArea, multiplier: multiplier)
+                do {
+                    let hitArea = try self.convertStringToUInt(splitValues[0])
+                    let multiplier = try self.convertStringToUInt(splitValues[1])
+                    self.delegate?.dartDidHit(hitArea, multiplier: multiplier)
+                } catch _ {
+                    print("Failed to parse: \(parsedMessage)")
+                }
             }
             break
-        case "ScannedCard":
+        case "Card":
+            print("Received Card: \(value)")
             break
         default:
             break

@@ -26,3 +26,20 @@ enum GameEndsCriteria:String {
     case OnBull = "Bull"
     case OnDoubleBull = "Double Bull"
 }
+
+enum ForceEndTurnReason:CustomStringConvertible {
+    case Bust
+    case OpenOn(criteria: GameEndsCriteria)
+    case CloseOn(criteria: GameEndsCriteria)
+    
+    var description: String {
+        switch self {
+        case Bust:
+            return "Bust"
+        case let OpenOn(reason):
+            return "Open on \(reason)"
+        case let CloseOn(reason):
+            return "Close on \(reason)"
+        }
+    }
+}

@@ -51,6 +51,13 @@ class SideMenuView: UIView, BonjourManagerDelegate {
     var players:[String] = ["nil", "nil", "nil", "nil"]
     var parentVC:UIViewController!
     
+    func returnToRoot() {
+        breadcrumbs.removeAll()
+        players = ["nil", "nil", "nil", "nil"]
+        header.text = "Games"
+        createRootButtons()
+        animateButtonsIn()
+    }
     
     // Wednesday April 06 2016
     private func normalButtonSelectAction (inout buttonsToCreate:[String], sender:UIButton, sub:[String]) {
@@ -231,6 +238,10 @@ class SideMenuView: UIView, BonjourManagerDelegate {
         }
     }
     
+    private func createRootButtons() {
+        createButtonsWithNames([String](gamesOptions.keys).sort())
+    }
+    
     init(parent:UIViewController) {
         super.init(frame: CGRectZero)
         
@@ -258,7 +269,7 @@ class SideMenuView: UIView, BonjourManagerDelegate {
         self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[vStack]|", options: .AlignAllCenterX, metrics: nil, views: ["vStack":vStack]))
         self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(padding/2)-[header]-\(padding/2)-[vStack]-\(padding)-|", options: .AlignAllCenterX, metrics: nil, views: ["header":header, "vStack":vStack]))
         
-        createButtonsWithNames([String](gamesOptions.keys).sort())
+        createRootButtons()
         animateButtonsIn()
     }
     

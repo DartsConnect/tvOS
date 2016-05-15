@@ -43,6 +43,11 @@ class ScoresSideBarScore: UIView {
         3:"Triple"
     ]
     
+    func reset() {
+        scoreLabel.text = "Throw"
+        descLabel.text = "Throw a dart"
+    }
+    
     func updateLabels(hitValue:UInt, multiplier:UInt) {
         scoreLabel.text = "\(hitValue * multiplier)"
         descLabel.text = "\(multiplierDictionary[multiplier]!) \(scoresDictionary[hitValue]!)"
@@ -92,6 +97,12 @@ class ScoresSideBar: UIView {
     
     var parentVC:GameViewController!
     
+    func tacOutLastHit() {
+        let index = game.players[game.currentTurn].turnScores.count - 1
+        let hitBox = scoresStack.arrangedSubviews[index] as! ScoresSideBarScore
+        hitBox.scoreLabel.text = "-"
+    }
+    
     func setButtonTitle(title:ActionButtonTitle) {
         actionButton.setTitle(title.rawValue, forState: .Normal)
     }
@@ -101,7 +112,7 @@ class ScoresSideBar: UIView {
     }
     
     func nextPlayer() {
-        GlobalVariables.sharedVariables.currentGame?.nextPlayer()
+        GlobalVariables.sharedVariables.currentGame?.changeToNextPlayer()
     }
     
     func actionButtonPressed(sender:UIButton) {
@@ -112,13 +123,19 @@ class ScoresSideBar: UIView {
         case .Skip:
             skipPlayer()
             break
-        default:
-            break
+        }
+    }
+    
+    func resetScoresSidebar() {
+        for scoreView:ScoresSideBarScore in scoresStack.arrangedSubviews as! [ScoresSideBarScore] {
+            scoreView.reset()
         }
     }
     
     func showScore(hitValue:UInt, multiplier:UInt) {
-        let scoreView = scoresStack.arrangedSubviews[game.getCurrentThrowNumber() - 1] as! ScoresSideBarScore
+        let index = game.getCurrentThrowNumber() - 1 < 0 ? 0 : game.getCurrentThrowNumber()
+        print(index)
+        let scoreView = scoresStack.arrangedSubviews[index] as! ScoresSideBarScore
         scoreView.updateLabels(hitValue, multiplier: multiplier)
         
         if game.getCurrentThrowNumber() == 3 {

@@ -82,7 +82,7 @@
 		AA7054D01C6F166000D9152A /* SideMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		AA73A34F1CD3390F00760A8E /* GlobalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		AA740B711CC48E0F0070F776 /* BonjourManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonjourManager.swift; sourceTree = "<group>"; };
-		AA740B731CC4C0200070F776 /* DartsConnect-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DartsConnect-Bridging-Header.h"; sourceTree = "<group>"; };
+		AA740B731CC4C0200070F776 /* DartsConnect-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "DartsConnect-Bridging-Header.h"; path = "Connector/DartsConnect-Bridging-Header.h"; sourceTree = "<group>"; };
 		AA740B741CC4C0210070F776 /* BonjourBrowserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BonjourBrowserService.h; sourceTree = "<group>"; };
 		AA740B751CC4C0210070F776 /* BonjourBrowserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BonjourBrowserService.m; sourceTree = "<group>"; };
 		AA740B761CC4C0210070F776 /* BonjourResolverService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BonjourResolverService.h; sourceTree = "<group>"; };
@@ -173,7 +173,6 @@
 				AA740B751CC4C0210070F776 /* BonjourBrowserService.m */,
 				AA740B761CC4C0210070F776 /* BonjourResolverService.h */,
 				AA740B771CC4C0210070F776 /* BonjourResolverService.m */,
-				AA740B731CC4C0200070F776 /* DartsConnect-Bridging-Header.h */,
 			);
 			path = Connector;
 			sourceTree = "<group>";
@@ -203,6 +202,7 @@
 		AA7054A11C6F0B2800D9152A /* DartsConnect */ = {
 			isa = PBXGroup;
 			children = (
+				AA740B731CC4C0200070F776 /* DartsConnect-Bridging-Header.h */,
 				AA7054A21C6F0B2800D9152A /* AppDelegate.swift */,
 				AAC134701CB205FF003740AA /* Constants.swift */,
 				AAC1346F1CB2035F003740AA /* MyPlayground.playground */,

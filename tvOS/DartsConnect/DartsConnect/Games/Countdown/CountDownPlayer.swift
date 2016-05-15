@@ -11,7 +11,6 @@ import Foundation
 class CountdownPlayer: Player {
     
     override func endTurn() {
-        score = score - Int(getTurnSum())
         super.endTurn()
     }
     

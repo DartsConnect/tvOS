@@ -48,36 +48,64 @@ class Game: NSObject, ConnectorDelegate {
     }
     
     func dartDidHit(hitValue: UInt, multiplier: UInt) {
-        // The Player threw a dart
-        if players[currentTurn].threwDart(hitValue, multiplier: multiplier) {
-            self.nextPlayer()
+        if players[currentTurn].turnScores.count < 3 && players[currentTurn].canAcceptHit {
+            gvc.showHitScore(hitValue * multiplier)
+            gvc.scoresBar.showScore(hitValue, multiplier: multiplier)
+            
+            // The Player threw a dart
+            if players[currentTurn].threwDart(hitValue, multiplier: multiplier) {
+                //            self.nextPlayer()
+                gvc.scoresBar.setButtonTitle(.Next)
+            }
+            
+            currentGame!.delegateDartDidHit(hitValue, multiplier: multiplier)
         }
-        
-        gvc.showHitScore(hitValue * multiplier)
-        gvc.scoresBar.showScore(hitValue, multiplier: multiplier)
-        
-        currentGame!.delegateDartDidHit(hitValue, multiplier: multiplier)
     }
     
-    func nextPlayer() {
+    func changeToNextPlayer() {
         
+        gvc.showHitScore("Next Player")
+        
+        gvc.scoresBar.resetScoresSidebar()
+        gvc.scoresBar.setButtonTitle(.Skip)
+        
+        players[currentTurn].endTurn()
         
         currentTurn += 1
-        if currentTurn == players.count {
-            currentTurn = 0
-            currentRound += 1
-            
-            if roundLimit != -1 && currentRound > roundLimit {
-                self.endGame()
+        currentTurn = currentTurn == players.count ? currentTurn - 1 : currentTurn
+        while players[currentTurn].isFinished {
+            if currentTurn == players.count {
+                currentTurn = 0
+                currentRound += 1
+                
+                if roundLimit != -1 && currentRound > roundLimit {
+                    self.endGame()
+                }
             }
+            currentTurn += 1
+        }
+        players[currentTurn].canAcceptHit = true
+        gvc.playerBar.setCurrentPlayer(currentTurn)
+    }
+    
+    func playerFinished() {
+        players[currentTurn].isFinished = true
+        gvc.playerBar.setPlayerFinised(currentTurn)
+        gvc.showHitScore("YOU WIN!")
+
+        // Check if all the players are done.
+        let isAllDone = !(players.map {$0.isFinished}.filter {!$0}.count > 0)
+        if isAllDone {
+            endGame()
         }
     }
     
     func beginGame() {
-        
+        gvc.playerBar.setCurrentPlayer(currentTurn)
     }
     
     func endGame() {
+        gvc.returnToMainVC()
         print("Game has been finished")
     }
     

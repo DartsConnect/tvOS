@@ -12,6 +12,20 @@ class PlayerBarSection: UIView {
     var playerNameLabel:UILabel!
     var playerScoreLabel:UILabel!
     
+    func setFinishedGame() {
+        self.backgroundColor = UIColor.orangeColor()
+    }
+    
+    func setCurrentPlayer() {
+        print("Set Current Player")
+        self.backgroundColor = UIColor.blueColor()
+    }
+    
+    func setWaitingPlayer() {
+        print("Set Waiting Player")
+        self.backgroundColor = UIColor.greenColor()
+    }
+    
     init(playerName:String, score:UInt) {
         super.init(frame: CGRectZero)
         
@@ -49,6 +63,30 @@ class PlayerBarSection: UIView {
 class PlayersBar: UIView {
     var playersStack:UIStackView!
     var parentVC:UIViewController!
+    let playerCount = GlobalVariables.sharedVariables.currentGame!.players.count
+    let spacerAdj = GlobalVariables.sharedVariables.currentGame!.players.count <= 2 ? 1 : 0
+    
+    func adjustedIndexFrom(index:Int) -> Int {
+        return index + spacerAdj
+    }
+    
+    func setPlayerFinised(index:Int) {
+        (playersStack.arrangedSubviews[adjustedIndexFrom(index)] as! PlayerBarSection).setFinishedGame()
+    }
+    
+    func setCurrentPlayer(index:Int) {
+        (playersStack.arrangedSubviews[adjustedIndexFrom(index)] as! PlayerBarSection).setCurrentPlayer()
+        if playerCount > 1 {
+            let ppviAdj = playerCount <= 2 ? (index == 0 ? 1 : -1) : (index == 0 ? playerCount-1 : -1)
+            (playersStack.arrangedSubviews[adjustedIndexFrom(index) - ppviAdj] as! PlayerBarSection).setWaitingPlayer()
+        }
+    }
+    
+    func updatePlayerScore(index:Int, score:Int) {
+        let spacerAdj = GlobalVariables.sharedVariables.currentGame?.players.count <= 2 ? 1 : 0
+        let playerview = playersStack.arrangedSubviews[index + spacerAdj] as! PlayerBarSection
+        playerview.playerScoreLabel.text = "\(score)"
+    }
     
     // A bit of a hack so that when there are only one or two players, their scores on the bottom bar are centered rather than out on the edges
     func addSpacerView() {

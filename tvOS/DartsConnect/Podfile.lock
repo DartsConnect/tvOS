@@ -1,4 +1,5 @@
 PODS:
+  - Bond (4.3.1)
   - CocoaAsyncSocket (7.4.3):
     - CocoaAsyncSocket/All (= 7.4.3)
   - CocoaAsyncSocket/All (7.4.3):
@@ -9,13 +10,15 @@ PODS:
   - CocoaSecurity (1.2.4)
 
 DEPENDENCIES:
+  - Bond
   - CocoaAsyncSocket (~> 7.4.2)
   - CocoaSecurity (~> 1.2.4)
 
 SPEC CHECKSUMS:
+  Bond: 55903fc67f09e8e49791a657163cabba1d6fb29d
   CocoaAsyncSocket: a18c75dca4b08723628a0bacca6e94803d90be91
   CocoaSecurity: d288a6f87e0f363823d2cb83e753814a6944f71a
 
-PODFILE CHECKSUM: 7d95b845d57dae269061a54aff4496e740a31d3f
+PODFILE CHECKSUM: b1047e7064ce1c1939da9457c19a25eff34a9d38
 
 COCOAPODS: 1.0.0.beta.3

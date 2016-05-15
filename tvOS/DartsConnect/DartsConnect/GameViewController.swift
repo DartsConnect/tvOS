@@ -16,6 +16,12 @@ class GameViewController: UIViewController {
     var playerBar:PlayersBar!
     var scoresBar:ScoresSideBar!
     
+    func returnToMainVC() {
+        self.dismissViewControllerAnimated(true, completion: {
+            GlobalVariables.sharedVariables.menuvc!.menu.returnToRoot()
+        })
+    }
+    
     override func pressesBegan(presses: Set<UIPress>, withEvent event: UIPressesEvent?) {
         if(presses.first?.type == UIPressType.Menu) {
             // handle event
@@ -39,11 +45,12 @@ class GameViewController: UIViewController {
             
             alert.addAction(UIAlertAction(title: "Save & Quit Game", style: .Default, handler: {
                 (action:UIAlertAction) in
+                //self.dismissViewControllerAnimated(true, completion: {GlobalVariables.sharedVariables.menuvc?.menu.returnToRoot()})
             }))
             
             alert.addAction(UIAlertAction(title: "Quit Game without Saving", style: .Default, handler: {
                 (action:UIAlertAction) in
-                self.dismissViewControllerAnimated(true, completion: nil)
+                self.returnToMainVC()
             }))
             
             self.showViewController(alert, sender: self)
@@ -114,7 +121,7 @@ class GameViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        showHitScore(180)
+        showHitScore("Start")
     }
     
     override func viewDidLoad() {
@@ -124,6 +131,7 @@ class GameViewController: UIViewController {
         hitLabel.text = "180"
         hitLabel.font = UIFont.boldSystemFontOfSize(400)
         hitLabel.textColor = UIColor.whiteColor()
+        hitLabel.adjustsFontSizeToFitWidth = true
         hitLabel.textAlignment = .Center
         if isDebugging {hitLabel.backgroundColor = UIColor.clearColor()}
         hitLabel.layer.shadowOpacity = 0.75

@@ -35,37 +35,97 @@ class CountdownGame: Game, GameDelegate {
         return false;
     }
     
+    // Friday May 06 2016
+    enum ThrowStatus {
+        case Normal
+        case Open
+        case Close // Win
+        case Bust
+        case NotOpenCriteria
+        case NotCloseCriteria
+    }
+    
+    func getThrowStatus(hitValue: UInt, multiplier: UInt) -> ThrowStatus {
+        let tHitValue:Int = Int(hitValue * multiplier)
+        let cPlayerScore:Int = players[currentTurn].score
+        let nPlayerScore:Int = cPlayerScore - tHitValue
+        
+        // If it is a shot to open the count down and there is a condition to open the game.
+        if cPlayerScore == Int(gameStartScore) {
+            if doesMeetCriteria(openCriteria, hitValue: hitValue, multiplier: multiplier) {
+                return .Open
+            } else {
+                return .NotOpenCriteria
+            }
+        } else {
+            // If the user Busts
+            if nPlayerScore < 0 {
+                return .Bust
+            } else if nPlayerScore == 0 {
+                if doesMeetCriteria(closeCriteria, hitValue: hitValue, multiplier: multiplier) {
+                    // NOW the user finally wins
+                    return .Close
+                } else {
+                    // The player didn't hit the right spot to win according to the game conditions.
+                    return .NotCloseCriteria
+                }
+            }
+        }
+        
+        // So that if there is a close criteria and the player goes below the lowest possible value, it will bust him. Otherwise he/she won't be able to finsih the game.
+        if !closeCriteria.contains(.OnSingle) || !closeCriteria.contains(.Any) {
+            var canCloseArr:[Bool] = []
+            for criteria in closeCriteria {
+                var canClose:Bool = true
+                switch criteria {
+                case .OnDouble:
+                    if nPlayerScore < 2 {canClose = false}
+                    break
+                case .OnTriple:
+                    if nPlayerScore < 3 {canClose = false}
+                    break
+                case .OnBull:
+                    if nPlayerScore < 25 {canClose = false}
+                    break
+                case .OnDoubleBull:
+                    if nPlayerScore < 50 {canClose = false}
+                    break
+                default:
+                    break
+                }
+                canCloseArr.append(canClose)
+            }
+            return canCloseArr.contains(true) ? .Normal : .Bust
+        }
+        
+        return .Normal
+    }
+    
     // Friday April 01 2016
     func delegateDartDidHit(hitValue: UInt, multiplier: UInt) {
         let tHitValue:Int = Int(hitValue * multiplier)
-        var cPlayerScore:Int = players[currentTurn].score
+        let cPlayerScore:Int = players[currentTurn].score
         
-        // If it is a shot to open the count down and there is a condition to open the game.
-        if UInt(cPlayerScore) == gameStartScore {
-            if doesMeetCriteria(openCriteria, hitValue: hitValue, multiplier: multiplier) {
-                cPlayerScore -= tHitValue
-                players[currentTurn].score = cPlayerScore
-            }
-        } else {
-            players[currentTurn].score -= tHitValue
-            
-            // If the user Busts
-            if cPlayerScore < 0 {
-                cPlayerScore += tHitValue
-                players[currentTurn].score = cPlayerScore
-                players[currentTurn].forceEndTurn()
-                nextPlayer()
-            } else if cPlayerScore == 0 {
-                if doesMeetCriteria(closeCriteria, hitValue: hitValue, multiplier: multiplier) {
-                    // NOW the user finally wins
-                } else {
-                    // The player didn't hit the right spot to win according to the game conditions.
-                    cPlayerScore += tHitValue
-                    players[currentTurn].score = cPlayerScore
-                    players[currentTurn].forceEndTurn()
-                    nextPlayer()
-                }
-            }
+        switch getThrowStatus(hitValue, multiplier: multiplier) {
+        case .Normal, .Open:
+            players[currentTurn].score = cPlayerScore - tHitValue
+            break
+        case .Close:
+            players[currentTurn].score = 0
+            playerFinished()
+            break
+        case .Bust:
+            players[currentTurn].forceEndTurn(.Bust)
+            gvc.scoresBar.setButtonTitle(ScoresSideBar.ActionButtonTitle.Next)
+            break
+        case .NotOpenCriteria:
+            gvc.showHitScore(ForceEndTurnReason.OpenOn(criteria: openCriteria.first!).description)
+            gvc.scoresBar.tacOutLastHit()
+            break
+        case .NotCloseCriteria:
+            players[currentTurn].forceEndTurn(.CloseOn(criteria: closeCriteria.first!))
+            gvc.scoresBar.tacOutLastHit()
+            break
         }
     }
     

@@ -14,11 +14,17 @@ class Player: NSObject {
     var totalNumberOfThrows:UInt = 0
     var score:Int = 0 {
         didSet {
-//            GlobalVariables.sharedVariables.currentGame
+            let cg = GlobalVariables.sharedVariables.currentGame!
+            if let index = cg.players.indexOf(self) {
+                cg.gvc.playerBar.updatePlayerScore(index, score: score)
+            }
         }
     }
     var turnScores:[(UInt,UInt)] = []
     var gameScores:[[(UInt, UInt)]] = []
+    let game = GlobalVariables.sharedVariables.currentGame!
+    var isFinished:Bool = false
+    var canAcceptHit:Bool = true
     
     /*
      A stub.
@@ -52,11 +58,20 @@ class Player: NSObject {
     }
     
     func endTurn() {
+        
+        /*
+         This section of the function is overriden by its subclasses
+         Once super is called, the following will run
+        */
+        
         gameScores.append(turnScores)
         turnScores = []
+        print("Score \(score)")
     }
     
-    func forceEndTurn() {
+    func forceEndTurn(reason:ForceEndTurnReason) {
+        canAcceptHit = false
+        game.gvc.showHitScore(reason.description)
         self.endTurn()
     }
     
@@ -68,6 +83,5 @@ class Player: NSObject {
         } else {
             username = getUserForCardID(cardID)
         }
-        
     }
 }
