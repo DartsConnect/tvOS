@@ -75,14 +75,6 @@ class PlayersBar: UIView {
     }
     
     func setCurrentPlayer() {
-//        (playersStack.arrangedSubviews[adjustedIndexFrom(index)] as! PlayerBarSection).setCurrentPlayer()
-//        if playerCount > 1 {
-//            var ppviAdj:Int = index == 0 ? 1 : -1
-//            if playerCount > 2 {
-//                ppviAdj = index == 0 ? playerCount - 1 : -1
-//            }
-//            (playersStack.arrangedSubviews[adjustedIndexFrom(index) + ppviAdj] as! PlayerBarSection).setWaitingPlayer()
-//        }
         let game = GlobalVariables.sharedVariables.currentGame!
         (playersStack.arrangedSubviews[adjustedIndexFrom(game.previousTurn)] as! PlayerBarSection).setWaitingPlayer()
         (playersStack.arrangedSubviews[adjustedIndexFrom(game.currentTurn)] as! PlayerBarSection).setCurrentPlayer()
@@ -94,6 +86,12 @@ class PlayersBar: UIView {
         playerview.playerScoreLabel.text = "\(score)"
     }
     
+    func applySectionConstraintsTo(section:UIView) {
+        playersStack.addConstraint(NSLayoutConstraint(item: section, attribute: .Height, relatedBy: .Equal, toItem: playersStack, attribute: .Height, multiplier: 1, constant: -20))
+        playersStack.addConstraint(NSLayoutConstraint(item: section, attribute: .CenterY, relatedBy: .Equal, toItem: playersStack, attribute: .CenterY, multiplier: 1, constant: 0))
+        playersStack.addConstraint(NSLayoutConstraint(item: section, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 300))
+    }
+    
     // A bit of a hack so that when there are only one or two players, their scores on the bottom bar are centered rather than out on the edges
     func addSpacerView() {
         let spacer:UIView = UIView()
@@ -101,9 +99,7 @@ class PlayersBar: UIView {
         playersStack.addArrangedSubview(spacer)
         
         spacer.translatesAutoresizingMaskIntoConstraints = false
-        playersStack.addConstraint(NSLayoutConstraint(item: spacer, attribute: .Height, relatedBy: .Equal, toItem: playersStack, attribute: .Height, multiplier: 1, constant: -20))
-        playersStack.addConstraint(NSLayoutConstraint(item: spacer, attribute: .CenterY, relatedBy: .Equal, toItem: playersStack, attribute: .CenterY, multiplier: 1, constant: 0))
-        playersStack.addConstraint(NSLayoutConstraint(item: spacer, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 300))
+        applySectionConstraintsTo(spacer)
     }
     
     init(parent:UIViewController, players:[String], startScore: UInt) {
@@ -124,11 +120,8 @@ class PlayersBar: UIView {
         for playerName in players {//for i in 1...4 {
             let player:PlayerBarSection = PlayerBarSection(playerName: /*"Player \(i)"*/playerName, score: startScore)
             playersStack.addArrangedSubview(player)
-
             player.translatesAutoresizingMaskIntoConstraints = false
-            playersStack.addConstraint(NSLayoutConstraint(item: player, attribute: .Height, relatedBy: .Equal, toItem: playersStack, attribute: .Height, multiplier: 1, constant: -20))
-            playersStack.addConstraint(NSLayoutConstraint(item: player, attribute: .CenterY, relatedBy: .Equal, toItem: playersStack, attribute: .CenterY, multiplier: 1, constant: 0))
-            playersStack.addConstraint(NSLayoutConstraint(item: player, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 300))
+            applySectionConstraintsTo(player)
         }
         
         if players.count <= 2 { addSpacerView()}

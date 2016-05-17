@@ -10,6 +10,14 @@ import Foundation
 
 class DatabaseManager: NSObject {
     
+    enum UserRegistrationError:ErrorType {
+        case CardAlreadyRegistered
+    }
+    
+    func registerCard(cardID:String, email:String, username:String) throws {
+        
+    }
+    
     /*
      A stub.
      Will later be replaced with actual code to fetch the username of the user from the database based on the user's RFID card's UID.

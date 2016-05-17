@@ -51,12 +51,12 @@ class Game: NSObject, ConnectorDelegate {
     func dartDidHit(hitValue: UInt, multiplier: UInt) {
         if players[currentTurn].turnScores.count < 3 && players[currentTurn].canAcceptHit {
             gvc.showHitScore(hitValue * multiplier)
-            gvc.scoresBar.showScore(hitValue, multiplier: multiplier)
+            gvc.scoresBar?.showScore(hitValue, multiplier: multiplier)
             
             // The Player threw a dart
             if players[currentTurn].threwDart(hitValue, multiplier: multiplier) {
                 //            self.nextPlayer()
-                gvc.scoresBar.setButtonTitle(.Next)
+                gvc.scoresBar?.setButtonTitle(.Next)
             }
             
             currentGame!.delegateDartDidHit(hitValue, multiplier: multiplier)
@@ -82,8 +82,8 @@ class Game: NSObject, ConnectorDelegate {
         
         gvc.showHitScore("Next Player")
         
-        gvc.scoresBar.resetScoresSidebar()
-        gvc.scoresBar.setButtonTitle(.Skip)
+        gvc.scoresBar?.resetScoresSidebar()
+        gvc.scoresBar?.setButtonTitle(.Skip)
         
         players[currentTurn].endTurn()
         
@@ -105,6 +105,12 @@ class Game: NSObject, ConnectorDelegate {
         let isAllDone = !(players.map {$0.isFinished}.filter {!$0}.count > 0)
         if isAllDone {
             endGame()
+        }
+    }
+    
+    func createStandardPlayers(playerIDs:[String]) {
+        for playerID in playerIDs {
+            players.append(Player(_cardID: playerID))
         }
     }
     

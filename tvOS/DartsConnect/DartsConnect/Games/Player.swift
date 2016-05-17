@@ -12,20 +12,22 @@ class Player: NSObject {
     var cardID:String = ""
     var username:String = ""
     var totalNumberOfThrows:UInt = 0
-    var score:Int = 0 {
-        didSet {
-            let cg = GlobalVariables.sharedVariables.currentGame!
-            if let index = cg.players.indexOf(self) {
-                cg.gvc.playerBar.updatePlayerScore(index, score: score)
-            }
-        }
-    }
     var turnScores:[(UInt,UInt)] = []
     var gameScores:[[(UInt, UInt)]] = []
     let game = GlobalVariables.sharedVariables.currentGame!
     var isFinished:Bool = false
     var canAcceptHit:Bool = true
-    
+    var score:Int = 0 {
+        didSet {
+            let cg = game
+            if let index = cg.players.indexOf(self) {
+                if cg.gvc.playerBar != nil {
+                    cg.gvc.playerBar.updatePlayerScore(index, score: score)
+                }
+            }
+        }
+    }
+
     /**
      Called when a player throws a dart and the hit was registered on the board.
      Each player only ever get 3 throws (valid hits) per turn.
@@ -65,8 +67,9 @@ class Player: NSObject {
     init(_cardID:String) {
         super.init()
         cardID = _cardID;
-        if cardID == "Guest" {
-            username = "Guest"
+        if cardID.containsString("Guest") {
+            let numGuests = game.players.map {$0.username}.filter {$0.containsString("Guest")}.count
+            username = "Guest \(numGuests + 1)"
         } else {
             username = DatabaseManager().getUsernameForCardID(cardID)
         }

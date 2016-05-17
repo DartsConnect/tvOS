@@ -14,7 +14,8 @@ class GameViewController: UIViewController {
     var gameController:Game!
     let hitLabel:UILabel = UILabel()
     var playerBar:PlayersBar!
-    var scoresBar:ScoresSideBar!
+    var scoresBar:ScoresBar?
+    var cricketDisplay:CricketClosedDisplay?
     
     func returnToMainVC() {
         self.dismissViewControllerAnimated(true, completion: {
@@ -78,9 +79,41 @@ class GameViewController: UIViewController {
         })
     }
     
-    init(gameSettings:[String], players:[String]) {
-        super.init(nibName: nil, bundle: nil)
-                
+    func addScoresTopBar() {
+        scoresBar = ScoresTopBar(parent: self)
+        self.view.addSubview(scoresBar!)
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-\(200)-[scoresBar]-\(200)-|", options: .AlignAllLeading, metrics: nil, views: ["scoresBar":scoresBar!]))
+        self.view.addConstraint(NSLayoutConstraint(item: scoresBar!, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 135))
+        self.view.addConstraint(NSLayoutConstraint(item: scoresBar!, attribute: .Top, relatedBy: .Equal, toItem: self.view, attribute: .Top, multiplier: 1, constant: 0))
+    }
+    
+    func addScoresSideBar() {
+        scoresBar = ScoresSideBar(parent: self)
+        self.view.addSubview(scoresBar!)
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(100 + 50)-[scoresBar]-\(200 + 50)-|", options: .AlignAllLeading, metrics: nil, views: ["scoresBar":scoresBar!]))
+        self.view.addConstraint(NSLayoutConstraint(item: scoresBar!, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 300))
+        self.view.addConstraint(NSLayoutConstraint(item: scoresBar!, attribute: .Right, relatedBy: .Equal, toItem: self.view, attribute: .Right, multiplier: 1, constant: 0))
+    }
+    
+    func addCricketCloseDisplay(numPlayers: Int) {
+        cricketDisplay = CricketClosedDisplay(numPlayers: numPlayers)
+        self.view.addSubview(cricketDisplay!)
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-150-[cricketDisplay]-150-|", options: .AlignAllCenterX, metrics: nil, views: ["cricketDisplay":cricketDisplay!]))
+        self.view.addConstraint(NSLayoutConstraint(item: cricketDisplay!, attribute: .Bottom, relatedBy: .Equal, toItem: playerBar, attribute: .Top, multiplier: 1, constant: 0))
+//        self.view.addConstraint(NSLayoutConstraint(item: cricketDisplay!, attribute: .Top, relatedBy: .Equal, toItem: self.view, attribute: .Top, multiplier: 1, constant: 135))
+        self.view.addConstraint(NSLayoutConstraint(item: cricketDisplay!, attribute: .Top, relatedBy: .Equal, toItem: scoresBar!, attribute: .Bottom, multiplier: 1, constant: 0))
+    }
+    
+    func addPlayersBar() {
+        playerBar = PlayersBar(parent: self, players: gameController.playerNames(), startScore: gameType == .CountDown ? (gameController as! CountdownGame).gameStartScore : 0)
+        playerBar.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(playerBar)
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-100-[playerBar]-100-|", options: .AlignAllCenterX, metrics: nil, views: ["playerBar":playerBar]))
+        self.view.addConstraint(NSLayoutConstraint(item: playerBar, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 200))
+        self.view.addConstraint(NSLayoutConstraint(item: playerBar, attribute: .Bottom, relatedBy: .Equal, toItem: self.view, attribute: .Bottom, multiplier: 1, constant: 0))
+    }
+    
+    func initiateGameController(gameSettings:[String], players:[String]) {
         gameType = GameType(rawValue: gameSettings[0])!
         
         switch gameType! {
@@ -92,28 +125,26 @@ class GameViewController: UIViewController {
                                            closeC: [GameEndsCriteria(rawValue: gameSettings[3])!])
             break
         case .Cricket:
+            let isCutThroat = gameSettings[1] == "Cut-Throat"
+            gameController = CricketGame(gameViewController: self, cutThroat: isCutThroat, playerIDs: players)
             break
         case .Free:
+            gameController = FreeGame(gameViewController: self, playerIDs: players, numRounds: Int(gameSettings[1])!)
             break
         case .TwentyToOne:
             break
         case .World:
+            gameController = WorldGame(gvc: self, playerIDs: players)
             break
         }
+    }
+    
+    init(gameSettings:[String], players:[String]) {
+        super.init(nibName: nil, bundle: nil)
         
-        playerBar = PlayersBar(parent: self, players: gameController.playerNames(), startScore: gameType == .CountDown ? (gameController as! CountdownGame).gameStartScore : 0)
-        playerBar.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(playerBar)
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-100-[playerBar]-100-|", options: .AlignAllCenterX, metrics: nil, views: ["playerBar":playerBar]))
-        self.view.addConstraint(NSLayoutConstraint(item: playerBar, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 200))
-        self.view.addConstraint(NSLayoutConstraint(item: playerBar, attribute: .Bottom, relatedBy: .Equal, toItem: self.view, attribute: .Bottom, multiplier: 1, constant: 0))
+        initiateGameController(gameSettings, players: players)
         
-        scoresBar = ScoresSideBar(parent: self)
-        scoresBar.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(scoresBar)
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(100 + 50)-[scoresBar]-\(200 + 50)-|", options: .AlignAllLeading, metrics: nil, views: ["scoresBar":scoresBar]))
-        self.view.addConstraint(NSLayoutConstraint(item: scoresBar, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 300))
-        self.view.addConstraint(NSLayoutConstraint(item: scoresBar, attribute: .Right, relatedBy: .Equal, toItem: self.view, attribute: .Right, multiplier: 1, constant: 0))
+        addPlayersBar()
         
         gameController.beginGame()
     }

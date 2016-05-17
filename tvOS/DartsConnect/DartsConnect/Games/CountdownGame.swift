@@ -113,25 +113,25 @@ class CountdownGame: Game, GameDelegate {
         case .Close:
             players[currentTurn].score = 0
             playerFinished()
-            gvc.scoresBar.setButtonTitle(ScoresSideBar.ActionButtonTitle.Next)
+            gvc.scoresBar!.setButtonTitle(ScoresSideBar.ActionButtonTitle.Next)
             break
         case .Bust:
             // When the player busts, the turn's throws don't count, so add them back
             let turnSum:Int = Int(players[currentTurn].getTurnSum())
             players[currentTurn].score = players[currentTurn].score + turnSum - tHitValue
             
-            gvc.scoresBar.tacOutLastHit()
+            gvc.scoresBar!.tacOutLastHit()
             
             players[currentTurn].forceEndTurn(.Bust)
-            gvc.scoresBar.setButtonTitle(ScoresSideBar.ActionButtonTitle.Next)
+            gvc.scoresBar!.setButtonTitle(ScoresSideBar.ActionButtonTitle.Next)
             break
         case .NotOpenCriteria:
             gvc.showHitScore(ForceEndTurnReason.OpenOn(criteria: openCriteria.first!).description)
-            gvc.scoresBar.tacOutLastHit()
+            gvc.scoresBar!.tacOutLastHit()
             break
         case .NotCloseCriteria:
             players[currentTurn].forceEndTurn(.CloseOn(criteria: closeCriteria.first!))
-            gvc.scoresBar.tacOutLastHit()
+            gvc.scoresBar!.tacOutLastHit()
             break
         }
     }
@@ -147,9 +147,13 @@ class CountdownGame: Game, GameDelegate {
         
         currentGame = self
         
-        for playerID in playerIDs {
-            players.append(CountdownPlayer(startScore: startScore, cardID: playerID))
+        createStandardPlayers(playerIDs)
+        
+        for player in players {
+            player.score = Int(startScore)
         }
+        
+        gvc.addScoresSideBar()
     }
     
 }

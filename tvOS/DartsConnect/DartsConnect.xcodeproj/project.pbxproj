@@ -9,14 +9,19 @@
 /* Begin PBXBuildFile section */
 		6E1CB68188EEF9972B2E152C /* Pods_DartsConnectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99142D2D251279477E4CF819 /* Pods_DartsConnectUITests.framework */; };
 		762471BF4062A2142758BEE1 /* Pods_DartsConnectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9F05D2A1C1B59106AFE368 /* Pods_DartsConnectTests.framework */; };
+		AA22638B1CEB42A90054766D /* ScoresBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA22638A1CEB42A90054766D /* ScoresBar.swift */; };
+		AA22638D1CEB42B80054766D /* ScoresTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA22638C1CEB42B80054766D /* ScoresTopBar.swift */; };
 		AA2A3F4D1CACA696001DC9E5 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A3F4C1CACA696001DC9E5 /* Game.swift */; };
 		AA2A3F531CACA8A5001DC9E5 /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A3F521CACA8A5001DC9E5 /* Connector.swift */; };
 		AA2A3F581CACAE90001DC9E5 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A3F571CACAE90001DC9E5 /* Player.swift */; };
-		AA2A3F5C1CACAED2001DC9E5 /* CountdownPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A3F5B1CACAED2001DC9E5 /* CountdownPlayer.swift */; };
-		AA2A3F5E1CACAED8001DC9E5 /* CountdownGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A3F5D1CACAED8001DC9E5 /* CountdownGame.swift */; };
 		AA2A3F601CACAEE3001DC9E5 /* CricketPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A3F5F1CACAEE3001DC9E5 /* CricketPlayer.swift */; };
 		AA2A3F621CACAEEA001DC9E5 /* CricketGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A3F611CACAEEA001DC9E5 /* CricketGame.swift */; };
 		AA4A875E1CE8501D003C0371 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4A875D1CE8501D003C0371 /* DatabaseManager.swift */; };
+		AA4A87741CE98CBC003C0371 /* FreeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4A87721CE98CBC003C0371 /* FreeGame.swift */; };
+		AA4A87751CE98CBC003C0371 /* WorldGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4A87731CE98CBC003C0371 /* WorldGame.swift */; };
+		AA4A87771CE98CC2003C0371 /* CountdownGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4A87761CE98CC2003C0371 /* CountdownGame.swift */; };
+		AA4A87791CEA8D3D003C0371 /* RegisterCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4A87781CEA8D3D003C0371 /* RegisterCardViewController.swift */; };
+		AA4A877B1CEAEAE7003C0371 /* CricketClosedDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4A877A1CEAEAE6003C0371 /* CricketClosedDisplay.swift */; };
 		AA7054A31C6F0B2800D9152A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7054A21C6F0B2800D9152A /* AppDelegate.swift */; };
 		AA7054A51C6F0B2800D9152A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7054A41C6F0B2800D9152A /* ViewController.swift */; };
 		AA7054A81C6F0B2800D9152A /* DartsConnect.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AA7054A61C6F0B2800D9152A /* DartsConnect.xcdatamodeld */; };
@@ -60,14 +65,19 @@
 		5E02A38DA2035CEB084274A4 /* Pods-DartsConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DartsConnect.release.xcconfig"; path = "Pods/Target Support Files/Pods-DartsConnect/Pods-DartsConnect.release.xcconfig"; sourceTree = "<group>"; };
 		7C6597EAE9D9EB88C3CC3A6E /* Pods_DartsConnect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DartsConnect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99142D2D251279477E4CF819 /* Pods_DartsConnectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DartsConnectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA22638A1CEB42A90054766D /* ScoresBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoresBar.swift; sourceTree = "<group>"; };
+		AA22638C1CEB42B80054766D /* ScoresTopBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoresTopBar.swift; sourceTree = "<group>"; };
 		AA2A3F4C1CACA696001DC9E5 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		AA2A3F521CACA8A5001DC9E5 /* Connector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
 		AA2A3F571CACAE90001DC9E5 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		AA2A3F5B1CACAED2001DC9E5 /* CountdownPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownPlayer.swift; sourceTree = "<group>"; };
-		AA2A3F5D1CACAED8001DC9E5 /* CountdownGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownGame.swift; sourceTree = "<group>"; };
 		AA2A3F5F1CACAEE3001DC9E5 /* CricketPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CricketPlayer.swift; sourceTree = "<group>"; };
 		AA2A3F611CACAEEA001DC9E5 /* CricketGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CricketGame.swift; sourceTree = "<group>"; };
 		AA4A875D1CE8501D003C0371 /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		AA4A87721CE98CBC003C0371 /* FreeGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreeGame.swift; sourceTree = "<group>"; };
+		AA4A87731CE98CBC003C0371 /* WorldGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldGame.swift; sourceTree = "<group>"; };
+		AA4A87761CE98CC2003C0371 /* CountdownGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownGame.swift; sourceTree = "<group>"; };
+		AA4A87781CEA8D3D003C0371 /* RegisterCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterCardViewController.swift; sourceTree = "<group>"; };
+		AA4A877A1CEAEAE6003C0371 /* CricketClosedDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CricketClosedDisplay.swift; sourceTree = "<group>"; };
 		AA70549F1C6F0B2800D9152A /* DartsConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DartsConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA7054A21C6F0B2800D9152A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA7054A41C6F0B2800D9152A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -137,24 +147,37 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AA22638E1CEB42CF0054766D /* Major UI Elements */ = {
+			isa = PBXGroup;
+			children = (
+				AA22638F1CEB42E00054766D /* ScoresBar */,
+				AAC134741CB3835D003740AA /* PlayersBar.swift */,
+				AA4A877A1CEAEAE6003C0371 /* CricketClosedDisplay.swift */,
+			);
+			name = "Major UI Elements";
+			sourceTree = "<group>";
+		};
+		AA22638F1CEB42E00054766D /* ScoresBar */ = {
+			isa = PBXGroup;
+			children = (
+				AA22638A1CEB42A90054766D /* ScoresBar.swift */,
+				AAC134761CB38396003740AA /* ScoresSideBar.swift */,
+				AA22638C1CEB42B80054766D /* ScoresTopBar.swift */,
+			);
+			name = ScoresBar;
+			sourceTree = "<group>";
+		};
 		AA2A3F491CACA67D001DC9E5 /* Games */ = {
 			isa = PBXGroup;
 			children = (
-				AA2A3F4A1CACA67D001DC9E5 /* Countdown */,
+				AA4A87761CE98CC2003C0371 /* CountdownGame.swift */,
+				AA4A87721CE98CBC003C0371 /* FreeGame.swift */,
+				AA4A87731CE98CBC003C0371 /* WorldGame.swift */,
 				AA2A3F4B1CACA67D001DC9E5 /* Cricket */,
 				AA2A3F4C1CACA696001DC9E5 /* Game.swift */,
 				AA2A3F571CACAE90001DC9E5 /* Player.swift */,
 			);
 			path = Games;
-			sourceTree = "<group>";
-		};
-		AA2A3F4A1CACA67D001DC9E5 /* Countdown */ = {
-			isa = PBXGroup;
-			children = (
-				AA2A3F5B1CACAED2001DC9E5 /* CountdownPlayer.swift */,
-				AA2A3F5D1CACAED8001DC9E5 /* CountdownGame.swift */,
-			);
-			path = Countdown;
 			sourceTree = "<group>";
 		};
 		AA2A3F4B1CACA67D001DC9E5 /* Cricket */ = {
@@ -244,8 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				AAC134721CB38263003740AA /* GameViewController.swift */,
-				AAC134741CB3835D003740AA /* PlayersBar.swift */,
-				AAC134761CB38396003740AA /* ScoresSideBar.swift */,
+				AA22638E1CEB42CF0054766D /* Major UI Elements */,
 			);
 			name = GameViewController;
 			sourceTree = "<group>";
@@ -255,6 +277,7 @@
 			children = (
 				AA7054A41C6F0B2800D9152A /* ViewController.swift */,
 				AA7054D01C6F166000D9152A /* SideMenuView.swift */,
+				AA4A87781CEA8D3D003C0371 /* RegisterCardViewController.swift */,
 			);
 			name = MainViewController;
 			sourceTree = "<group>";
@@ -534,25 +557,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA2A3F5E1CACAED8001DC9E5 /* CountdownGame.swift in Sources */,
 				AA7054A81C6F0B2800D9152A /* DartsConnect.xcdatamodeld in Sources */,
 				AA73A3501CD3390F00760A8E /* GlobalVariables.swift in Sources */,
 				AA2A3F4D1CACA696001DC9E5 /* Game.swift in Sources */,
 				AA7054A51C6F0B2800D9152A /* ViewController.swift in Sources */,
 				AAC134731CB38263003740AA /* GameViewController.swift in Sources */,
 				AA2A3F531CACA8A5001DC9E5 /* Connector.swift in Sources */,
+				AA4A87791CEA8D3D003C0371 /* RegisterCardViewController.swift in Sources */,
 				AA2A3F581CACAE90001DC9E5 /* Player.swift in Sources */,
 				AA2A3F601CACAEE3001DC9E5 /* CricketPlayer.swift in Sources */,
 				AA7054D11C6F166000D9152A /* SideMenuView.swift in Sources */,
+				AA4A87771CE98CC2003C0371 /* CountdownGame.swift in Sources */,
 				AA740B721CC48E0F0070F776 /* BonjourManager.swift in Sources */,
-				AA2A3F5C1CACAED2001DC9E5 /* CountdownPlayer.swift in Sources */,
 				AA4A875E1CE8501D003C0371 /* DatabaseManager.swift in Sources */,
 				AA740B791CC4C0210070F776 /* BonjourResolverService.m in Sources */,
+				AA4A87751CE98CBC003C0371 /* WorldGame.swift in Sources */,
+				AA4A877B1CEAEAE7003C0371 /* CricketClosedDisplay.swift in Sources */,
 				AAC134751CB3835D003740AA /* PlayersBar.swift in Sources */,
 				AA7054A31C6F0B2800D9152A /* AppDelegate.swift in Sources */,
+				AA4A87741CE98CBC003C0371 /* FreeGame.swift in Sources */,
 				AA740B781CC4C0210070F776 /* BonjourBrowserService.m in Sources */,
 				AA2A3F621CACAEEA001DC9E5 /* CricketGame.swift in Sources */,
 				AAC134711CB205FF003740AA /* Constants.swift in Sources */,
+				AA22638D1CEB42B80054766D /* ScoresTopBar.swift in Sources */,
+				AA22638B1CEB42A90054766D /* ScoresBar.swift in Sources */,
 				AAC134771CB38396003740AA /* ScoresSideBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

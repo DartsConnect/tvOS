@@ -14,24 +14,36 @@ class CricketGame: Game, GameDelegate {
     private var closedNumbers:[Int] =  []
     private var isCutThroat:Bool = false
     
-    // Friday April 01 2016
-    private func cutThroatDartHit(hitValue:UInt, multiplier:UInt) {
-        
+    func updateCloseCountFor(player:CricketPlayer, number:UInt, count:UInt) {
+        let index = players.indexOf(player)!
+        gvc.cricketDisplay!.updateCloseStageFor(index, closeNumber: Int(number), toStage: Int(count))
     }
     
-    // Friday April 01 2016
-    private func normalDartHit(hitValue:UInt, multiplier:UInt) {
-        (players[currentTurn] as! CricketPlayer).didHitNumber(hitValue, multiplier: multiplier)
+    func cutThroatRegisterScore(playerThatDealtIt:CricketPlayer, hitValue:UInt, multiplier:UInt) {
+        for player in players where player != playerThatDealtIt {
+            (player as! CricketPlayer).getCut(hitValue, multiplier: multiplier)
+        }
     }
     
     // Friday April 01 2016
     func delegateDartDidHit(hitValue: UInt, multiplier: UInt) {
         if validHits.contains(hitValue) {
-            if isCutThroat {
-                cutThroatDartHit(hitValue, multiplier: multiplier)
-            } else {
-                normalDartHit(hitValue, multiplier: multiplier)
-            }
+            (players[currentTurn] as! CricketPlayer).didHitNumber(hitValue, multiplier: multiplier)
+        }
+    }
+    
+    override func beginGame() {
+        gvc.addScoresTopBar()
+        gvc.addCricketCloseDisplay(players.count)
+        super.beginGame()
+    }
+    
+    init(gameViewController: GameViewController, cutThroat:Bool, playerIDs:[String]) {
+        super.init(gameViewController: gameViewController)
+        currentGame = self
+        isCutThroat = cutThroat
+        for playerID in playerIDs {
+            players.append(CricketPlayer(_isCutThroat: isCutThroat, _cardID: playerID))
         }
     }
 }

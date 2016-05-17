@@ -31,7 +31,7 @@ class SideMenuView: UIView, BonjourManagerDelegate, ConnectorDelegate {
             "1:Add Players":["Player 1", "Player 2", "Player 3", "Player 4", "Begin Game"]
         ],
         "2:\(GameType.Free.rawValue)":[
-            "0:Type":["Cricket", "Cut-Throat"],
+            "0:Rounds":["5", "10 ", "15"],
             "1:Add Players":["Player 1", "Player 2", "Player 3", "Player 4", "Begin Game"]
         ],
         "3:\(GameType.TwentyToOne.rawValue)":[
@@ -39,11 +39,10 @@ class SideMenuView: UIView, BonjourManagerDelegate, ConnectorDelegate {
             "1:Add Players":["Player 1", "Player 2", "Player 3", "Player 4", "Begin Game"]
         ],
         "4:\(GameType.World.rawValue)":[
-            "0:Type":["Cricket", "Cut-Throat"],
-            "1:Add Players":["Player 1", "Player 2", "Player 3", "Player 4", "Begin Game"]
+            "0:Add Players":["Player 1", "Player 2", "Player 3", "Player 4", "Begin Game"]
         ],
         "5:More":[
-            "0:More":["Connect Board"],
+            "0:More":["Connect Board", "Register Card"],
         ]
         
     ]
@@ -69,14 +68,24 @@ class SideMenuView: UIView, BonjourManagerDelegate, ConnectorDelegate {
             if !players.contains(cardID) {
                 let alert = UIAlertController(title: "No Free Spots", message: "Select a player to swap out for \(name)", preferredStyle: .ActionSheet)
                 var usersDict:[String:String] = [:]
+                var guestsBindings:[String:String] = [:]
                 for player in players {
-                    let title = player == "Guest" ? player : DatabaseManager().getUsernameForCardID(player)
+                    var title = player.containsString("Guest") ? player : DatabaseManager().getUsernameForCardID(player)
                     
                     usersDict[title] = player
                     
+                    if player.containsString("Guest") {
+                        title = "Guest \(guestsBindings.count + 1)"
+                        guestsBindings[title] = player
+                    }
+                    
                     let action = UIAlertAction(title: title, style: .Default, handler: {
                         (action:UIAlertAction) in
-                        let id = usersDict[action.title!]!
+                        var title = action.title!
+                        if title.containsString("Guest") {
+                            title = guestsBindings[title]!
+                        }
+                        let id = usersDict[title]!
                         let index = self.players.indexOf(id)!
                         self.players[index] = cardID
                         (self.vStack.arrangedSubviews[index] as! UIButton).setTitle(name, forState: .Normal)
@@ -105,7 +114,11 @@ class SideMenuView: UIView, BonjourManagerDelegate, ConnectorDelegate {
         buttonsToCreate.append("Back")
         
         if breadcrumbs.count <= 1 && sender.currentTitle! != "Back" {
-            header.text = sender.currentTitle!
+            if sub[breadcrumbs.count - 1] != "0:Type" {
+                header.text = sub[breadcrumbs.count - 1].componentsSeparatedByString(":")[1]
+            } else {
+                header.text = sender.currentTitle!
+            }
         } else {
             header.text = (breadcrumbs.count == 1 ? breadcrumbs[0]:sub[breadcrumbs.count - 1]).componentsSeparatedByString(":")[1]
         }
@@ -117,27 +130,22 @@ class SideMenuView: UIView, BonjourManagerDelegate, ConnectorDelegate {
     // Wednesday April 06 2016
     private func showAddPlayerAlert(sender:UIButton) {
         let alert = UIAlertController(title: "Player \(sender.tag + 1)", message: "Select Guest to play anonymously or Cancel and scan a card to play with your account.", preferredStyle: .ActionSheet)
-        /*
-        alert.addAction(UIAlertAction(title: "Scan Card", style: .Default, handler: {
-            (action:UIAlertAction) in
-            let playerIndex:Int = Int(alert.title!.componentsSeparatedByString(" ")[1])!
-            // Wait for Card to be scanned
-            
-            
-            
-            self.players[playerIndex - 1] = "00000000"
-        }))
-        */
+        
         alert.addAction(UIAlertAction(title: "Guest", style: .Default, handler: {
             (action:UIAlertAction) in
             let playerIndex:Int = Int(alert.title!.componentsSeparatedByString(" ")[1])!
-            self.players[playerIndex - 1] = "Guest"
+            self.players[playerIndex - 1] = "Guest \(sender.tag + 1)"
             sender.setTitle("Guest", forState: .Normal)
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+        
+        alert.addAction(UIAlertAction(title: "Remove Player", style: .Default, handler: {
             (action:UIAlertAction) in
-            
+            let playerIndex:Int = Int(alert.title!.componentsSeparatedByString(" ")[1])!
+            self.players[playerIndex - 1] = "nil"
+            sender.setTitle("Player \(playerIndex)", forState: .Normal)
         }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
         parentVC.showViewController(alert, sender: nil)
     }
     
@@ -158,8 +166,50 @@ class SideMenuView: UIView, BonjourManagerDelegate, ConnectorDelegate {
         return false
     }
     
+    
+    func showNotEnoughPlayersAlert(requiredPlayers:Int, gameTitle:String) {
+        let currentNumPlayers = removeNilPlayers(players).count
+        let title = currentNumPlayers == 0 ? "No Players" : "Not enough players."
+        let actionPrompt = requiredPlayers == 1 ? "Select 'Play as Guest' to continue" : "Select 'Fill with Guest(s)' to fill the remaining required slots with guest players"
+        let message = "\(gameTitle) requires \(requiredPlayers) player\(requiredPlayers > 1 ? "s":""). \(actionPrompt), or 'Back' to add other players."
+        let actionTitle = requiredPlayers == 1 ? "Play as Guest" : "Fill with Guest(s)"
+        
+        let alert:UIAlertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: actionTitle, style: .Default, handler: {
+            (action:UIAlertAction) in
+            if requiredPlayers == 1 {
+                self.players[0] = "Guest"
+            } else {
+                for _ in currentNumPlayers..<requiredPlayers {
+                    /*
+                     If you're looking over this thinking, why did he use a nested loop and break out immediatly?
+                     This simply finds the first nil player and replaces it for me
+                     It's a bit hard to explain, but I though ths one through.
+                    */
+                    for i in 0..<self.players.count where self.players[i] == "nil" {
+                        self.players[i] = "Guest"
+                        break
+                    }
+                }
+            }
+            self.animateButtonsOut()
+            self.parentVC.presentViewController(GameViewController(gameSettings: self.stripOrderNumbers(self.breadcrumbs), players: self.removeNilPlayers(self.players)), animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Back", style: .Default, handler: nil))
+        parentVC.showViewController(alert, sender: self)
+    }
+    
     // Friday April 29 2016
     func handleBeginGame() {
+        if stripOrderNumbers(breadcrumbs)[0] == GameType.Cricket.rawValue {
+            if stripOrderNumbers(breadcrumbs)[1] == "Cut-Throat" {
+                if self.removeNilPlayers(players).count < 2 {
+                    showNotEnoughPlayersAlert(2, gameTitle: "Cut-Throat Cricket")
+                    return
+                }
+            }
+        }
+        
         if atLeastOnePlayer() {
             animateButtonsOut()
             parentVC.presentViewController(GameViewController(
@@ -168,24 +218,8 @@ class SideMenuView: UIView, BonjourManagerDelegate, ConnectorDelegate {
                                            animated: true,
                                            completion: nil)
         } else {
-            let alert:UIAlertController = UIAlertController(title: "No Players", message: nil, preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "Play as Guest", style: .Default, handler: {
-                (action:UIAlertAction) in
-                self.players[0] = "Guest"
-                self.animateButtonsOut()
-                self.parentVC.presentViewController(GameViewController(gameSettings: self.stripOrderNumbers(self.breadcrumbs), players: self.removeNilPlayers(self.players)), animated: true, completion: nil)
-            }))
-            alert.addAction(UIAlertAction(title: "Back", style: .Default, handler: {
-                (action:UIAlertAction) in
-                
-            }))
-            parentVC.showViewController(alert, sender: self)
+            showNotEnoughPlayersAlert(1, gameTitle: breadcrumbs.first!.componentsSeparatedByString(":")[1])
         }
-    }
-    
-    // Friday April 29 2016
-    func bmFoundServices(serviceNames: [String]) {
-        
     }
     
     // Friday April 29 2016
@@ -258,6 +292,11 @@ class SideMenuView: UIView, BonjourManagerDelegate, ConnectorDelegate {
         }
     }
     
+    // Tuesday May 17 2016
+    func handleRegisterCard() {
+        
+    }
+    
     func buttonSelected(sender:UIButton) {
         switch sender.currentTitle! {
         case "Begin Game":
@@ -266,10 +305,22 @@ class SideMenuView: UIView, BonjourManagerDelegate, ConnectorDelegate {
         case "Connect Board":
             handleConnectDartBoard()
             break
+        case "Register Card":
+            parentVC.presentViewController(RegisterCardViewController(), animated: true, completion: nil)
+            break
         default:
             handleStdNavigation(sender)
         }
     }
+    
+    
+    
+    // Friday April 29 2016
+    func bmFoundServices(serviceNames: [String]) {
+        
+    }
+    
+    
     
     private func animateButtonsIn() {
         for button in vStack.subviews {
