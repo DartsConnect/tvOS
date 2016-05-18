@@ -148,7 +148,7 @@ class ScoresBar: UIView {
         
         if isDebugging {self.backgroundColor = UIColor.redColor()}
         
-        header.text = "Player 1"
+        header.text = parent.gameType.rawValue
         header.font = UIFont.boldSystemFontOfSize(50)
         header.adjustsFontSizeToFitWidth = true
         header.translatesAutoresizingMaskIntoConstraints = false

@@ -14,6 +14,10 @@ class CricketGame: Game, GameDelegate {
     private var closedNumbers:[Int] =  []
     private var isCutThroat:Bool = false
     
+    func hasEveryPlayerClosed(number:UInt) -> Bool {
+        return (players as! [CricketPlayer]).filter {$0.closedNumbers.contains(number)}.count == 0
+    }
+    
     func updateCloseCountFor(player:CricketPlayer, number:UInt, count:UInt) {
         let index = players.indexOf(player)!
         gvc.cricketDisplay!.updateCloseStageFor(index, closeNumber: Int(number), toStage: Int(count))

@@ -30,9 +30,11 @@ class CricketPlayer: Player {
     // Friday April 01 2016
     private func registerScore(hitValue:UInt, multiplier:UInt) {
         if isCutThroat {
-            (GlobalVariables.sharedVariables.currentGame as! CricketGame).cutThroatRegisterScore(self, hitValue: hitValue, multiplier: multiplier)
+            (game as! CricketGame).cutThroatRegisterScore(self, hitValue: hitValue, multiplier: multiplier)
         } else {
-            score += Int(hitValue * multiplier)
+            if !(game as! CricketGame).hasEveryPlayerClosed(hitValue) {
+                score += Int(hitValue * multiplier)
+            }
         }
     }
     
