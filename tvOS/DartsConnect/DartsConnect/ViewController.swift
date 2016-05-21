@@ -12,6 +12,11 @@ class ViewController: UIViewController {
     
     var menu:SideMenuView!
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        menu.returnToRoot()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

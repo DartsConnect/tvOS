@@ -71,7 +71,10 @@ class Player: NSObject {
             let numGuests = game.players.map {$0.username}.filter {$0.containsString("Guest")}.count
             username = "Guest \(numGuests + 1)"
         } else {
-            username = DatabaseManager().getUsernameForCardID(cardID)
+            GlobalVariables.sharedVariables.dbManager.getUsernameForCardID(cardID) {
+                name in
+                self.username = name
+            }
         }
     }
 }

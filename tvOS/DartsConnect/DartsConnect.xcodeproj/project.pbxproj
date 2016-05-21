@@ -11,6 +11,12 @@
 		762471BF4062A2142758BEE1 /* Pods_DartsConnectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9F05D2A1C1B59106AFE368 /* Pods_DartsConnectTests.framework */; };
 		AA22638B1CEB42A90054766D /* ScoresBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA22638A1CEB42A90054766D /* ScoresBar.swift */; };
 		AA22638D1CEB42B80054766D /* ScoresTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA22638C1CEB42B80054766D /* ScoresTopBar.swift */; };
+		AA2263911CEC33200054766D /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AA2263901CEC33200054766D /* libicucore.tbd */; };
+		AA2263931CEC33300054766D /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AA2263921CEC33300054766D /* libc++.tbd */; };
+		AA2263951CEC333C0054766D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA2263941CEC333C0054766D /* CFNetwork.framework */; };
+		AA2263971CEC33430054766D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA2263961CEC33430054766D /* Security.framework */; };
+		AA2263991CEC334F0054766D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA2263981CEC334F0054766D /* SystemConfiguration.framework */; };
+		AA22639B1CEC33B60054766D /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA22639A1CEC33B60054766D /* Firebase.framework */; };
 		AA2A3F4D1CACA696001DC9E5 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A3F4C1CACA696001DC9E5 /* Game.swift */; };
 		AA2A3F531CACA8A5001DC9E5 /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A3F521CACA8A5001DC9E5 /* Connector.swift */; };
 		AA2A3F581CACAE90001DC9E5 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A3F571CACAE90001DC9E5 /* Player.swift */; };
@@ -38,6 +44,7 @@
 		AAC134731CB38263003740AA /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC134721CB38263003740AA /* GameViewController.swift */; };
 		AAC134751CB3835D003740AA /* PlayersBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC134741CB3835D003740AA /* PlayersBar.swift */; };
 		AAC134771CB38396003740AA /* ScoresSideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC134761CB38396003740AA /* ScoresSideBar.swift */; };
+		AACCB0A61CEEE2F8008D0B11 /* GameSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACCB0A51CEEE2F8008D0B11 /* GameSummaryViewController.swift */; };
 		E36704FBD90375AE3B7627AC /* Pods_DartsConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6597EAE9D9EB88C3CC3A6E /* Pods_DartsConnect.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +74,12 @@
 		99142D2D251279477E4CF819 /* Pods_DartsConnectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DartsConnectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA22638A1CEB42A90054766D /* ScoresBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoresBar.swift; sourceTree = "<group>"; };
 		AA22638C1CEB42B80054766D /* ScoresTopBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoresTopBar.swift; sourceTree = "<group>"; };
+		AA2263901CEC33200054766D /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		AA2263921CEC33300054766D /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		AA2263941CEC333C0054766D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		AA2263961CEC33430054766D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		AA2263981CEC334F0054766D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		AA22639A1CEC33B60054766D /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = Resources/Frameworks/Firebase.framework; sourceTree = "<group>"; };
 		AA2A3F4C1CACA696001DC9E5 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		AA2A3F521CACA8A5001DC9E5 /* Connector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
 		AA2A3F571CACAE90001DC9E5 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
@@ -104,6 +117,7 @@
 		AAC134721CB38263003740AA /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		AAC134741CB3835D003740AA /* PlayersBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayersBar.swift; sourceTree = "<group>"; };
 		AAC134761CB38396003740AA /* ScoresSideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoresSideBar.swift; sourceTree = "<group>"; };
+		AACCB0A51CEEE2F8008D0B11 /* GameSummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSummaryViewController.swift; sourceTree = "<group>"; };
 		AF1BBBFB547AF456D3F13E8A /* Pods-DartsConnectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DartsConnectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DartsConnectUITests/Pods-DartsConnectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CB2746C3DD11629BDB4D2111 /* Pods-DartsConnectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DartsConnectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DartsConnectTests/Pods-DartsConnectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FB9F05D2A1C1B59106AFE368 /* Pods_DartsConnectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DartsConnectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +128,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA2263991CEC334F0054766D /* SystemConfiguration.framework in Frameworks */,
+				AA2263971CEC33430054766D /* Security.framework in Frameworks */,
+				AA2263951CEC333C0054766D /* CFNetwork.framework in Frameworks */,
+				AA22639B1CEC33B60054766D /* Firebase.framework in Frameworks */,
+				AA2263931CEC33300054766D /* libc++.tbd in Frameworks */,
+				AA2263911CEC33200054766D /* libicucore.tbd in Frameworks */,
 				E36704FBD90375AE3B7627AC /* Pods_DartsConnect.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,6 +160,11 @@
 		7DA4C66DA222A4D80918DD6C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AA2263981CEC334F0054766D /* SystemConfiguration.framework */,
+				AA2263961CEC33430054766D /* Security.framework */,
+				AA2263941CEC333C0054766D /* CFNetwork.framework */,
+				AA2263921CEC33300054766D /* libc++.tbd */,
+				AA2263901CEC33200054766D /* libicucore.tbd */,
 				7C6597EAE9D9EB88C3CC3A6E /* Pods_DartsConnect.framework */,
 				FB9F05D2A1C1B59106AFE368 /* Pods_DartsConnectTests.framework */,
 				99142D2D251279477E4CF819 /* Pods_DartsConnectUITests.framework */,
@@ -165,6 +190,14 @@
 				AA22638C1CEB42B80054766D /* ScoresTopBar.swift */,
 			);
 			name = ScoresBar;
+			sourceTree = "<group>";
+		};
+		AA22639E1CEC747B0054766D /* Create Account */ = {
+			isa = PBXGroup;
+			children = (
+				AA4A87781CEA8D3D003C0371 /* RegisterCardViewController.swift */,
+			);
+			name = "Create Account";
 			sourceTree = "<group>";
 		};
 		AA2A3F491CACA67D001DC9E5 /* Games */ = {
@@ -240,6 +273,7 @@
 				AA2A3F491CACA67D001DC9E5 /* Games */,
 				AA7054AC1C6F0B2800D9152A /* Assets.xcassets */,
 				AA7054AE1C6F0B2800D9152A /* Info.plist */,
+				AA22639A1CEC33B60054766D /* Firebase.framework */,
 				AA7054A61C6F0B2800D9152A /* DartsConnect.xcdatamodeld */,
 			);
 			path = DartsConnect;
@@ -267,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				AAC134721CB38263003740AA /* GameViewController.swift */,
+				AACCB0A51CEEE2F8008D0B11 /* GameSummaryViewController.swift */,
 				AA22638E1CEB42CF0054766D /* Major UI Elements */,
 			);
 			name = GameViewController;
@@ -277,7 +312,7 @@
 			children = (
 				AA7054A41C6F0B2800D9152A /* ViewController.swift */,
 				AA7054D01C6F166000D9152A /* SideMenuView.swift */,
-				AA4A87781CEA8D3D003C0371 /* RegisterCardViewController.swift */,
+				AA22639E1CEC747B0054766D /* Create Account */,
 			);
 			name = MainViewController;
 			sourceTree = "<group>";
@@ -566,6 +601,7 @@
 				AA4A87791CEA8D3D003C0371 /* RegisterCardViewController.swift in Sources */,
 				AA2A3F581CACAE90001DC9E5 /* Player.swift in Sources */,
 				AA2A3F601CACAEE3001DC9E5 /* CricketPlayer.swift in Sources */,
+				AACCB0A61CEEE2F8008D0B11 /* GameSummaryViewController.swift in Sources */,
 				AA7054D11C6F166000D9152A /* SideMenuView.swift in Sources */,
 				AA4A87771CE98CC2003C0371 /* CountdownGame.swift in Sources */,
 				AA740B721CC48E0F0070F776 /* BonjourManager.swift in Sources */,
@@ -717,6 +753,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DartsConnect/Resources/Frameworks",
+				);
 				INFOPLIST_FILE = DartsConnect/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.AKIMURAOLEWIS.DartsConnect;
@@ -735,6 +775,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DartsConnect/Resources/Frameworks",
+				);
 				INFOPLIST_FILE = DartsConnect/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.AKIMURAOLEWIS.DartsConnect;

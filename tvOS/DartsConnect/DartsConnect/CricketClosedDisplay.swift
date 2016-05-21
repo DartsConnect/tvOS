@@ -72,8 +72,8 @@ class CricketClosedColumn: UIView {
             closeStack.addConstraint(NSLayoutConstraint(item: row, attribute: .CenterX, relatedBy: .Equal, toItem: closeStack, attribute: .CenterX, multiplier: 1, constant: 0))
         }
         
-        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[closeStack]|", options: .AlignAllCenterX, metrics: nil, views: ["closeStack":closeStack]))
-        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[closeStack]|", options: .AlignAllCenterY, metrics: nil, views: ["closeStack":closeStack]))
+        self.addConstraints(closeStack.fullVerticalConstraint)
+        self.addConstraints(closeStack.fullHorizontalConstraint)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -131,8 +131,8 @@ class CricketClosedDisplay: UIView {
         
         self.addSubview(columnStack)
         columnStack.translatesAutoresizingMaskIntoConstraints = false
-        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[columnStack]|", options: .AlignAllCenterY, metrics: nil, views: ["columnStack":columnStack]))
-        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[columnStack]|", options: .AlignAllCenterY, metrics: nil, views: ["columnStack":columnStack]))
+        self.addConstraints(columnStack.fullVerticalConstraint)
+        self.addConstraints(columnStack.fullHorizontalConstraint)
     }
     
     required init?(coder aDecoder: NSCoder) {

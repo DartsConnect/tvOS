@@ -128,7 +128,7 @@ class PlayersBar: UIView {
         
         self.addSubview(playersStack)
         self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-50-[playerStack]-50-|", options: .AlignAllCenterX, metrics: nil, views: ["playerStack":playersStack]))
-        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[playerStack]|", options: .AlignAllCenterY, metrics: nil, views: ["playerStack":playersStack]))
+        self.addConstraints(playersStack.fullVerticalConstraint)
     }
     
     required init?(coder aDecoder: NSCoder) {

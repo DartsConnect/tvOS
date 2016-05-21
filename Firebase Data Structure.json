@@ -1,0 +1,61 @@
+{
+    "usernames":[ // Only anon can read or write
+        "",
+    ],
+
+    "cardIDs":[ // Only anon can read or write
+        "cardID",
+    ],
+
+    "cardID-UID":{
+        "cardID":"UID"
+    },
+
+    "users":{ // Only anonymous can read or write
+        "uid":{
+            "email":"",
+            "username":"",
+            "cardID":""
+        }
+    },
+
+    "images":{ // anyone authorised can read or write
+        "uid":{
+            "profilePicture":"",
+            "backgroundPicture":"",
+        }
+    },
+
+    "online":[ // any anon can read and write
+        "cardID"
+    ],
+
+    "uid":{ // anon can write, uid can read
+        "games":{
+            "301":"timestamp",
+            "free 5":"timestamp 2"
+        },
+        "timestamp":{
+            turns:[
+                [[1,2],[20,3],[19,2]],
+            ],
+            "conditions":{
+                "open":"",
+                "close":""
+            },
+        },
+        "timestamp 2":{
+            turns:[
+                 [[1,2],[20,3],[19,2]],
+            ]
+        }
+    },
+
+    "multiplayer":{ // any anon
+        "cardID x cardID...":{
+            "cardID1":[
+                [[1,1],[20,3],[2,2]],
+            ]
+        }
+    }
+}

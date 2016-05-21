@@ -19,6 +19,8 @@ class GlobalVariables:NSObject {
     
     var currentGame:Game?
     
+    var dbManager:DatabaseManager = DatabaseManager()
+    
     class var sharedVariables: GlobalVariables {
         return _sharedGlobalVariables
     }

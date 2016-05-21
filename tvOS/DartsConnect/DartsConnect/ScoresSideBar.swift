@@ -28,7 +28,7 @@ class ScoresSideBar: ScoresBar {
     override init(parent: GameViewController) {
         super.init(parent: parent)
         
-        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[header]|", options: .AlignAllCenterX, metrics: nil, views: ["header":header]))
+        self.addConstraints(header.fullHorizontalConstraint)
         
         scoresStack.axis = .Vertical
         
@@ -40,7 +40,7 @@ class ScoresSideBar: ScoresBar {
         self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-25-[actionButton]-25-|", options: .AlignAllCenterX, metrics: nil, views: ["actionButton":actionButton]))
 
         self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-25-[header]-40-[scoreStack]-40-[actionButton]-25-|", options: .AlignAllCenterX, metrics: nil, views: ["header":header, "scoreStack":scoresStack, "actionButton":actionButton]))
-        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[scoreStack]|", options: .AlignAllCenterX, metrics: nil, views: ["scoreStack":scoresStack]))
+        self.addConstraints(scoresStack.fullHorizontalConstraint)
     }
     
     required init?(coder aDecoder: NSCoder) {

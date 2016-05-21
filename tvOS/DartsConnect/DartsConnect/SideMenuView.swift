@@ -42,68 +42,73 @@ class SideMenuView: UIView, BonjourManagerDelegate, ConnectorDelegate {
             "0:Add Players":["Player 1", "Player 2", "Player 3", "Player 4", "Begin Game"]
         ],
         "5:More":[
-            "0:More":["Connect Board", "Register Card"],
+            "0:More":["Connect Board", "Create Account"],
         ]
         
     ]
     var breadcrumbs:[String] = []
     var players:[String] = ["nil", "nil", "nil", "nil"]
+    var cardIDtoUsername:[String:String] = [:]
     var parentVC:UIViewController!
     
     
     func cardScanned(cardID: String) {
         if header.text == "Add Players" {
             
-            let name = DatabaseManager().getUsernameForCardID(cardID)
-            
-            for i in 0..<players.count {
-                if players[i] == "nil" {
-                    players[i] = cardID
-                    (vStack.arrangedSubviews[i] as! UIButton).setTitle(name, forState: .Normal)
-                    break
-                }
-            }
-            
-            // If there were no nils, ie all taken
-            if !players.contains(cardID) {
-                let alert = UIAlertController(title: "No Free Spots", message: "Select a player to swap out for \(name)", preferredStyle: .ActionSheet)
-                var usersDict:[String:String] = [:]
-                var guestsBindings:[String:String] = [:]
-                for player in players {
-                    var title = player.containsString("Guest") ? player : DatabaseManager().getUsernameForCardID(player)
-                    
-                    usersDict[title] = player
-                    
-                    if player.containsString("Guest") {
-                        title = "Guest \(guestsBindings.count + 1)"
-                        guestsBindings[title] = player
+            GlobalVariables.sharedVariables.dbManager.getUsernameForCardID(cardID) {
+                name in
+                for i in 0..<self.players.count {
+                    if self.players[i] == "nil" {
+                        self.players[i] = cardID
+                        self.cardIDtoUsername[cardID] = name
+                        (self.vStack.arrangedSubviews[i] as! UIButton).setTitle(name, forState: .Normal)
+                        break
                     }
-                    
-                    let action = UIAlertAction(title: title, style: .Default, handler: {
-                        (action:UIAlertAction) in
-                        var title = action.title!
-                        if title.containsString("Guest") {
-                            title = guestsBindings[title]!
-                        }
-                        let id = usersDict[title]!
-                        let index = self.players.indexOf(id)!
-                        self.players[index] = cardID
-                        (self.vStack.arrangedSubviews[index] as! UIButton).setTitle(name, forState: .Normal)
-                    })
-                    alert.addAction(action)
                 }
-                alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-                parentVC.showViewController(alert, sender: nil)
+                
+                // If there were no nils, ie all taken
+                if !self.players.contains(cardID) {
+                    let alert = UIAlertController(title: "No Free Spots", message: "Select a player to swap out for \(name)", preferredStyle: .ActionSheet)
+                    var usersDict:[String:String] = [:]
+                    var guestsBindings:[String:String] = [:]
+                    for player in self.players {
+                        var title = player.containsString("Guest") ? player : self.cardIDtoUsername[player]!
+                        
+                        usersDict[title] = player
+                        
+                        if player.containsString("Guest") {
+                            title = "Guest \(guestsBindings.count + 1)"
+                            guestsBindings[title] = player
+                        }
+                        
+                        let action = UIAlertAction(title: title, style: .Default, handler: {
+                            (action:UIAlertAction) in
+                            var title = action.title!
+                            if title.containsString("Guest") {
+                                title = guestsBindings[title]!
+                            }
+                            let id = usersDict[title]!
+                            let index = self.players.indexOf(id)!
+                            self.players[index] = cardID
+                            (self.vStack.arrangedSubviews[index] as! UIButton).setTitle(name, forState: .Normal)
+                        })
+                        alert.addAction(action)
+                    }
+                    alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+                    self.parentVC.showViewController(alert, sender: nil)
+                }
             }
         }
     }
     
     func returnToRoot() {
-        breadcrumbs.removeAll()
-        players = ["nil", "nil", "nil", "nil"]
-        header.text = "Games"
-        createRootButtons()
-        animateButtonsIn()
+        if vStack.arrangedSubviews.count == 0 {
+            breadcrumbs.removeAll()
+            players = ["nil", "nil", "nil", "nil"]
+            header.text = "Games"
+            createRootButtons()
+            animateButtonsIn()
+        }
     }
     
     // Wednesday April 06 2016
@@ -292,11 +297,6 @@ class SideMenuView: UIView, BonjourManagerDelegate, ConnectorDelegate {
         }
     }
     
-    // Tuesday May 17 2016
-    func handleRegisterCard() {
-        
-    }
-    
     func buttonSelected(sender:UIButton) {
         switch sender.currentTitle! {
         case "Begin Game":
@@ -305,7 +305,7 @@ class SideMenuView: UIView, BonjourManagerDelegate, ConnectorDelegate {
         case "Connect Board":
             handleConnectDartBoard()
             break
-        case "Register Card":
+        case "Create Account":
             parentVC.presentViewController(RegisterCardViewController(), animated: true, completion: nil)
             break
         default:
@@ -389,7 +389,7 @@ class SideMenuView: UIView, BonjourManagerDelegate, ConnectorDelegate {
         
         self.addSubview(vStack)
         vStack.translatesAutoresizingMaskIntoConstraints = false
-        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[vStack]|", options: .AlignAllCenterX, metrics: nil, views: ["vStack":vStack]))
+        self.addConstraints(vStack.fullHorizontalConstraint)
         self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(padding/2)-[header]-\(padding/2)-[vStack]-\(padding)-|", options: .AlignAllCenterX, metrics: nil, views: ["header":header, "vStack":vStack]))
         
         createRootButtons()
