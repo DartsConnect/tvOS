@@ -83,12 +83,16 @@ class Connector: NSObject, GCDAsyncSocketDelegate {
         
         switch tag {
         case "DartHit":
+            print("Received Dart Hit: \(value)")
             let splitValues = value.componentsSeparatedByString(",")
             if splitValues.count == 2 {
                 do {
                     let hitArea = try self.convertStringToUInt(splitValues[0])
                     let multiplier = try self.convertStringToUInt(splitValues[1])
                     self.delegate?.dartDidHit?(hitArea, multiplier: multiplier)
+                    if delegate == nil {
+                        print("No Delegate for Dart Hit")
+                    }
                 } catch _ {
                     print("Failed to parse: \(parsedMessage)")
                 }
@@ -150,6 +154,7 @@ class Connector: NSObject, GCDAsyncSocketDelegate {
                                     dataSocket.disconnect()
                                 }
                             } else {
+                                if isDebugging { print(parsedMessage) }
                                 handleParsedMessage(parsedMessage)
                             }
                         }

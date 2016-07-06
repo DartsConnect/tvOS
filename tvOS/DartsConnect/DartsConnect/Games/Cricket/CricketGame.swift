@@ -12,7 +12,7 @@ class CricketGame: Game, GameDelegate {
     
     let validHits:[UInt] = [15,16,17,18,19,20,25]
     private var closedNumbers:[Int] =  []
-    private var isCutThroat:Bool = false
+    var isCutThroat:Bool = false
     
     func hasEveryPlayerClosed(number:UInt) -> Bool {
         return (players as! [CricketPlayer]).filter {$0.closedNumbers.contains(number)}.count == 0
@@ -23,16 +23,25 @@ class CricketGame: Game, GameDelegate {
         gvc.cricketDisplay!.updateCloseStageFor(index, closeNumber: Int(number), toStage: Int(count))
     }
     
-    func cutThroatRegisterScore(playerThatDealtIt:CricketPlayer, hitValue:UInt, multiplier:UInt) {
+    func cutThroatRegisterScore(playerThatDealtIt:CricketPlayer, dartHit:DartHit) {
         for player in players where player != playerThatDealtIt {
-            (player as! CricketPlayer).getCut(hitValue, multiplier: multiplier)
+            let cricketPlayer = (player as! CricketPlayer)
+            if cricketPlayer.getCut(dartHit, by: playerThatDealtIt) {
+                
+                if let amount = playerThatDealtIt.amountCut[cricketPlayer] {
+                    playerThatDealtIt.amountCut[cricketPlayer] = amount + dartHit.totalHitValue
+                } else {
+                    playerThatDealtIt.amountCut[cricketPlayer] = dartHit.totalHitValue
+                }
+                
+            }
         }
     }
     
     // Friday April 01 2016
-    func delegateDartDidHit(hitValue: UInt, multiplier: UInt) {
-        if validHits.contains(hitValue) {
-            (players[currentTurn] as! CricketPlayer).didHitNumber(hitValue, multiplier: multiplier)
+    func delegateDartDidHit(dartHit:DartHit) {
+        if validHits.contains(dartHit.section) {
+            (players[currentTurn] as! CricketPlayer).didHitNumber(dartHit)
         }
     }
     
@@ -47,7 +56,7 @@ class CricketGame: Game, GameDelegate {
         currentGame = self
         isCutThroat = cutThroat
         for playerID in playerIDs {
-            players.append(CricketPlayer(_isCutThroat: isCutThroat, _cardID: playerID))
+            players.append(CricketPlayer(_isCutThroat: isCutThroat, cardID: playerID))
         }
     }
 }

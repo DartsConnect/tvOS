@@ -9,14 +9,27 @@
 import Foundation
 import Firebase
 
-class DatabaseManager: NSObject {
-    
-    var rootRef = Firebase(url: "https://dartsconnect.firebaseio.com")
+struct DatabaseManager {
+    let rootRef = Firebase(url: "https://dartsconnect.firebaseio.com")
     
     enum UserRegistrationError:ErrorType {
         case CardAlreadyRegistered
     }
     
+    init() {
+        rootRef.authAnonymouslyWithCompletionBlock({
+            error, authData in
+            if error == nil {
+                print("Firebase authenticated anonymously")
+            } else {
+                print("Uh oh, Firebase failed to authenticate anonymously... what should I do? Here is the error message \(error!.description)")
+            }
+        })
+    }
+}
+
+// MARK: Account Creation
+extension DatabaseManager {
     /**
      Generates a random password between 8 and 16 characters long
      Characters are a~z, A~Z, 0~9
@@ -24,7 +37,7 @@ class DatabaseManager: NSObject {
      - author: Jordan Lewis
      - date: Wednesday 18 May 2016
      - returns: A string containing a password with lenght between 8 and 16 characters.
-    */
+     */
     func generateRandomPassword() -> String {
         let lower = "abcdefghijklmnopqrstuvwxyz".characters.map {"\($0)"}
         let upper = lower.map { $0.uppercaseString }
@@ -73,10 +86,10 @@ class DatabaseManager: NSObject {
      - author: Jordan Lewis
      - date: Wednesday 18 May 2016
      - parameters:
-        - None
+     - None
      - returns: None
      - todo: None
-    */
+     */
     func loginTo(email:String, password:String, completion:(error:NSError?, uid:String?) -> Void) {
         rootRef.authUser(email, password: password, withCompletionBlock: {
             error, authData in
@@ -112,7 +125,7 @@ class DatabaseManager: NSObject {
      - author: Jordan Lewis
      - date: Wednesday 18 May 2016
      - parameters:
-        - None
+     - None
      - returns: None
      - todo: None
      */
@@ -131,7 +144,10 @@ class DatabaseManager: NSObject {
         
         usernamesRef.setValue(username)
     }
-    
+}
+
+// MARK: More Account Stuff
+extension DatabaseManager {
     /**
      Queries the database to see if the username a user entered is already taken or not.
      Processing is done by Firebase.
@@ -139,7 +155,7 @@ class DatabaseManager: NSObject {
      - author: Jordan Lewis
      - date: Wednesday 18 May 2016
      - parameters:
-        - username: String containing a username that the user wants
+     - username: String containing a username that the user wants
      - returns: Bool, if the username is available or not.
      - todo: None
      */
@@ -160,81 +176,320 @@ class DatabaseManager: NSObject {
             completion(isAvailable: dataSnapshot.value is NSNull)
         })
     }
-    
-    /*
-     A stub.
-     Will later be replaced with actual code to fetch the username of the user from the database based on the user's RFID card's UID.
-     */
-    /**
-     Fetches the username of the user from the database with the cardID
-     @param The CardID of the user
-     @return The user's username
-     */
-    func OLDgetUsernameForCardID(cardID:String) -> String {
-        enum Players:String {
-            case Jordan = "00000000"
-            case Jack = "00000001"
-            case Will = "00000002"
-            case Sam = "00000003"
-            case Kimber = "00000004"
-            
-            var name:String {
-                switch self {
-                case .Jordan:
-                    return "Jordan"
-                case .Jack:
-                    return "Jack"
-                case .Will:
-                    return "Will"
-                case .Sam:
-                    return "Sam"
-                case .Kimber:
-                    return "Kimber"
-                }
-            }
-        }
-        
-        return Players(rawValue: cardID)!.name
-    }
-    
+}
+
+// MARK: Fetching Data
+extension DatabaseManager {
     /**
      
      - author: Jordan Lewis
-     - date: Friday 20 May 2016
+     - date: Tuesday 24 May 2016
      - parameters:
      - None
      - returns: None
      - todo: None
      */
-    func getUsernameForCardID(cardID:String, completion:(username:String) -> Void) {
-        let cardtoUIDRef = rootRef.childByAppendingPath("cardID-UID/\(cardID)")
-        
-        cardtoUIDRef.observeSingleEventOfType(.Value, withBlock: {
-            uidSnapshot in
-            if uidSnapshot.value is NSNull {
-                
-            } else {
-                let uid = uidSnapshot.value as! String
-                let usernameRef = self.rootRef.childByAppendingPath("users/\(uid)/username")
-                
-                usernameRef.observeSingleEventOfType(.Value, withBlock: {
-                    usernameSnapshot in
-                    completion(username: usernameSnapshot.value as! String)
-                })
+    func getUIDForCardID(cardID:String, completion:((uid:String) -> Void)? = nil) -> String? {
+        let cardIDtoUIDPath = "cardID-UID/\(cardID)"
+        if completion == nil {
+            return self.getDataWithPath(cardIDtoUIDPath) as? String
+        } else {
+            self.getDataWithPath(cardIDtoUIDPath) {
+                data in
+                completion!(uid:data as! String)
             }
-        })
+        }
+        return nil
     }
     
-    override init() {
-        super.init()
-        
-        rootRef.authAnonymouslyWithCompletionBlock({
-            error, authData in
-            if error == nil {
-                print("Firebase authenticated anonymously")
+    /**
+     
+     - author: Jordan Lewis
+     - date: Tuesday 24 May 2016
+     - parameters:
+     - None
+     - returns: None
+     - todo: None
+     */
+    func getDataWithPath(path:String, completion:((data:AnyObject?) -> Void)? = nil) -> AnyObject? {
+        let ref = rootRef.childByAppendingPath(path)
+        return getDataFromReference(ref, completion: completion)
+    }
+    
+    /**
+     
+     - author: Jordan Lewis
+     - date: Wednesday 06 July 2016
+     - parameters:
+     - None
+     - returns: None
+     - todo: DOCUMENT THIS
+     */
+    func getDataFromReference(ref:Firebase, completion:((data:AnyObject?) -> Void)? = nil) -> AnyObject? {
+        var semaphore:dispatch_semaphore_t?
+        var data:AnyObject?
+        if completion == nil {
+            semaphore = dispatch_semaphore_create(0)
+        }
+        ref.observeSingleEventOfType(.Value, withBlock: {
+            dataSnapshot in
+            let value = dataSnapshot.value
+            if completion == nil {
+                data = value
+                dispatch_semaphore_signal(semaphore!)
             } else {
-                print("Uh oh, Firebase failed to authenticate anonymously... what should I do? Here is the error message \(error!.description)")
+                completion!(data: value)
             }
         })
+        if completion == nil {
+            dispatch_semaphore_wait(semaphore!, DISPATCH_TIME_FOREVER)
+        }
+        return data
+    }
+    
+    /**
+     
+     - author: Jordan Lewis
+     - date: Friday 20 May 2016, Rewritten Tuesday 24 May 2016
+     - parameters:
+     - None
+     - returns: None
+     - todo: None
+     */
+    func getUsernameForCardID(cardID:String, completion:((username:String) -> Void)? = nil) -> String? {
+        var username:String?
+        var sema:dispatch_semaphore_t?
+        if completion == nil {
+            sema = dispatch_semaphore_create(0)
+        }
+        getDataWithPath("cardID-UID/\(cardID)") {
+            uidData in
+            self.getDataWithPath("users/\(uidData as! String)/username") {
+                usernameData in
+                let unwrapped = usernameData as! String
+                if completion == nil {
+                    username = unwrapped
+                    dispatch_semaphore_signal(sema!)
+                } else {
+                    completion!(username: unwrapped)
+                }
+                
+            }
+        }
+        if completion == nil {
+            dispatch_semaphore_wait(sema!, DISPATCH_TIME_FOREVER)
+        }
+        return username
+    }
+}
+
+// MARK: Saving Game Data
+extension DatabaseManager {
+    /**
+     Turns the NSDate into Unix Epoch time in a string
+     
+     - author: Jordan Lewis
+     - date: Friday 27 May 2016
+     - parameters:
+     - None
+     - returns: None
+     - todo: DOCUMENT THIS
+     */
+    func formattedDateString(timestamp:NSDate) -> String {
+        return "\(timestamp.timeIntervalSince1970)"
+    }
+    
+    /**
+     This function gets called when saving game data
+     
+     - author: Jordan Lewis
+     - date: Friday 27 May 2016
+     - parameters:
+     - None
+     - returns: None
+     - todo: Update analytics
+     */
+    func saveGameData(saveData:GameSaveData) {
+        let playDataRef = rootRef.childByAppendingPath("playData/\(saveData.user.uid!)")
+        
+        updateGamesLookupDict(playDataRef, gameType: saveData.gameType, timestamp: saveData.timestamp)
+        writeGameData(playDataRef, timestamp: saveData.timestamp, dataDict: saveData.dataDict)
+        updateAchievementsLookup(playDataRef, saveData: saveData)
+        updateAllTimeAnalytics(playDataRef, saveData: saveData)
+    }
+    
+    /**
+     Adds the game being saved to the look up dictionary
+     
+     - author: Jordan Lewis
+     - date: Friday 27 May 2016
+     - parameters:
+     - None
+     - returns: None
+     - todo: None
+     */
+    private func updateGamesLookupDict(playDataRef:Firebase, gameType:GameType, timestamp:NSDate) {
+        let gamesLookupRef = playDataRef.childByAppendingPath("gamesLookup").childByAutoId()
+        gamesLookupRef.updateChildValues(
+            [
+                "gameType":gameType.title,
+                "timestamp":formattedDateString(timestamp)
+            ]
+        )
+    }
+    
+    /**
+     Saved the game into the user's dictionary
+     
+     - author: Jordan Lewis
+     - date: Friday 27 May 2016
+     - parameters:
+     - None
+     - returns: None
+     - todo: DOCUMENT THIS
+     */
+    private func writeGameData(playDataRef:Firebase, timestamp:NSDate, dataDict:[String:AnyObject]) {
+        let gamesRef = playDataRef.childByAppendingPath("games/\(formattedDateString(timestamp))")
+        gamesRef.setValue(dataDict)
+    }
+    
+    /**
+     Updates the achievements lookup dictionary
+     
+     - author: Jordan Lewis
+     - date: Saturday 28 May 2016
+     - parameters:
+     - None
+     - returns: None
+     - todo: DOCUMENT THIS
+     */
+    private func updateAchievementsLookup(playDataRef:Firebase, saveData:GameSaveData) {
+        let uid = saveData.user.uid!
+        let achievements = saveData.dataDict["achievements"] as! [String:String]
+        let newAch = achievements.mapValues {Achievement(longName: $1)!.shortName} // Convert the acheivement long names to short names
+        
+        let allAchTypes:[Achievement] = [.Ton80, .HighTon, .LowTon, .HatTrick, .HatTrickLT, .HatTrickHT, .ThreeInABed, .ThreeInTheBlack]
+        
+        /*
+         For every type of achievement
+         make an array of achievements of that type
+         if there are achievements of that type
+         get the current total of that achievement being achieved
+         if there is some, add onto it and overwrite the current value
+         if there isn't set the count of the filtered achievements to that value
+         then add it into the games dictionary
+         
+         Look for about lines 44 to 54 in structure JSON
+         playData -> uid -> achievements
+         */
+        for achType in allAchTypes {
+            let filteredAch = newAch.filter {$1 == achType.shortName}
+            let achPath = "achievements/\(achType.shortName)"
+            let achRef = playDataRef.childByAppendingPath(achPath)
+            if filteredAch.count > 0 {
+                getDataWithPath("playData/\(uid)/achievements/\(achType.shortName)/numTimes") {
+                    data in
+                    if let num:Int = data as? Int {
+                        achRef.childByAppendingPath("numTimes").setValue(filteredAch.count + num)
+                    } else {
+                        achRef.childByAppendingPath("numTimes").setValue(filteredAch.count)
+                    }
+                }
+                
+                achRef.childByAppendingPath("games").updateChildValues([
+                    formattedDateString(saveData.timestamp):Array(filteredAch.keys)
+                    ])
+            }
+        }
+    }
+    
+    /**
+     
+     
+     
+     Look for:
+     playData -> uid -> analytics
+     
+     - author: Jordan Lewis
+     - date: Saturday 28 May 2016, Wednesday 06 July 2016
+     - parameters:
+     - None
+     - returns: None
+     - todo: DOCUMENT THIS, Complete this section of code
+     */
+    private func updateAllTimeAnalytics(playDataRef:Firebase, saveData:GameSaveData) {
+        
+        let analyticsRef = playDataRef.childByAppendingPath("analytics")
+        let cricketRef = analyticsRef.childByAppendingPath("cricket")
+        if saveData.gameType.gameClass == .Cricket {
+            // If cricket, update the amount of points scored on self and others
+            if saveData.gameType.title == GameType.Cricket(cutThroat: true).title {
+                // If is cut-throat
+                let cutThroatStats = cricketRef.childByAppendingPath("cut-throat")
+                
+                let scores = saveData.dataDict["cut-throat scores"] as! [String:[String:Int]]
+                let onOthers = scores["onOthers"]!
+                let tMe = saveData.dataDict["scores"] as! Int
+                let tOthers = Array(onOthers.values).reduce(0, combine: +)
+                
+                getDataFromReference(cutThroatStats) {
+                    data in
+                    if data == nil {
+                        cutThroatStats.setValue([
+                            "onMe":tMe,
+                            "onOthers":tOthers
+                            ])
+                    } else {
+                        let dbOnMe = data!["onMe"] as! Int
+                        let dbOnOthers = data!["onOthers"] as! Int
+                        cutThroatStats.setValue([
+                            "onMe":dbOnMe + tMe,
+                            "onOthers":dbOnOthers + tOthers
+                            ])
+                    }
+                }
+                
+                
+            } else {
+                // If normal cricket
+                let cricketScoredRef = cricketRef.childByAppendingPath("normal/scored")
+                let scored = saveData.dataDict["score"] as! Int
+                getDataFromReference(cricketRef) {
+                    data in
+                    if data == nil {
+                        cricketScoredRef.setValue(scored)
+                    } else {
+                        cricketScoredRef.setValue(data as! Int + scored)
+                    }
+                }
+            }
+        }
+        
+        // For every game, update the lifetime hit distribution table
+        /*
+         get the current distribution table
+         for every turn, add on the hits
+         overwrite the current distribution table with the new one
+         
+         */
+        let distributionRef = analyticsRef.childByAppendingPath("lifetime distribution")
+        getDataFromReference(distributionRef) {
+            data in
+            
+            // Create new distribution table by adding together the current game's and what was stored
+            let currentDistribution = data as! [String:[String:Int]]
+            let gameDistribution = saveData.dataDict["analytics"] as! [String:[String:Int]]
+            var newDistribution:[String:[String:Int]] = [:]
+            for (area, hits) in currentDistribution {
+                var newHitSection:[String:Int] = [:]
+                for (hitSection, numTimes) in hits {
+                    newHitSection[hitSection] = numTimes + gameDistribution[area]![hitSection]!
+                }
+                newDistribution[area] = newHitSection
+            }
+            
+            // Upload and update by overwriting
+            distributionRef.setValue(newDistribution)
+        }
     }
 }

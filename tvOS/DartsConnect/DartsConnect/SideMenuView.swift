@@ -20,25 +20,25 @@ class SideMenuView: UIView, BonjourManagerDelegate, ConnectorDelegate {
     // Options
     let vStack:UIStackView = UIStackView(frame: CGRectZero)
     let gamesOptions:[String:[String:[String]]] = [
-        "0:\(GameType.CountDown.rawValue)":[
+        "0:\(GameClass.CountDown.rawValue)":[
             "0:Type":["301", "501", "701", "901", "1001"],
             "1:Open":[GameEndsCriteria.Any.rawValue, GameEndsCriteria.OnSingle.rawValue, GameEndsCriteria.OnDouble.rawValue, GameEndsCriteria.OnTriple.rawValue, GameEndsCriteria.OnBull.rawValue, GameEndsCriteria.OnDoubleBull.rawValue],
             "2:Close":[GameEndsCriteria.Any.rawValue, GameEndsCriteria.OnSingle.rawValue, GameEndsCriteria.OnDouble.rawValue, GameEndsCriteria.OnTriple.rawValue, GameEndsCriteria.OnBull.rawValue, GameEndsCriteria.OnDoubleBull.rawValue],
             "3:Add Players":["Player 1", "Player 2", "Player 3", "Player 4", "Begin Game"]
         ],
-        "1:\(GameType.Cricket.rawValue)":[
+        "1:\(GameClass.Cricket.rawValue)":[
             "0:Type":["Cricket", "Cut-Throat"],
             "1:Add Players":["Player 1", "Player 2", "Player 3", "Player 4", "Begin Game"]
         ],
-        "2:\(GameType.Free.rawValue)":[
+        "2:\(GameClass.Free.rawValue)":[
             "0:Rounds":["5", "10 ", "15"],
             "1:Add Players":["Player 1", "Player 2", "Player 3", "Player 4", "Begin Game"]
         ],
-        "3:\(GameType.TwentyToOne.rawValue)":[
+        "3:\(GameClass.TwentyToOne.rawValue)":[
             "0:Type":["Cricket", "Cut-Throat"],
             "1:Add Players":["Player 1", "Player 2", "Player 3", "Player 4", "Begin Game"]
         ],
-        "4:\(GameType.World.rawValue)":[
+        "4:\(GameClass.World.rawValue)":[
             "0:Add Players":["Player 1", "Player 2", "Player 3", "Player 4", "Begin Game"]
         ],
         "5:More":[
@@ -206,7 +206,7 @@ class SideMenuView: UIView, BonjourManagerDelegate, ConnectorDelegate {
     
     // Friday April 29 2016
     func handleBeginGame() {
-        if stripOrderNumbers(breadcrumbs)[0] == GameType.Cricket.rawValue {
+        if stripOrderNumbers(breadcrumbs)[0] == GameClass.Cricket.rawValue {
             if stripOrderNumbers(breadcrumbs)[1] == "Cut-Throat" {
                 if self.removeNilPlayers(players).count < 2 {
                     showNotEnoughPlayersAlert(2, gameTitle: "Cut-Throat Cricket")
@@ -287,7 +287,7 @@ class SideMenuView: UIView, BonjourManagerDelegate, ConnectorDelegate {
             doStdNaviagtion(sender)
         } else {
             // Prompt connect to dartboard
-            let alert = UIAlertController(title: "Connect to a Dartboard", message: "You must connect to a dartboard before conitnuing.", preferredStyle: .ActionSheet)
+            let alert = UIAlertController(title: "Connect to a Dartboard", message: "You must connect to a dartboard before continuing.", preferredStyle: .ActionSheet)
             let connectAction = UIAlertAction(title: "Connect", style: .Default, handler: {
                 (action:UIAlertAction) in
                 GlobalVariables.sharedVariables.bonjourManager = BonjourManager(nil)
@@ -303,7 +303,8 @@ class SideMenuView: UIView, BonjourManagerDelegate, ConnectorDelegate {
             handleBeginGame()
             break
         case "Connect Board":
-            handleConnectDartBoard()
+            parentVC.presentViewController(GameSummaryViewController(), animated: true, completion: nil)
+//            handleConnectDartBoard()
             break
         case "Create Account":
             parentVC.presentViewController(RegisterCardViewController(), animated: true, completion: nil)

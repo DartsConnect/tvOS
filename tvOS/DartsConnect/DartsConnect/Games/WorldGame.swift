@@ -11,12 +11,12 @@ import Foundation
 class WorldGame: Game, GameDelegate {
     let requiredAreasOrder:[UInt] = Array(1...20)
     
-    func delegateDartDidHit(hitValue: UInt, multiplier: UInt) {
+    func delegateDartDidHit(dartHit:DartHit) {
         let requiredNumber = UInt(players[currentTurn].score + 1)
         
-        if hitValue == requiredNumber {
+        if dartHit.section == requiredNumber {
             players[currentTurn].score = Int(requiredNumber)
-            if hitValue == 20 {
+            if dartHit.section == 20 {
                 playerFinished()
             }
         } else {

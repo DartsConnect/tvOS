@@ -9,11 +9,10 @@
 import Foundation
 
 class Player: NSObject {
-    var cardID:String = ""
-    var username:String = ""
+    var user:User!
     var totalNumberOfThrows:UInt = 0
-    var turnScores:[(UInt,UInt)] = []
-    var gameScores:[[(UInt, UInt)]] = []
+    var turnScores:DartTurn = DartTurn()
+    var gameScores:DartGame = DartGame()
     let game = GlobalVariables.sharedVariables.currentGame!
     var isFinished:Bool = false
     var canAcceptHit:Bool = true
@@ -36,14 +35,10 @@ class Player: NSObject {
      
      @return Whether or not can throw again
     */
-    func threwDart(hitValue:UInt, multiplier:UInt) -> Bool {
+    func threwDart(dartHit:DartHit) -> Bool {
         totalNumberOfThrows += 1
-        turnScores.append((hitValue, multiplier))
-        return turnScores.count == 3
-    }
-    
-    func getTurnSum() -> UInt {
-        return turnScores.map {$0.0 * $0.1}.reduce(0, combine: +)
+        turnScores.addThrow(dartHit)
+        return turnScores.numThrows == 3
     }
     
     func endTurn() {
@@ -53,8 +48,9 @@ class Player: NSObject {
          Once super is called, the following will run
         */
         
-        gameScores.append(turnScores)
-        turnScores = []
+        gameScores.addTurn(turnScores)
+        
+        turnScores = DartTurn()
         print("Score \(score)")
     }
     
@@ -64,17 +60,8 @@ class Player: NSObject {
         self.endTurn()
     }
     
-    init(_cardID:String) {
+    init(cardID:String) {
         super.init()
-        cardID = _cardID;
-        if cardID.containsString("Guest") {
-            let numGuests = game.players.map {$0.username}.filter {$0.containsString("Guest")}.count
-            username = "Guest \(numGuests + 1)"
-        } else {
-            GlobalVariables.sharedVariables.dbManager.getUsernameForCardID(cardID) {
-                name in
-                self.username = name
-            }
-        }
+        user = User(cardID)
     }
 }

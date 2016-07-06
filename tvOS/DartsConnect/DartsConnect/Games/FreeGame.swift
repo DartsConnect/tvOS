@@ -10,13 +10,13 @@ import Foundation
 
 class FreeGame: Game, GameDelegate {
     
-    func delegateDartDidHit(hitValue: UInt, multiplier: UInt) {
-        let tHitValue:Int = Int(hitValue * multiplier)
+    func delegateDartDidHit(dartHit:DartHit) {
+        let tHitValue:Int = Int(dartHit.totalHitValue)
         let cPlayerScore:Int = players[currentTurn].score
         players[currentTurn].score = cPlayerScore + tHitValue
         
         if currentTurn == players.count - 1{
-            if players[currentTurn].turnScores.count == 3 {
+            if players[currentTurn].turnScores.numThrows == 3 {
                 if currentRound == roundLimit {
                     endGame()
                 }

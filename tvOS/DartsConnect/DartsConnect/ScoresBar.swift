@@ -48,9 +48,9 @@ class ScoresBarScore: UIView {
         descLabel.text = "Throw a dart"
     }
     
-    func updateLabels(hitValue:UInt, multiplier:UInt) {
-        scoreLabel.text = "\(hitValue * multiplier)"
-        descLabel.text = "\(multiplierDictionary[multiplier]!) \(scoresDictionary[hitValue]!)"
+    func updateLabels(dartHit:DartHit) {
+        scoreLabel.text = "\(dartHit.totalHitValue)"
+        descLabel.text = "\(multiplierDictionary[dartHit.multiplier]!) \(scoresDictionary[dartHit.section]!)"
     }
     
     init() {
@@ -94,7 +94,7 @@ class ScoresBar: UIView {
     var parentVC:GameViewController!
     
     func tacOutLastHit() {
-        let index = game.players[game.currentTurn].turnScores.count - 1
+        let index = game.players[game.currentTurn].turnScores.numThrows - 1
         let hitBox = scoresStack.arrangedSubviews[index] as! ScoresSideBarScore
         hitBox.scoreLabel.text = "-"
     }
@@ -128,11 +128,11 @@ class ScoresBar: UIView {
         }
     }
     
-    func showScore(hitValue:UInt, multiplier:UInt) {
+    func showScore(dartHit:DartHit) {
         let index = game.getCurrentThrowNumber() - 1 < 0 ? 0 : game.getCurrentThrowNumber()
         print(index)
         let scoreView = scoresStack.arrangedSubviews[index] as! ScoresSideBarScore
-        scoreView.updateLabels(hitValue, multiplier: multiplier)
+        scoreView.updateLabels(dartHit)
         
         if game.getCurrentThrowNumber() == 3 {
             setButtonTitle(.Next)

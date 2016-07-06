@@ -7,6 +7,7 @@ target 'DartsConnect' do
     pod 'CocoaAsyncSocket', '~> 7.4.2'
     pod 'CocoaSecurity', '~> 1.2.4'
     pod 'Bond'
+    #pod 'EZSwiftExtensions'
     #pod 'Firebase'
 end
 

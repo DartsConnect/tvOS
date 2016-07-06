@@ -10,18 +10,12 @@ import UIKit
 
 class GameViewController: UIViewController {
     
-    var gameType:GameType!
+    var gameType:GameClass!
     var gameController:Game!
     let hitLabel:UILabel = UILabel()
     var playerBar:PlayersBar!
     var scoresBar:ScoresBar?
     var cricketDisplay:CricketClosedDisplay?
-    
-    func returnToMainVC() {
-        self.dismissViewControllerAnimated(true, completion: {
-            GlobalVariables.sharedVariables.menuvc!.menu.returnToRoot()
-        })
-    }
     
     override func pressesBegan(presses: Set<UIPress>, withEvent event: UIPressesEvent?) {
         if(presses.first?.type == UIPressType.Menu) {
@@ -51,7 +45,7 @@ class GameViewController: UIViewController {
             
             alert.addAction(UIAlertAction(title: "Quit Game without Saving", style: .Default, handler: {
                 (action:UIAlertAction) in
-                self.returnToMainVC()
+                self.showMainScreen()
             }))
             
             self.showViewController(alert, sender: self)
@@ -71,8 +65,8 @@ class GameViewController: UIViewController {
             self.hitLabel.transform = CGAffineTransformMakeScale(1, 1)
             }, completion: {(completed) in
                 UIView.animateWithDuration(0.25, delay: 0, options: .CurveEaseIn, animations: {
-                        self.hitLabel.alpha = 0
-                        self.hitLabel.transform = CGAffineTransformMakeScale(2, 0.01)
+                    self.hitLabel.alpha = 0
+                    self.hitLabel.transform = CGAffineTransformMakeScale(2, 0.01)
                     }, completion: {(done) in
                         self.hitLabel.transform = CGAffineTransformMakeScale(0, 0)
                 })
@@ -100,7 +94,7 @@ class GameViewController: UIViewController {
         self.view.addSubview(cricketDisplay!)
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-150-[cricketDisplay]-150-|", options: .AlignAllCenterX, metrics: nil, views: ["cricketDisplay":cricketDisplay!]))
         self.view.addConstraint(NSLayoutConstraint(item: cricketDisplay!, attribute: .Bottom, relatedBy: .Equal, toItem: playerBar, attribute: .Top, multiplier: 1, constant: 0))
-//        self.view.addConstraint(NSLayoutConstraint(item: cricketDisplay!, attribute: .Top, relatedBy: .Equal, toItem: self.view, attribute: .Top, multiplier: 1, constant: 135))
+        //        self.view.addConstraint(NSLayoutConstraint(item: cricketDisplay!, attribute: .Top, relatedBy: .Equal, toItem: self.view, attribute: .Top, multiplier: 1, constant: 135))
         self.view.addConstraint(NSLayoutConstraint(item: cricketDisplay!, attribute: .Top, relatedBy: .Equal, toItem: scoresBar!, attribute: .Bottom, multiplier: 1, constant: 0))
     }
     
@@ -114,27 +108,33 @@ class GameViewController: UIViewController {
     }
     
     func initiateGameController(gameSettings:[String], players:[String]) {
-        gameType = GameType(rawValue: gameSettings[0])!
+        gameType = GameClass(rawValue: gameSettings[0])!
         
         switch gameType! {
         case .CountDown:
+            let startScore = UInt(gameSettings[1])!
             gameController = CountdownGame(gvc: self,
-                                           startScore: UInt(gameSettings[1])!,
+                                           startScore: startScore,
                                            playerIDs: players,
                                            openC: [GameEndsCriteria(rawValue: gameSettings[2])!],
                                            closeC: [GameEndsCriteria(rawValue: gameSettings[3])!])
+            gameController.gameType = GameType.Countdown(startValue: startScore)
             break
         case .Cricket:
             let isCutThroat = gameSettings[1] == "Cut-Throat"
             gameController = CricketGame(gameViewController: self, cutThroat: isCutThroat, playerIDs: players)
+            gameController.gameType = GameType.Cricket(cutThroat: isCutThroat)
             break
         case .Free:
-            gameController = FreeGame(gameViewController: self, playerIDs: players, numRounds: Int(gameSettings[1])!)
+            let numRounds = Int(gameSettings[1])!
+            gameController = FreeGame(gameViewController: self, playerIDs: players, numRounds: numRounds)
+            gameController.gameType = GameType.Free(rounds: numRounds)
             break
         case .TwentyToOne:
             break
         case .World:
             gameController = WorldGame(gvc: self, playerIDs: players)
+            gameController.gameType = GameType.World
             break
         }
     }

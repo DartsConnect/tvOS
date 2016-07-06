@@ -100,7 +100,7 @@ class CricketClosedDisplay: UIView {
     
     func addBlankColumn() {
         let column = UIView()
-        column.backgroundColor = UIColor.redColor()
+        if isDebugging {column.backgroundColor = UIColor.redColor()}
         column.translatesAutoresizingMaskIntoConstraints = false
         columnStack.addArrangedSubview(column)
         applyColumnConstraintsTo(column)

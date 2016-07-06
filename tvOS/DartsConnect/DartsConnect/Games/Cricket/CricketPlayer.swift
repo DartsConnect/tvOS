@@ -18,22 +18,33 @@ class CricketPlayer: Player {
         19:0,
         20:0,
         25:0,
-    ]
+        ]
     var isCutThroat:Bool = false
+    var amountCut:[CricketPlayer:UInt] = [:]
+    var gotCutBy:[CricketPlayer:UInt] = [:]
     
-    func getCut(hitValue:UInt, multiplier:UInt) {
-        if !closedNumbers.contains(hitValue) {
-            score += Int(hitValue * multiplier)
+    func getCut(dartHit:DartHit, by:CricketPlayer) -> Bool {
+        if !closedNumbers.contains(dartHit.section) {
+            score += Int(dartHit.totalHitValue)
+            
+            if let allCut = gotCutBy[by] {
+                gotCutBy[by] = allCut + dartHit.totalHitValue
+            } else {
+                gotCutBy[by] = dartHit.totalHitValue
+            }
+            
+            return true
         }
+        return false
     }
     
     // Friday April 01 2016
-    private func registerScore(hitValue:UInt, multiplier:UInt) {
+    private func registerScore(dartHit:DartHit) {
         if isCutThroat {
-            (game as! CricketGame).cutThroatRegisterScore(self, hitValue: hitValue, multiplier: multiplier)
+            (game as! CricketGame).cutThroatRegisterScore(self, dartHit: dartHit)
         } else {
-            if !(game as! CricketGame).hasEveryPlayerClosed(hitValue) {
-                score += Int(hitValue * multiplier)
+            if !(game as! CricketGame).hasEveryPlayerClosed(dartHit.section) {
+                score += Int(dartHit.totalHitValue)
             }
         }
     }
@@ -50,34 +61,34 @@ class CricketPlayer: Player {
     }
     
     // Friday April 01 2016
-    func didHitNumber(hitValue:UInt, multiplier:UInt) {
-        if !closedNumbers.contains(hitValue) {
+    func didHitNumber(dartHit:DartHit) {
+        if !closedNumbers.contains(dartHit.section) {
             // If the hit number is not yet closed
-                        
-            closureBuffer[hitValue] = closureBuffer[hitValue]! + multiplier
-            (game as! CricketGame).updateCloseCountFor(self, number: hitValue, count: closureBuffer[hitValue]!)
-            if closureBuffer[hitValue]! == 3 {
-                closeNumber(hitValue)
+            
+            closureBuffer[dartHit.section] = closureBuffer[dartHit.section]! + dartHit.multiplier
+            (game as! CricketGame).updateCloseCountFor(self, number: dartHit.section, count: closureBuffer[dartHit.section]!)
+            if closureBuffer[dartHit.section]! == 3 {
+                closeNumber(dartHit.section)
             }
             
-        } else if Int(closureBuffer[hitValue]! + multiplier) - 3 > 0 {
+        } else if Int(closureBuffer[dartHit.section]! + dartHit.multiplier) - 3 > 0 {
             // if the number is not yet closed, but will be with this shot with some extra
             // ie 15 was hit twice, and just got hit with a triple, meaning 2 shots will earn points
             
-            let overflow:UInt = (closureBuffer[hitValue]! + multiplier) - 3
-            closeNumber(hitValue)
-            registerScore(hitValue, multiplier: overflow)
-            (game as! CricketGame).updateCloseCountFor(self, number: hitValue, count: 3)
+            let overflow:UInt = (closureBuffer[dartHit.section]! + dartHit.multiplier) - 3
+            closeNumber(dartHit.section)
+            registerScore(DartHit(hitSection: dartHit.section, hitMultiplier: overflow))
+            (game as! CricketGame).updateCloseCountFor(self, number: dartHit.section, count: 3)
             
             
         } else { // If the hit number is closed
-            registerScore(hitValue, multiplier: multiplier)
+            registerScore(dartHit)
         }
     }
     
     // Friday April 01 2016
-    init(_isCutThroat:Bool, _cardID:String) {
-        super.init(_cardID: _cardID)
+    init(_isCutThroat:Bool, cardID:String) {
+        super.init(cardID: cardID)
         
         isCutThroat = _isCutThroat
     }

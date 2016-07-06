@@ -55,7 +55,10 @@ class GameSummaryViewController: UIViewController {
     let vStack:UIStackView = UIStackView()
     
     func finish() {
-        
+        //self.showMainScreen()
+        self.presentViewController(GlobalVariables.sharedVariables.menuvc!, animated: true, completion: {
+            GlobalVariables.sharedVariables.menuvc!.menu.returnToRoot()
+        })
     }
     
     convenience init() {
@@ -114,11 +117,6 @@ class GameSummaryViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(button)
         
-        self.view.addConstraint(button.exactAttributeConstraint(.Bottom, value: -100, relatedTo: self.view))
-        self.view.addConstraint(button.exactAttributeConstraint(.Right, value: -100, relatedTo: self.view))
-        self.view.addConstraint(button.relationalAttributeConstraintTo(self.view, attribute: .Width, multiplier: 0.25))
-        self.view.addConstraint(button.exactAttributeConstraint(.Height, value: 75, relatedTo: nil))
-        
         let titleLabel = UILabel()
         titleLabel.text = "\(title) Game Summary"
         titleLabel.font = UIFont.boldSystemFontOfSize(100)
@@ -132,8 +130,16 @@ class GameSummaryViewController: UIViewController {
         self.view.addConstraint(titleLabel.exactAttributeConstraint(.Height, value: 150, relatedTo: nil))
         
         self.view.addConstraint(vStack.exactAttributeConstraint(.Height, value: stackHeight, relatedTo: nil))
-        self.view.addConstraint(vStack.relateAttribute(.Top, toView: titleLabel, attribute2: .Bottom, multiplier: 1, constant: 75))
-        self.view.addConstraint(vStack.exactAttributeConstraint(.Left, value: 200, relatedTo: self.view))
+        //        self.view.addConstraint(vStack.relateAttribute(.Top, toView: titleLabel, attribute2: .Bottom, multiplier: 1, constant: 75))
+        //        self.view.addConstraint(vStack.exactAttributeConstraint(.Left, value: 200, relatedTo: self.view))
+        self.view.addConstraint(vStack.exactAttributeConstraint(.CenterX, value: 0, relatedTo: self.view))
+        self.view.addConstraint(vStack.exactAttributeConstraint(.CenterY, value: 0, relatedTo: self.view))
+        
+        self.view.addConstraint(button.exactAttributeConstraint(.Bottom, value: -100, relatedTo: self.view))
+        //        self.view.addConstraint(button.exactAttributeConstraint(.Right, value: -100, relatedTo: self.view))
+        self.view.addConstraint(button.exactAttributeConstraint(.Left, value: 0, relatedTo: vStack))
+        self.view.addConstraint(button.relationalAttributeConstraintTo(self.view, attribute: .Width, multiplier: 0.25))
+        self.view.addConstraint(button.exactAttributeConstraint(.Height, value: 75, relatedTo: nil))
     }
     
     required init?(coder aDecoder: NSCoder) {

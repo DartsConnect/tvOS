@@ -8,13 +8,12 @@
 
 import Foundation
 
-@objc protocol GameDelegate {
-    optional func delegateBeginGame()
-    optional func delegateEndGame()
-    func delegateDartDidHit(hitValue:UInt, multiplier:UInt)
+protocol GameDelegate {
+    func delegateDartDidHit(dartHit:DartHit)
 }
 
 class Game: NSObject, ConnectorDelegate {
+    let timestamp:NSDate = NSDate()
     var currentGame:GameDelegate?
     var currentTurn:Int = 0
     var previousTurn:Int = 0
@@ -22,6 +21,8 @@ class Game: NSObject, ConnectorDelegate {
     var roundLimit:Int = -1
     var players:[Player] = []
     var gvc:GameViewController!
+    var saveData:[GameSaveData] = []
+    var gameType:GameType!
     
     func dartboardDidConnect() {
         
@@ -38,28 +39,29 @@ class Game: NSObject, ConnectorDelegate {
     func playerNames() -> [String] {
         var playerNames:[String] = []
         for player in players {
-            playerNames.append(player.username)
+            playerNames.append(player.user.username)
         }
         return playerNames
     }
     
     func getCurrentThrowNumber() -> Int {
         let ts = players[currentTurn].turnScores
-        return ts.count
+        return ts.numThrows
     }
     
     func dartDidHit(hitValue: UInt, multiplier: UInt) {
-        if players[currentTurn].turnScores.count < 3 && players[currentTurn].canAcceptHit {
-            gvc.showHitScore(hitValue * multiplier)
-            gvc.scoresBar?.showScore(hitValue, multiplier: multiplier)
+        let dartHit = DartHit(hitSection: hitValue, hitMultiplier: multiplier)
+        if players[currentTurn].turnScores.numThrows < 3 && players[currentTurn].canAcceptHit {
+            gvc.showHitScore(dartHit.totalHitValue)
+            gvc.scoresBar?.showScore(dartHit)
             
             // The Player threw a dart
-            if players[currentTurn].threwDart(hitValue, multiplier: multiplier) {
+            if players[currentTurn].threwDart(dartHit) {
                 //            self.nextPlayer()
                 gvc.scoresBar?.setButtonTitle(.Next)
             }
             
-            currentGame!.delegateDartDidHit(hitValue, multiplier: multiplier)
+            currentGame!.delegateDartDidHit(dartHit)
         }
     }
     
@@ -95,12 +97,28 @@ class Game: NSObject, ConnectorDelegate {
         gvc.playerBar.setCurrentPlayer()
     }
     
+    func saveGame() {
+        print("Start Saving Game")
+        for player in players {
+            if player.user.uid != nil {
+                GameSaveData(
+                    player: player,
+                    aGameType: gameType,
+                    thisGame:self,
+                    aTimestamp: timestamp
+                    ).pushToDatabase()
+            }
+        }
+        print("Finish Saving Game")
+    }
+    
     func playerFinished() {
         players[currentTurn].isFinished = true
         players[currentTurn].canAcceptHit = false
+        players[currentTurn].endTurn()
         gvc.playerBar.setPlayerFinised(currentTurn)
         gvc.showHitScore("YOU WIN!")
-
+        
         // Check if all the players are done.
         let isAllDone = !(players.map {$0.isFinished}.filter {!$0}.count > 0)
         if isAllDone {
@@ -110,7 +128,7 @@ class Game: NSObject, ConnectorDelegate {
     
     func createStandardPlayers(playerIDs:[String]) {
         for playerID in playerIDs {
-            players.append(Player(_cardID: playerID))
+            players.append(Player(cardID: playerID))
         }
     }
     
@@ -119,19 +137,23 @@ class Game: NSObject, ConnectorDelegate {
     }
     
     func endGame() {
-        gvc.returnToMainVC()
         print("Game has been finished")
+        saveGame()
+    }
+    
+    func showGameSummaryWith(title:String, playersDesc:[String:String], winnerOrder:[String]) {
+        gvc.presentViewController(GameSummaryViewController(title: title, players: playersDesc, places: winnerOrder), animated: true, completion: nil)
     }
     
     func quitGame() {
         
     }
-
+    
     init(gameViewController:GameViewController) {
         super.init()
         gvc = gameViewController
         GlobalVariables.sharedVariables.connector?.delegate = self
         GlobalVariables.sharedVariables.currentGame = self
     }
- 
+    
 }

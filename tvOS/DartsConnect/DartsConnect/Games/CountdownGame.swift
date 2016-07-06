@@ -11,19 +11,19 @@ import Foundation
 class CountdownGame: Game, GameDelegate {
     
     var gameStartScore:UInt = 0;
-    private var openCriteria:[GameEndsCriteria]!
-    private var closeCriteria:[GameEndsCriteria]!
+    var openCriteria:[GameEndsCriteria]!
+    var closeCriteria:[GameEndsCriteria]!
     
     // Friday April 01 2016
-    private func doesMeetCriteria(criteria:[GameEndsCriteria], hitValue:UInt, multiplier:UInt) -> Bool {
+    private func doesMeetCriteria(criteria:[GameEndsCriteria], dartHit:DartHit) -> Bool {
         if criteria.contains(.Any) { return true }
-        if criteria.contains(.OnBull) && hitValue == 25 { return true }
-        switch multiplier {
+        if criteria.contains(.OnBull) && dartHit.section == 25 { return true }
+        switch dartHit.multiplier {
         case 1:
             if criteria.contains(.OnSingle) { return true }
             break
         case 2:
-            if criteria.contains(.OnDouble) || (criteria.contains(.OnDoubleBull) && hitValue == 25) { return true }
+            if criteria.contains(.OnDouble) || (criteria.contains(.OnDoubleBull) && dartHit.section == 25) { return true }
             break
         case 3:
             if criteria.contains(.OnTriple) { return true }
@@ -45,14 +45,13 @@ class CountdownGame: Game, GameDelegate {
         case NotCloseCriteria
     }
     
-    func getThrowStatus(hitValue: UInt, multiplier: UInt) -> ThrowStatus {
-        let tHitValue:Int = Int(hitValue * multiplier)
+    func getThrowStatus(dartHit:DartHit) -> ThrowStatus {
         let cPlayerScore:Int = players[currentTurn].score
-        let nPlayerScore:Int = cPlayerScore - tHitValue
+        let nPlayerScore:Int = cPlayerScore - Int(dartHit.totalHitValue)
         
         // If it is a shot to open the count down and there is a condition to open the game.
         if cPlayerScore == Int(gameStartScore) {
-            if doesMeetCriteria(openCriteria, hitValue: hitValue, multiplier: multiplier) {
+            if doesMeetCriteria(openCriteria, dartHit: dartHit) {
                 return .Open
             } else {
                 return .NotOpenCriteria
@@ -62,7 +61,7 @@ class CountdownGame: Game, GameDelegate {
             if nPlayerScore < 0 {
                 return .Bust
             } else if nPlayerScore == 0 {
-                if doesMeetCriteria(closeCriteria, hitValue: hitValue, multiplier: multiplier) {
+                if doesMeetCriteria(closeCriteria, dartHit: dartHit) {
                     // NOW the user finally wins
                     return .Close
                 } else {
@@ -102,13 +101,12 @@ class CountdownGame: Game, GameDelegate {
     }
     
     // Friday April 01 2016
-    func delegateDartDidHit(hitValue: UInt, multiplier: UInt) {
-        let tHitValue:Int = Int(hitValue * multiplier)
+    func delegateDartDidHit(dartHit:DartHit) {
         let cPlayerScore:Int = players[currentTurn].score
         
-        switch getThrowStatus(hitValue, multiplier: multiplier) {
+        switch getThrowStatus(dartHit) {
         case .Normal, .Open:
-            players[currentTurn].score = cPlayerScore - tHitValue
+            players[currentTurn].score = cPlayerScore - Int(dartHit.totalHitValue)
             break
         case .Close:
             players[currentTurn].score = 0
@@ -117,8 +115,8 @@ class CountdownGame: Game, GameDelegate {
             break
         case .Bust:
             // When the player busts, the turn's throws don't count, so add them back
-            let turnSum:Int = Int(players[currentTurn].getTurnSum())
-            players[currentTurn].score = players[currentTurn].score + turnSum - tHitValue
+            let turnSum:Int = Int(players[currentTurn].turnScores.turnTotal)
+            players[currentTurn].score = players[currentTurn].score + turnSum - Int(dartHit.totalHitValue)
             
             gvc.scoresBar!.tacOutLastHit()
             
@@ -134,6 +132,37 @@ class CountdownGame: Game, GameDelegate {
             gvc.scoresBar!.tacOutLastHit()
             break
         }
+    }
+    
+    /**
+     
+     - author: Jordan Lewis
+     - date: Monday 23 May 2016
+     - parameters:
+     - None
+     - returns: None
+     - todo: None
+     */
+    override func endGame() {
+        super.endGame()
+        
+        var descDict:[String:Int] = [:]
+        for player in players  {
+            //print(player.gameScores)
+            if player.gameScores.allTurns.last!.numThrows < 3 {
+                descDict[player.user.username] = ((player.gameScores.numTurns - 1) * 3) + player.gameScores.allTurns.last!.numThrows
+            } else {
+                descDict[player.user.username] = player.gameScores.numTurns * 3
+            }
+        }
+        let sortedDescDict = descDict.sort {$0.1 < $1.1}
+        var finalDescDict:[String:String] = [:]
+        for (name, score) in sortedDescDict {
+            finalDescDict[name] = "Throws taken to complete: \(score)"
+        }
+        let places = sortedDescDict.map {$0.0}
+        
+        showGameSummaryWith("\(gameStartScore)", playersDesc: finalDescDict, winnerOrder: places)
     }
     
     // Friday April 01 2016
