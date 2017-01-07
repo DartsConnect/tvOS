@@ -1,4 +1,5 @@
 {
+    # 38559@joeys.org, dc2016
     "usernames":[ // Only anon can read or write
         "",
     ],
@@ -34,7 +35,7 @@
         "uid":{ // anon can write, uid can read
             "gamesLookup":{
                 "auto":{
-                    "gameType":"301",
+                    "gameType":"Countdown 301",
                     "timestamp":""
                 }
                 // This won't work Friday 27 May 2016
@@ -81,6 +82,7 @@
                     "achievements":{
                         "1 (turn number)":"Ton 80"
                     },
+        /* can calculate this data relatively quickly, so no need it
                     "analytics":{
                         "distribution":{
 
@@ -92,6 +94,7 @@
                             }
                         ]
                     },
+                    */
                     "turns":{
                         "1":{ // turn
                             "1":{ // throw

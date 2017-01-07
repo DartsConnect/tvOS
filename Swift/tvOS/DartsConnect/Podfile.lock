@@ -1,0 +1,24 @@
+PODS:
+  - Bond (4.3.1)
+  - CocoaAsyncSocket (7.4.3):
+    - CocoaAsyncSocket/All (= 7.4.3)
+  - CocoaAsyncSocket/All (7.4.3):
+    - CocoaAsyncSocket/GCD
+    - CocoaAsyncSocket/RunLoop
+  - CocoaAsyncSocket/GCD (7.4.3)
+  - CocoaAsyncSocket/RunLoop (7.4.3)
+  - CocoaSecurity (1.2.4)
+
+DEPENDENCIES:
+  - Bond
+  - CocoaAsyncSocket (~> 7.4.2)
+  - CocoaSecurity (~> 1.2.4)
+
+SPEC CHECKSUMS:
+  Bond: 55903fc67f09e8e49791a657163cabba1d6fb29d
+  CocoaAsyncSocket: a18c75dca4b08723628a0bacca6e94803d90be91
+  CocoaSecurity: d288a6f87e0f363823d2cb83e753814a6944f71a
+
+PODFILE CHECKSUM: 765bd83a1eb0e9fdc75cd22d9f3686cf02b1a0a6
+
+COCOAPODS: 1.0.0
